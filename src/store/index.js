@@ -1,16 +1,10 @@
-import { createStore } from 'vuex'
+import { createStore } from "vuex";
 
 export const store = createStore({
-    state: {
-        a: 0,
-    },
-    mutations: {
-        
-    },
-    actions: {
-
-    },    
-    modules: {
-        
-    },
-})
+  state: {
+    a: 0,
+  },
+  mutations: {},
+  actions: {},
+  modules: {},
+});
