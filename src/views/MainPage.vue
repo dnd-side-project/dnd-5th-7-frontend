@@ -1,22 +1,27 @@
 <template>
   <v-app>
     <Header></Header>
-    <MemoryText></MemoryText>
-    <CurrRooms></CurrRooms>
-    <MemoryRecommend></MemoryRecommend>
+    <div class="p-3">
+      <Calendar></Calendar>
+      <CurrRooms></CurrRooms>
+      <MemoryRecommend></MemoryRecommend>
+    </div>
+    <!-- <MemoryText></MemoryText> -->
   </v-app>
 </template>
 
 <script>
-import MemoryText from "../components/Memory/MemoryText.vue";
+import Calendar from "../components/Calendars/Calendar.vue";
+// import MemoryText from "../components/Memory/MemoryText.vue";
 import Header from "../components/Headers/MainHeader.vue";
 import CurrRooms from "../components/Rooms/CurrRooms.vue";
-import MemoryRecommend from "../components/Memory/MemoryRecommend.vue";
+import MemoryRecommend from "../components/BookmarkRooms/CurrRooms.vue";
 
 export default {
   components: {
     Header,
-    MemoryText,
+    Calendar,
+    // MemoryText,
     CurrRooms,
     MemoryRecommend,
   },

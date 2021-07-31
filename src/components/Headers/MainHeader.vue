@@ -1,6 +1,6 @@
 /* eslint-disable vue/no-duplicate-attributes */
 <template>
-  <div class="flex flex-row justify-end">
+  <div class="flex flex-row justify-end bg-red-100 p-3">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       :width="width"

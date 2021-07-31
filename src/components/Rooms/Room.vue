@@ -1,9 +1,7 @@
 <template>
-  <div class="p-3 my-3 mx-2 bg-white rounded-xl shadow-md cursor-pointer">
-    <div class="flex flex-col w-36 h-52 justify-between">
+  <div class="p-3 my-3 mr-3 bg-white rounded-xl shadow-md cursor-pointer">
+    <div class="flex flex-col w-36 h-44 justify-between">
       <div class="flex text-sm font-bold text-black justify-end">남은 시간</div>
-
-      <div class="flex-shrink"></div>
 
       <div>
         <div class="flex text-sm font-bold text-black mb-2">방 이름</div>

@@ -1,6 +1,9 @@
 <template>
-  <div class="mt-5 text-lg font-bold text-black">현재 진행중인 방</div>
-  <div class="overflow-x-auto flex flex-row">
+  <div class="flex flex-row mt-5 justify-between items-baseline">
+    <div class="text-lg font-bold text-black">진행중</div>
+    <span class="text-sm">더보기</span>
+  </div>
+  <div class="overflow-x-auto flex flex-row h-56 ml-1">
     <Room v-on:click="goto('Board')"></Room>
     <Room v-on:click="goto('Board')"></Room>
     <AddRoom></AddRoom>

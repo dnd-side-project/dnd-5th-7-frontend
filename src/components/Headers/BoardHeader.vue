@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-row justify-between">
+  <div class="flex flex-row justify-between p-3">
     <div class="flex text-sm font-bold text-black mb-2">방 이름</div>
     <div class="flex flex-row cursor-pointer">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
