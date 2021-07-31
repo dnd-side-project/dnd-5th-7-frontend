@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Calendar from "../components/Calendars/Calendar.vue";
+import Calendar from "../components/Calendars/Compo.vue";
 // import MemoryText from "../components/Memory/MemoryText.vue";
 import Header from "../components/Headers/MainHeader.vue";
 import CurrRooms from "../components/Rooms/CurrRooms.vue";
