@@ -7,6 +7,14 @@ module.exports = {
     screens: {
       md: "607px",
     },
+    colors: {
+      gray: {
+        500: "#2D2D2D",
+      },
+    },
+    textColor: {
+      gray500: "#2D2D2D",
+    },
     extend: {
       spacing: {
         360: "360px",
