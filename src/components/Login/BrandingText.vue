@@ -1,5 +1,7 @@
+<!-- @format -->
+
 <template>
-  <div class="text-center mb-40">
+  <div class="text-center ml-2">
     <div class="text-x text-black">그 날의 기억을 한눈에, <span class="font-bold">TIDO</span></div>
   </div>
 </template>

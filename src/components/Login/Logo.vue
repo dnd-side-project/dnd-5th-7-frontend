@@ -1,6 +1,9 @@
+<!-- @format -->
+
 <template>
-  <div class="flex justify-center mt-24 mb-1">
-    <img class="w-48" src="../../assets/logo.png" />
+  <div class="flex justify-between w-1/6 items-center mt-11 mb-1 ml-1.5">
+    <img class="w-4" src="../../assets/book_image_modern.png" />
+    <div class="">TIDO</div>
   </div>
 </template>
 

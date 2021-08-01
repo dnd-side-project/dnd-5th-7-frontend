@@ -1,11 +1,11 @@
+<!-- @format -->
+
 <template>
-  <v-app>
-    <div class="p-3">
-      <Logo></Logo>
-      <BrandingText></BrandingText>
-      <LoginBtn></LoginBtn>
-    </div>
-  </v-app>
+  <div class="p-3">
+    <Logo></Logo>
+    <BrandingText></BrandingText>
+    <LoginBtn></LoginBtn>
+  </div>
 </template>
 
 <script>

@@ -1,6 +1,9 @@
+/** @format */
+
 module.exports = {
-  extends: ["plugin:vue/vue3-recommended"],
+  plugins: ["prettier"],
+  extends: ["plugin:prettier/recommended"],
   rules: {
-    // 'vue/no-unused-vars': 'error'
+    "prettier/prettier": "error",
   },
 };
