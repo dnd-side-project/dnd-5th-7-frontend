@@ -1,6 +1,6 @@
 <template>
   <div class="p-3 my-3 mx-2 shadow-md LoginBtn">
-    <div class="flex h-5 justify-center items-center" v-on:click="goto('Main')">
+    <div class="flex h-5 justify-center items-center">
       <p class="text-center text-gray500">카카오로 LOGIN</p>
     </div>
   </div>
