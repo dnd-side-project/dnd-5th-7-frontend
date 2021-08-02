@@ -1,5 +1,11 @@
 <template>
-  <div class="p-3 my-3 mr-3 bg-white rounded-xl shadow-md cursor-pointer">
+  <div class="flex items-center">
+    <div class="flex w-36 h-44 justify-center items-center">
+      <!-- <div><bookCover /></div> -->
+      <div><bookImg /></div>
+    </div>
+  </div>
+  <!-- <div class="p-3 my-3 mr-3 bg-white rounded-xl shadow-md cursor-pointer">
     <div class="flex flex-col w-36 h-44 justify-between">
       <div class="flex text-sm font-bold text-black justify-end">남은 시간</div>
 
@@ -44,12 +50,17 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
+import bookImg from "../../assets/book_background.svg";
 export default {
   name: "Room",
   props: {},
+  components: {
+    bookImg,
+    // bookCover,
+  },
 };
 </script>

@@ -1,7 +1,6 @@
 <template>
   <div class="h-72 rounded-xl flex justify-center items-center">
     <Calendar class="custom-calendar" is-expanded title-position="left" disable-page-swipe />
-    <div></div>
   </div>
 </template>
 
