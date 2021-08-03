@@ -1,27 +1,23 @@
 <template>
-  <div class="flex flex-row mt-5 justify-between items-baseline">
-    <div class="flex flex-row items-baseline">
+  <div class="flex flex-row mt-5 justify-between items-center content-center">
+    <div class="flex flex-row items-center">
       <SymbolIcon class="mr-1" />
       <span class="text-lg font-bold text-black">진행중인 추억들이에요</span>
     </div>
-    <span class="text-sm">더보기</span>
+    <span class="text-sm" style="color: #d2d2d2">더보기</span>
   </div>
-  <!-- <div class="overflow-x-auto flex flex-row h-56 ml-1">
-    <Room v-on:click="goto('Board')"></Room>
-    <Room v-on:click="goto('Board')"></Room>
-    <AddRoom></AddRoom>
-  </div> -->
 
   <div class="flex flex-row h-48 ml-1 mb-5 mt-3">
     <swiper
       :slidesPerView="2"
-      :freeMode="false"
-      :spaceBetween="3"
+      :freeMode="true"
+      :spaceBetween="1"
       :scrollbar="{
         hide: true,
       }"
       class="mySwiper"
     >
+      <swiper-slide><Room v-on:click="goto('Board')" /></swiper-slide>
       <swiper-slide><Room v-on:click="goto('Board')" /></swiper-slide>
       <swiper-slide><Room v-on:click="goto('Board')" /></swiper-slide>
       <swiper-slide><AddRoom /></swiper-slide>
