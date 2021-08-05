@@ -1,8 +1,8 @@
 <!-- @format -->
 
 <template>
-  <div class="flex justify-center items-center bg-gray-300">
-    <router-view class="max-w-md w-96 h-screen bg-gray-50"></router-view>
+  <div class="flex justify-center items-center bg-gray-500">
+    <router-view class="w-full mx-auto h-screen bg-white"></router-view>
   </div>
 </template>
 

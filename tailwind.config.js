@@ -1,4 +1,5 @@
 /** @format */
+const colors = require("tailwindcss/colors");
 
 module.exports = {
   purge: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"], // 사용되지 않는 클래스 제거
@@ -20,6 +21,7 @@ module.exports = {
       gray: {
         500: "#2D2D2D",
       },
+      white: colors.white,
     },
     textColor: {
       gray500: "#2D2D2D",
