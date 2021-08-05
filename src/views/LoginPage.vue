@@ -1,12 +1,14 @@
 <!-- @format -->
 
 <template>
-  <div class="p-3">
-    <Logo></Logo>
-    <BrandingText></BrandingText>
-    <EnterPageImg></EnterPageImg>
-    <LoginBtn @click="kakaoLogin"></LoginBtn>
-  </div>
+  <v-app>
+    <div class="p-3">
+      <Logo></Logo>
+      <BrandingText></BrandingText>
+      <EnterPageImg></EnterPageImg>
+      <LoginBtn @click="kakaoLogin"></LoginBtn>
+    </div>
+  </v-app>
 </template>
 
 <script>
