@@ -1,8 +1,8 @@
 <!-- @format -->
 
 <template>
-  <div class="flex justify-center items-center bg-gray-300">
-    <router-view class="max-w-md w-96 h-screen bg-gray-50"></router-view>
+  <div class="flex justify-center w-screen h-full items-center">
+    <router-view class="max-w-md w-360 h-full"></router-view>
   </div>
 </template>
 
@@ -15,3 +15,11 @@ export default {
   }),
 };
 </script>
+
+<style>
+v-app {
+  height: 100vh;
+  background-color: #ffffff;
+  background-clip: content-box;
+}
+</style>
