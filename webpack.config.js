@@ -3,10 +3,8 @@ module.exports = {
     rules: [
       {
         test: /\.svg$/,
-        loader: "vue-svg-loader", // `vue-svg` for webpack 1.x
-        options: {
-          esModule: false,
-        },
+        loader: "file-loader", // `vue-svg` for webpack 1.x
+        use: ["vue-loader", "vue-svg-loader"],
       },
     ],
   },

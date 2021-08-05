@@ -7,11 +7,11 @@
     <span class="text-sm" style="color: #d2d2d2">더보기</span>
   </div>
 
-  <div class="flex flex-row h-48 ml-1 mb-5 mt-3">
+  <div class="flex flex-row h-56 mb-5 mt-3">
     <swiper
       :slidesPerView="2"
       :freeMode="true"
-      :spaceBetween="1"
+      :spaceBetween="10"
       :scrollbar="{
         hide: true,
       }"

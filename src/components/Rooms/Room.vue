@@ -1,16 +1,16 @@
 <template>
   <div class="flex items-center">
-    <div class="flex flex-col w-44 h-44 justify-center items-center">
+    <div class="flex flex-col w-48 h-56 justify-center items-center">
       <div>
         <div class="relative">
           <div id="bookCoverWrapper" class="absolute">
             <div id="bookBorderWrapper" class="absolute">
-              <img src="@/assets/book_border.png" />
+              <BookBorder id="bookBorder" />
             </div>
-            <img id="bookCover" src="@/assets/book_image_modern.png" />
+            <BookCover id="bookCover" />
           </div>
         </div>
-        <img id="bookBackground" src="@/assets/book_background.png" />
+        <BookBackground id="bookBackground" />
       </div>
       <RoomName id="roomName" class="absolute" />
       <RoomDate id="roomDate" class="absolute" />
@@ -65,6 +65,9 @@
 </template>
 
 <script>
+import BookBorder from "../../assets/book_border.svg";
+import BookCover from "../../assets/book_image_hip.svg";
+import BookBackground from "../../assets/book_background.svg";
 import RoomName from "./Name.vue";
 import RoomDate from "./Date.vue";
 export default {
@@ -73,23 +76,34 @@ export default {
   components: {
     RoomName,
     RoomDate,
+    BookBorder,
+    BookCover,
+    BookBackground,
   },
 };
 </script>
 
 <style>
+#bookBackground {
+  width: 154px;
+}
+
 #bookCover {
-  width: 120px;
+  width: 128px;
 }
 
 #bookCoverWrapper {
-  top: 30px;
-  left: 30px;
+  top: 13px;
+  left: 23px;
+}
+
+#bookBorder {
+  height: 200px;
 }
 
 #bookBorderWrapper {
-  left: -13px;
-  top: -11px;
+  left: -11px;
+  top: -7px;
 }
 
 #roomName {
@@ -99,7 +113,7 @@ export default {
   font-size: 14px;
   line-height: 16px;
   margin-top: 4px;
-  top: 141px;
+  top: 161px;
   left: 30px;
 }
 
@@ -109,7 +123,7 @@ export default {
   font-size: 12px;
   line-height: 16px;
   margin-top: 4px;
-  top: 156px;
+  top: 176px;
   left: 30px;
 }
 </style>

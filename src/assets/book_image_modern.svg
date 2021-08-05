@@ -1,7 +1,7 @@
 <svg width="128" height="140" viewBox="0 0 128 140" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <rect width="128" height="140" fill="#2D2D2D"/>
-<path d="M37.9375 70.0002C37.9375 84.1574 49.3166 95.634 63.3533 95.634L63.3533 44.3664C49.3166 44.3664 37.9375 55.8431 37.9375 70.0002Z" fill="white"/>
-<path d="M57.9316 70.0002C57.9316 84.1574 69.3107 95.634 83.3475 95.634L83.3475 44.3664C69.3107 44.3664 57.9316 55.8431 57.9316 70.0002Z" fill="white"/>
+<path d="M37.938 70C37.938 84.1572 49.317 95.6338 63.3538 95.6338L63.3538 44.3662C49.317 44.3662 37.938 55.8429 37.938 70Z" fill="white"/>
+<path d="M57.9321 70C57.9321 84.1572 69.3112 95.6338 83.348 95.6338L83.348 44.3662C69.3112 44.3662 57.9321 55.8429 57.9321 70Z" fill="white"/>
 <g style="mix-blend-mode:multiply">
 <rect width="81.7231" height="89.7183" fill="url(#pattern0)" fill-opacity="0.8"/>
 </g>
@@ -9,10 +9,10 @@
 <rect y="89.7183" width="81.7231" height="50.2817" fill="url(#pattern1)"/>
 </g>
 <g style="mix-blend-mode:multiply">
-<rect x="81.7227" width="46.2769" height="89.7183" fill="url(#pattern2)"/>
+<rect x="81.7231" width="46.2769" height="89.7183" fill="url(#pattern2)"/>
 </g>
 <g style="mix-blend-mode:multiply">
-<rect x="81.7227" y="89.7183" width="46.2769" height="50.2817" fill="url(#pattern3)"/>
+<rect x="81.7231" y="89.7183" width="46.2769" height="50.2817" fill="url(#pattern3)"/>
 </g>
 <defs>
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">

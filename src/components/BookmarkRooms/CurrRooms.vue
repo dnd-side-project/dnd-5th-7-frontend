@@ -6,11 +6,11 @@
     </div>
     <span class="text-sm" style="color: #d2d2d2">더보기</span>
   </div>
-  <div class="flex flex-row h-48 ml-1 mb-5 mt-3">
+  <div class="flex flex-row h-56 mb-5 mt-3">
     <swiper
       :slidesPerView="2"
       :freeMode="false"
-      :spaceBetween="3"
+      :spaceBetween="5"
       :scrollbar="{
         hide: true,
       }"
