@@ -1,11 +1,11 @@
 <!-- @format -->
 
 <template>
-  <div class="p-3">
+  <div class="p-3 bg-bg">
     <Logo></Logo>
     <BrandingText></BrandingText>
     <EnterPageImg></EnterPageImg>
-    <LoginBtn @click="kakaoLogin"></LoginBtn>
+    <LoginBtn></LoginBtn>
   </div>
 </template>
 
