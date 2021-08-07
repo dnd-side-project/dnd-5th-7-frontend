@@ -4,7 +4,7 @@
     <div class="p-3">
       <Calendar></Calendar>
       <CurrRooms></CurrRooms>
-      <MemoryRecommend></MemoryRecommend>
+      <CurrMemories></CurrMemories>
     </div>
     <!-- <MemoryText></MemoryText> -->
   </v-app>
@@ -15,7 +15,7 @@
 import Calendar from "../components/Calendars/research.vue";
 import Header from "../components/Headers/MainHeader.vue";
 import CurrRooms from "../components/Rooms/CurrRooms.vue";
-import MemoryRecommend from "../components/BookmarkRooms/CurrRooms.vue";
+import CurrMemories from "../components/BookmarkRooms/CurrMemories.vue";
 
 export default {
   components: {
@@ -23,7 +23,7 @@ export default {
     // MemoryText,
     Calendar,
     CurrRooms,
-    MemoryRecommend,
+    CurrMemories,
   },
 };
 </script>
