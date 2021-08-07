@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center mt-0.5">
+  <a :href="kakaoLoginLink" class="flex justify-center mt-0.5">
     <svg width="320" height="58" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path fill="#FEE500" d="M0 0h320v58H0z" />
       <path
@@ -12,7 +12,7 @@
         fill="#2D2D2D"
       />
     </svg>
-  </div>
+  </a>
 </template>
 
 <style>
@@ -22,12 +22,13 @@
 </style>
 
 <script>
+import { BASE_URL } from "../../config";
 export default {
   name: "LoginBtn",
   props: {},
-  methods: {
-    goto(page) {
-      this.$router.push(page);
+  computed: {
+    kakaoLoginLink() {
+      return `${BASE_URL}/auth/kakao`;
     },
   },
 };
