@@ -1,5 +1,5 @@
 <template>
-  <a href="https://tido-diary.herokuapp.com/auth/kakao" class="flex justify-center mt-0.5">
+  <a :href="kakaoLoginLink" class="flex justify-center mt-0.5">
     <svg width="320" height="58" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path fill="#FEE500" d="M0 0h320v58H0z" />
       <path
@@ -22,21 +22,13 @@
 </style>
 
 <script>
+import { BASE_URL } from "../../config";
 export default {
   name: "LoginBtn",
   props: {},
-  data: () => ({
-    client_id: "370bcdaa8565e5c8d3ee7d6e462a6152",
-    redirect_uri: "http://localhost:8080/main",
-  }),
   computed: {
     kakaoLoginLink() {
-      return `https://kauth.kakao.com/oauth/authorize?client_id=${this.client_id}&redirect_uri=${this.redirect_uri}&response_type=code`;
-    },
-  },
-  methods: {
-    goto(page) {
-      this.$router.push(page);
+      return `${BASE_URL}/auth/kakao`;
     },
   },
 };
