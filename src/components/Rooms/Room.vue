@@ -7,13 +7,14 @@
             <div id="bookBorderWrapper" class="absolute">
               <BookBorder id="bookBorder" />
             </div>
-            <BookCover id="bookCover" />
+            <div v-if="themeCheck()"><BookModernCover id="bookCover" /></div>
+            <div v-else><BookHipCover id="bookCover" /></div>
           </div>
         </div>
         <BookBackground id="bookBackground" />
       </div>
-      <RoomName id="roomName" class="absolute" />
-      <RoomDate id="roomDate" class="absolute" />
+      <RoomName :name="this.name" id="roomName" class="absolute" />
+      <RoomDate :date="this.date" id="roomDate" class="absolute" />
     </div>
   </div>
   <!-- <div class="p-3 my-3 mr-3 bg-white rounded-xl shadow-md cursor-pointer">
@@ -66,19 +67,40 @@
 
 <script>
 import BookBorder from "../../assets/book_border.svg";
-import BookCover from "../../assets/book_image_hip.svg";
+import BookHipCover from "../../assets/book_image_hip.svg";
+import BookModernCover from "../../assets/book_image_modern.svg";
 import BookBackground from "../../assets/book_background.svg";
 import RoomName from "./Name.vue";
 import RoomDate from "./Date.vue";
 export default {
   name: "Room",
-  props: {},
+  props: ["dummydata"],
+  data() {
+    return {
+      Rdata: this.dummydata,
+      name: "",
+      date: "",
+      theme: "",
+    };
+  },
   components: {
     RoomName,
     RoomDate,
     BookBorder,
-    BookCover,
+    BookHipCover,
+    BookModernCover,
     BookBackground,
+  },
+  methods: {
+    themeCheck() {
+      if (this.theme.includes("Modern")) return true;
+      return false;
+    },
+  },
+  created() {
+    this.name = this.dummydata.name;
+    this.date = this.dummydata.date;
+    this.theme = this.dummydata.theme;
   },
 };
 </script>

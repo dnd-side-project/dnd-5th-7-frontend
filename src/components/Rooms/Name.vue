@@ -1,10 +1,22 @@
 <template>
-  <span>책이름은아홉글자까지</span>
+  <span>{{ this.lengthCheck() }}</span>
 </template>
 
 <script>
 export default {
   name: "RoomName",
-  props: {},
+  props: ["name"],
+  data() {
+    return {
+      Rname: this.name,
+    };
+  },
+  methods: {
+    lengthCheck() {
+      if (this.Rname === undefined) return "이름이 없어요";
+      if (this.Rname.length > 9) return this.Rname.slice(0, 9) + "...";
+      return this.Rname;
+    },
+  },
 };
 </script>
