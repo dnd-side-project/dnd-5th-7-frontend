@@ -1,0 +1,1 @@
+export BASE_URL = "https://tido-diary.herokuapp.com";
