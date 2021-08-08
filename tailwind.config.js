@@ -2,7 +2,7 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  purge: ["./public/index.html", "./src/**/*.{js,jsx,ts,tsx}"], // 사용되지 않는 클래스 제거
+  purge: ["./public/index.html", "./src/**/*.{vue,js,jsx,ts,tsx}"], // 사용되지 않는 클래스 제거
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontSize: {
