@@ -2,7 +2,7 @@
 /** @format */
 
 module.exports = {
-  purge: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"], // 사용되지 않는 클래스 제거
+  purge: ["./public/**/*.html", "./src/**/*.{vue,js,jsx,ts,tsx}"], // 사용되지 않는 클래스 제거
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
@@ -25,6 +25,12 @@ module.exports = {
           lineHeight: "20px",
         },
       ],
+      13: [
+        "13px",
+        {
+          lineHeight: "18px",
+        },
+      ],
     },
     screens: {
       md: "607px",
@@ -33,6 +39,7 @@ module.exports = {
       gray: {
         500: "#2D2D2D",
         200: "#D2D2D2",
+        100: "#EAEAEA",
       },
     },
     textColor: {
@@ -45,6 +52,9 @@ module.exports = {
     extend: {
       spacing: {
         360: "360px",
+        256: "256px",
+        140: "140px",
+        0.6: "6px",
       },
     },
   },
