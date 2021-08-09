@@ -11,6 +11,7 @@
                 id="scrollView"
                 :SelectedYear="this.year"
                 :SelectedMonth="this.month"
+                @setEmitDate="setEmitDate"
               />
             </div>
             <div class="ml-1"><ComboBox class="relative" /></div>
@@ -105,6 +106,9 @@ export default {
         this.month = date.getMonth() + 1;
         this.calendarDate();
       }
+    },
+    setEmitDate(param) {
+      this.init(param);
     },
     calendarDate() {
       const [monthFirstDay, monthLastDate, prevMonthLastDate] = this.getFirstDayLastDate(this.year, this.month);

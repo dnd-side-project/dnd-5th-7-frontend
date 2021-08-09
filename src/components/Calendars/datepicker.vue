@@ -5,8 +5,9 @@
       class="flex justify-center items-center py-2.5 p-0.6 h-256 w-140 hoverPicker"
       v-for="[y, m] in list"
       v-bind:key="[y, m]"
+      :class="{ 'selected-date': y === currYear && m === currMonth }"
     >
-      <span>{{ y }}년 {{ m }}월</span>
+      <span @click="onEmit(y, m)">{{ y }}년 {{ m }}월</span>
     </div>
   </div>
 </template>
@@ -16,10 +17,9 @@ export default {
   props: ["SelectedYear", "SelectedMonth"],
   data() {
     return {
-      curryear: this.SelectedYear,
+      currYear: this.SelectedYear,
       currMonth: this.SelectedMonth,
-      startyears: 2020,
-      year: 0,
+      startyears: 2021,
       months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
       list: [],
     };
@@ -27,22 +27,16 @@ export default {
   created() {
     this.init();
     this.makeList();
-    console.log(this.SelectedYear, this.SelectedMonth);
-    // console.log(this.list);
   },
   methods: {
-    returns() {
-      const param = [this.curryear, this.currMonth];
-      return param;
-    },
     init() {
       const date = new Date();
-      this.curryear = date.getFullYear();
+      this.currYear = date.getFullYear();
       this.currMonth = date.getMonth() + 1; // 시금 시점의 연도와 달 가져옴
     },
     makeList() {
-      for (let y = this.startyears; y <= this.curryear; y++) {
-        if (y !== this.curryear) {
+      for (let y = this.startyears; y <= this.currYear; y++) {
+        if (y !== this.currYear) {
           this.months.forEach((m) => {
             this.list.push([y, m]);
           });
@@ -52,6 +46,10 @@ export default {
           }
         }
       }
+    },
+    onEmit(y, m) {
+      const param = [y, m];
+      this.$emit("setEmitDate", param);
     },
   },
 };
@@ -63,7 +61,8 @@ export default {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.hoverPicker:hover {
+.hoverPicker:hover,
+.selected-date {
   background-color: #eaeaea;
 }
 </style>
