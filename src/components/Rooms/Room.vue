@@ -129,23 +129,21 @@ export default {
 }
 
 #roomName {
-  font-family: Pretendard;
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
   line-height: 16px;
-  margin-top: 4px;
-  top: 161px;
+  top: 158px;
   left: 30px;
 }
 
 #roomDate {
-  font-family: Pretendard;
+  font-family: "Pretendard-regular";
   font-style: normal;
   font-size: 12px;
   line-height: 16px;
-  margin-top: 4px;
-  top: 176px;
+  padding-top: 3px;
+  top: 183;
   left: 30px;
 }
 </style>

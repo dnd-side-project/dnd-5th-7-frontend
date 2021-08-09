@@ -2,12 +2,12 @@
   <div class="flex flex-row mt-5 justify-between items-center content-center">
     <div class="flex flex-row items-center">
       <SymbolIcon class="mr-1" />
-      <span class="text-lg font-bold text-black">진행중인 추억들이에요</span>
+      <span class="text-lg font-bold text-black">진행중인 기록장들이에요</span>
     </div>
     <span class="text-sm" style="color: #d2d2d2">더보기</span>
   </div>
 
-  <div v-if="getData()" class="flex flex-row h-56 mb-5 mt-3">
+  <div v-if="getData()" class="flex flex-row h-56 mb-8 mt-5">
     <swiper
       :slidesPerView="2"
       :freeMode="true"
@@ -53,7 +53,7 @@ export default {
   name: "CurrRooms",
   data() {
     return {
-      rooms: [dummydata[0], dummydata[1], dummydata[2]],
+      rooms: [dummydata[0], dummydata[1], dummydata[2], dummydata[3], dummydata[4], dummydata[5]],
     };
   },
   components: {
@@ -76,3 +76,11 @@ export default {
   },
 };
 </script>
+
+<style>
+.swiper-container-horizontal >>> .swiper-scrollbar {
+  top: 103%;
+}
+.mySwiper >>> .swiper-scrollbar-drag {
+}
+</style>

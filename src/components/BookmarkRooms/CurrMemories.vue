@@ -2,7 +2,7 @@
   <div class="flex flex-row mt-5 justify-between items-center content-center">
     <div class="flex flex-row items-center">
       <symbolIcon class="mr-1" />
-      <span class="text-lg font-bold text-black">즐거웠던 추억들을 모았어요</span>
+      <span class="text-lg font-bold text-black">즐거웠던 기록장들을 모았어요</span>
     </div>
     <span class="text-sm" style="color: #d2d2d2">더보기</span>
   </div>
