@@ -32,6 +32,12 @@ module.exports = {
           lineHeight: "18px",
         },
       ],
+      12: [
+        "12px",
+        {
+          lineHeight: "14.4px",
+        },
+      ],
     },
     screens: {
       md: "607px",
@@ -66,6 +72,9 @@ module.exports = {
         256: "256px",
         140: "140px",
         0.6: "6px",
+        0.8: "8px",
+        56: "56px",
+        300: "300px",
       },
     },
   },
