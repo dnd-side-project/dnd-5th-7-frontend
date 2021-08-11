@@ -20,7 +20,7 @@
           <!-- <div class="header-arrow cursor-pointer" @click="controlMonth('prev')">&lt;</div>
           <div class="header-arrow cursor-pointer" @click="controlMonth('next')">&gt;</div> -->
         </div>
-        <div class="flex mr-1"><AddBtn class="mr-1" />추가</div>
+        <div class="flex mr-1" @click="goto('AddRoom')"><AddBtn class="mr-1" />추가</div>
       </div>
       <table class="w-full h-auto">
         <thead class="flex w-full h-12 justify-around items-center">
@@ -39,7 +39,7 @@
                 'like-dates': isLIKEDates(day),
               }"
             >
-              <div class="dateOnly w-full flex items-center justify-center">
+              <div class="dateOnly w-full flex items-center justify-center" @click="dayClicked(day)">
                 {{ day }}
               </div>
             </td>
@@ -219,6 +219,9 @@ export default {
     },
     isLIKEDates(day) {
       return this.LIKEdates.includes(day);
+    },
+    dayClicked(day) {
+      console.log(this.year + "년" + this.month + "월" + day + "일");
     },
   },
 };

@@ -12,7 +12,7 @@
 
 <script>
 // import MemoryText from "../components/Memory/MemoryText.vue";
-import Calendar from "../components/Calendars/research.vue";
+import Calendar from "../components/Calendars/monthly.vue";
 import Header from "../components/Headers/MainHeader.vue";
 import CurrRooms from "../components/Rooms/CurrRooms.vue";
 import CurrMemories from "../components/BookmarkRooms/CurrMemories.vue";
