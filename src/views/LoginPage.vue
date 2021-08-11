@@ -1,14 +1,12 @@
 <!-- @format -->
 
 <template>
-  <v-app>
-    <div class="p-3">
-      <Logo></Logo>
-      <BrandingText></BrandingText>
-      <EnterPageImg></EnterPageImg>
-      <LoginBtn @click="kakaoLogin"></LoginBtn>
-    </div>
-  </v-app>
+  <div class="p-3 bg-bg">
+    <Logo></Logo>
+    <BrandingText></BrandingText>
+    <EnterPageImg></EnterPageImg>
+    <LoginBtn></LoginBtn>
+  </div>
 </template>
 
 <script>
@@ -33,12 +31,16 @@ export default {
     getKakaoAccount() {
       window.Kakao.API.request({
         url: "/v2/user/me",
-        success: (res) => {
+        success: function (res) {
+          console.log(res);
+          const accessToken = window.Kakao.Auth.getAccessToken();
           const kakao_account = res.kakao_account;
           const nickname = kakao_account.profile.nickname;
           const email = kakao_account.email;
           console.log(nickname, "nickname");
           console.log(email, "email");
+          console.log(kakao_account);
+          console.log(accessToken);
         },
         fail: (err) => {
           console.log(err);
