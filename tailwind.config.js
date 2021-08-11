@@ -9,8 +9,9 @@ module.exports = {
     fontFamily: {
       bold: ["Pretendard-Bold"],
       medium: ["Pretendard-Medium"],
-      semibold: ["Pretendard-SemiBold"],
+      semibold: ["Pretendard-SemiBold", "Pretendard-bold"],
       regular: ["Pretendard-Regular"],
+      ExtraBold: ["Pretendard-ExtraBold", "Pretendard-Bold"],
     },
     fontSize: {
       "4xl": [
@@ -20,12 +21,10 @@ module.exports = {
           lineHeight: "44px",
         },
       ],
-      14: [
-        "14px",
-        {
-          lineHeight: "20px",
-        },
-      ],
+      22: ["22px"],
+      18: ["18px"],
+      16: ["16px"],
+      14: ["14px"],
       13: [
         "13px",
         {
@@ -66,18 +65,21 @@ module.exports = {
     borderColor: {
       gray500: "#2D2D2D",
     },
+    boxShadow: {
+      custom: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
+    },
     extend: {
       spacing: {
         360: "360px",
+        300: "300px",
         256: "256px",
         140: "140px",
         0.6: "6px",
         0.8: "8px",
         56: "56px",
-        300: "300px",
       },
     },
   },
   variants: {},
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };
