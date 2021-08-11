@@ -7,7 +7,7 @@
     <span class="text-sm" style="color: #d2d2d2">더보기</span>
   </div>
 
-  <div v-if="getData()" class="flex flex-row h-56 mb-8 mt-5">
+  <div v-if="getData()" class="flex flex-row justify-center items-center h-60">
     <swiper
       :slidesPerView="2"
       :freeMode="true"
@@ -78,9 +78,7 @@ export default {
 </script>
 
 <style>
-.swiper-container-horizontal >>> .swiper-scrollbar {
+:v-deep .swiper-container-horizontal >>> .swiper-scrollbar {
   top: 103%;
-}
-.mySwiper >>> .swiper-scrollbar-drag {
 }
 </style>

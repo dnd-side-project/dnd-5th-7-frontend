@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center">
-    <div class="flex flex-col w-48 h-56 justify-center items-center">
+    <div class="flex flex-col w-48 h-60 justify-center items-center">
       <div>
         <div class="relative">
           <div id="bookCoverWrapper" class="absolute">
@@ -133,7 +133,7 @@ export default {
   font-weight: bold;
   font-size: 14px;
   line-height: 16px;
-  top: 158px;
+  top: 170px;
   left: 30px;
 }
 
@@ -143,7 +143,7 @@ export default {
   font-size: 12px;
   line-height: 16px;
   padding-top: 3px;
-  top: 183;
+  top: 188px;
   left: 30px;
 }
 </style>
