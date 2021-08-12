@@ -65,12 +65,12 @@ export default {
 }
 
 #bookName {
+  padding-left: 5px;
   top: 255px;
-  left: 126px;
 }
 
 #bookDate {
   top: 277px;
-  left: 126px;
+  padding-right: 55px;
 }
 </style>

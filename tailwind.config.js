@@ -63,6 +63,7 @@ module.exports = {
       gray200: "#D2D2D2",
     },
     borderColor: {
+      gray300: "#949494",
       gray500: "#2D2D2D",
     },
     boxShadow: {
@@ -71,12 +72,17 @@ module.exports = {
     extend: {
       spacing: {
         360: "360px",
+        352: "352px",
+        320: "320px",
         300: "300px",
         256: "256px",
         140: "140px",
+        52: "52px",
+        56: "56px",
+        20: "20px",
+        0.4: "4px",
         0.6: "6px",
         0.8: "8px",
-        56: "56px",
       },
     },
   },

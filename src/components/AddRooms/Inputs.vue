@@ -1,26 +1,59 @@
 <template>
   <v-app>
     <form class="w-full max-w-sm p-3">
-      <div class="flex items-center border-b border-teal-500 py-2">
+      <div class="flex items-center py-2">
+        <resetIcon class="resetIcon flex justify-end absolute" />
         <input
-          class="my-input appearance-none bg-transparent border-none w-full text-gray-700 py-1 px-2 outline-none"
+          v-model="InputName"
+          class="
+            mt-0
+            mx-2
+            block
+            w-full
+            px-0.5
+            border-0 border-b-2
+            text-16 text-gray300
+            border-gray300
+            focus:ring-0 focus:border-gray500 focus:text-gray500
+          "
           type="text"
-          placeholder="Jane Doe"
-          aria-label="Full name"
+          placeholder="기록장의 이름을 적어주세요"
+          aria-label="Bookname"
         />
-        <button
-          class="flex-shrink-0 border-transparent text-teal-500 hover:text-teal-800 text-sm py-1 px-2 rounded"
-          type="button"
-        >
-          Cancel
-        </button>
       </div>
     </form>
   </v-app>
 </template>
 
+<script>
+import resetIcon from "../../assets/textfield_reset.svg";
+export default {
+  components: { resetIcon },
+  data() {
+    return {
+      InputName: "",
+    };
+  },
+  watch: {
+    InputName: function () {
+      let InputName = this.InputName;
+      console.log(InputName);
+      this.$emit("set-name", InputName);
+    },
+  },
+};
+</script>
+
 <style>
-.my-input :focus {
+input :focus,
+input :active {
   outline: none;
+  border: none;
+  box-shadow: none;
+  --tw-ring-shadow: none;
+}
+
+.resetIcon {
+  margin-left: 310px;
 }
 </style>
