@@ -39,10 +39,11 @@ export default {
     },
     callGetId() {
       axios
-        .get("http://localhost:3000/auth/id", { withCredentials: true })
+        .get("https://tido-diary.herokuapp.com/auth/id", { withCredentials: true })
         .then((res) => {
           this.id = res.id;
-          console.log("응답 : ", res);
+          console.log(this.id);
+          console.log("응답 : ", res.data);
         })
         .catch((e) => {
           console.log("error : ", e);
@@ -50,7 +51,11 @@ export default {
     },
     callCreateRoom() {
       axios
-        .post("http://localhost:3000/diaries", { title: "제목" }, { withCredentials: true })
+        .post(
+          "https://tido-diary.herokuapp.com/diaries",
+          { title: "제목", date: "2020/2/23", theme: "simple" },
+          { withCredentials: true },
+        )
         .then((res) => {
           console.log("응답2 : ", res);
         })
