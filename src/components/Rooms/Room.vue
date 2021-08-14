@@ -13,7 +13,7 @@
         </div>
         <BookBackground id="bookBackground" />
       </div>
-      <RoomName :name="this.name" id="roomName" class="absolute" />
+      <RoomName :name="this.name" id="roomName" class="text-left absolute" />
       <RoomDate :date="this.date" id="roomDate" class="absolute" />
     </div>
   </div>

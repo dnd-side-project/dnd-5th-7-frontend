@@ -14,18 +14,20 @@ export default {
       Day: "",
     };
   },
-  methods: {
-    lengthCheck() {
-      if (this.Rname === undefined) return "이름이 없어요";
-      if (this.Rname.length > 9) return this.Rname.slice(0, 9) + "...";
-      return this.Rname;
-    },
-  },
   created() {
     let temp = this.date.split("-");
     this.Year = temp[0];
     this.Month = temp[1];
     this.Day = temp[2];
+  },
+  watch: {
+    date: function () {
+      let temp = this.date.split("/");
+      this.Rdate = this.date;
+      this.Year = temp[0];
+      this.Month = temp[1];
+      this.Day = temp[2];
+    },
   },
 };
 </script>
