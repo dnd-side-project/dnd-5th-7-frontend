@@ -14,20 +14,27 @@
               @setEmitDate="setEmitDate"
             />
           </div>
-          <ComboBox width="9px" height="10px" class="relative" />
+          <div class="flex items-center w-0.9 h-10 ml-0.7"><img src="../../assets/combobox.png" /></div>
         </div>
-        <div class="header-arrow cursor-pointer" @click="controlMonth('next')">&gt;</div>
+        <div
+          v-if="this.month != new Date().getMonth() + 1"
+          class="header-arrow cursor-pointer"
+          @click="controlMonth('next')"
+        >
+          &gt;
+        </div>
+        <div v-else class="header-arrow text-gray100">&gt;</div>
       </div>
-      <table class="w-320 h-auto text-13">
+      <table class="w-320 h-218 text-13">
         <thead class="flex w-320 h-8 justify-around items-center">
           <th v-for="day in days" :key="day">{{ day }}</th>
         </thead>
         <tbody>
-          <tr v-for="(date, idx) in dates" :key="idx" class="flex w-320 h-10 justify-around items-center">
+          <tr v-for="(date, idx) in dates" :key="idx" class="flex w-320 h-3.6 justify-around items-center">
             <td
               v-for="(day, index) in date"
               :key="index"
-              class="w-6 h-6 flex flex-col justify-center items-center hover-date rounded-full"
+              class="w-0.9 h-0.9 flex flex-col justify-center items-center hover-date rounded-full"
               :class="{
                 'today-date': day === currentDate && isCurrentDate,
                 'prev-dates': isPrevDates(day, idx),
@@ -46,11 +53,10 @@
 </template>
 
 <script>
-import ComboBox from "../../assets/combobox.svg";
 import DatePicker from "../Calendars/datepicker.vue";
 
 export default {
-  components: { ComboBox, DatePicker },
+  components: { DatePicker },
   data() {
     return {
       days: ["일", "월", "화", "수", "목", "금", "토"],

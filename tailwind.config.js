@@ -76,7 +76,7 @@ module.exports = {
     }),
     boxShadow: {
       custom: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
-      layout: "0px 2px 5px rgba(0, 0, 0, 0.2)"
+      layout: "0px 2px 5px rgba(0, 0, 0, 0.2)",
     },
     extend: {
       spacing: {
@@ -85,13 +85,18 @@ module.exports = {
         352: "352px",
         320: "320px",
         300: "300px",
+        280: "280px",
         256: "256px",
+        218: "218px",
         208: "208px",
+        154: "154px",
         152: "152px",
         140: "140px",
         80: "80px",
+        6.4: "64px",
         52: "52px",
         56: "56px",
+        3.6: "36px",
         28: "28px",
         25: "25px",
         20: "20px",
@@ -100,6 +105,7 @@ module.exports = {
         10: "10px",
         0.9: "9px",
         0.8: "8px",
+        0.7: "7px",
         0.6: "6px",
         0.4: "4px",
       },
