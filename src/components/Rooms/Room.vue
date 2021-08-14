@@ -1,8 +1,20 @@
 <template>
   <div class="flex items-center">
-    <div class="flex w-36 h-44 justify-center items-center">
-      <!-- <div><bookCover /></div> -->
-      <div><bookImg /></div>
+    <div class="flex flex-col w-48 h-60 justify-center items-center">
+      <div>
+        <div class="relative">
+          <div id="bookCoverWrapper" class="absolute">
+            <div id="bookBorderWrapper" class="absolute">
+              <BookBorder id="bookBorder" />
+            </div>
+            <div v-if="themeCheck()"><BookModernCover id="bookCover" /></div>
+            <div v-else><BookHipCover id="bookCover" /></div>
+          </div>
+        </div>
+        <BookBackground id="bookBackground" />
+      </div>
+      <RoomName :name="this.name" id="roomName" class="absolute" />
+      <RoomDate :date="this.date" id="roomDate" class="absolute" />
     </div>
   </div>
   <!-- <div class="p-3 my-3 mr-3 bg-white rounded-xl shadow-md cursor-pointer">
@@ -54,13 +66,84 @@
 </template>
 
 <script>
-import bookImg from "../../assets/book_background.svg";
+import BookBorder from "../../assets/book_border.svg";
+import BookHipCover from "../../assets/book_image_hip.svg";
+import BookModernCover from "../../assets/book_image_modern.svg";
+import BookBackground from "../../assets/book_background.svg";
+import RoomName from "./Name.vue";
+import RoomDate from "./Date.vue";
 export default {
   name: "Room",
-  props: {},
+  props: ["dummydata"],
+  data() {
+    return {
+      Rdata: this.dummydata,
+      name: "",
+      date: "",
+      theme: "",
+    };
+  },
   components: {
-    bookImg,
-    // bookCover,
+    RoomName,
+    RoomDate,
+    BookBorder,
+    BookHipCover,
+    BookModernCover,
+    BookBackground,
+  },
+  methods: {
+    themeCheck() {
+      if (this.theme.includes("Modern")) return true;
+      return false;
+    },
+  },
+  created() {
+    this.name = this.dummydata.name;
+    this.date = this.dummydata.date;
+    this.theme = this.dummydata.theme;
   },
 };
 </script>
+
+<style>
+#bookBackground {
+  width: 154px;
+}
+
+#bookCover {
+  width: 128px;
+}
+
+#bookCoverWrapper {
+  top: 13px;
+  left: 23px;
+}
+
+#bookBorder {
+  height: 200px;
+}
+
+#bookBorderWrapper {
+  left: -11px;
+  top: -7px;
+}
+
+#roomName {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  top: 170px;
+  left: 30px;
+}
+
+#roomDate {
+  font-family: "Pretendard-regular";
+  font-style: normal;
+  font-size: 12px;
+  line-height: 16px;
+  padding-top: 3px;
+  top: 188px;
+  left: 30px;
+}
+</style>
