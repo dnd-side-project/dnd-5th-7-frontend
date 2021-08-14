@@ -5,6 +5,7 @@ import Login from "../views/LoginPage.vue";
 import AddRoom from "../views/AddRoomPage.vue";
 import AddRoom2 from "../views/AddRoomPage2.vue";
 import MyPage from "../views/MyPage.vue";
+import RoomDetail from "../views/RoomDetailPage.vue";
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     path: "/MyPage",
     name: "MyPage",
     component: MyPage,
+  },
+  {
+    path: "/RoomDetail",
+    name: "RoomDetail",
+    component: RoomDetail,
   },
 ];
 
