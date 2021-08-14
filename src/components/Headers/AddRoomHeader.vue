@@ -10,7 +10,7 @@
 <script>
 import cancleIcon from "../../assets/icon_cancle.svg";
 export default {
-  props: {},
+  props: ["theme"],
   components: {
     cancleIcon,
   },
@@ -19,7 +19,15 @@ export default {
       window.history.back();
     },
     goto(page) {
-      this.$router.push(page);
+      if (this.themecheck()) this.$router.push(page);
+      else this.alertShow();
+    },
+    themecheck() {
+      if (this.theme == "" || this.theme == undefined || this.theme == null) return false;
+      return true;
+    },
+    alertShow() {
+      this.$emit("showAlert");
     },
   },
 };

@@ -3,34 +3,58 @@
   <div class="p-6 flex flex-col justify-center items-center">
     <div class="flex flex-row">
       <div>
-        <themeHip class="theme-icon" />
+        <div
+          v-if="this.Selected == 'hip'"
+          class="w-154 h-154 ml-0.6 flex justify-center items-center bg-blackdip absolute"
+        >
+          <CheckIcon width="42px" height="42px" />
+        </div>
+        <div v-else></div>
+        <themeHip class="theme-icon" @click="themeSelected('hip')" />
         <div class="pl-1.5 pt-1.5 font-regular text-14">힙</div>
       </div>
       <div>
-        <themeModern class="theme-icon" />
-        <div class="pl-1.5 pt-1.5 font-regular text-14">모던</div>
+        <div
+          v-if="this.Selected == 'simple'"
+          class="w-154 h-154 ml-0.6 flex justify-center items-center bg-blackdip absolute"
+        >
+          <CheckIcon width="42px" height="42px" />
+        </div>
+        <div v-else></div>
+        <themeSimple class="theme-icon" @click="themeSelected('simple')" />
+        <div class="pl-1.5 pt-1.5 font-regular text-14">심플</div>
       </div>
     </div>
-
-    <div class="bg-blackdip">asdf</div>
   </div>
 </template>
 
 <script>
+import CheckIcon from "../../assets/check_symbol.svg";
 import themeHip from "../../assets/SelectTheme_hip.svg";
-import themeModern from "../../assets/SelectTheme_modern.svg";
+import themeSimple from "../../assets/SelectTheme_modern.svg";
 
 export default {
-  name: "NoBookmark",
+  name: "SelectTheme",
   props: {},
   data() {
     return {
-      Selected: "",
+      Selected: null,
     };
   },
   components: {
+    CheckIcon,
     themeHip,
-    themeModern,
+    themeSimple,
+  },
+  methods: {
+    themeSelected(theme) {
+      this.Selected = theme;
+    },
+  },
+  watch: {
+    Selected: function () {
+      this.$emit("themeSelected", this.Selected);
+    },
   },
 };
 </script>
