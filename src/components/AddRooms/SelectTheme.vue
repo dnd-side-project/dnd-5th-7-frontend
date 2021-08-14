@@ -11,6 +11,8 @@
         <div class="pl-1.5 pt-1.5 font-regular text-14">모던</div>
       </div>
     </div>
+
+    <div class="bg-blackdip">asdf</div>
   </div>
 </template>
 
@@ -21,6 +23,11 @@ import themeModern from "../../assets/SelectTheme_modern.svg";
 export default {
   name: "NoBookmark",
   props: {},
+  data() {
+    return {
+      Selected: "",
+    };
+  },
   components: {
     themeHip,
     themeModern,
@@ -34,5 +41,9 @@ export default {
   border: 1px solid #171717;
   box-sizing: border-box;
   margin: 0px 6px;
+}
+
+.bg-blackdip {
+  background-color: rgba(0, 0, 0, 0.6);
 }
 </style>

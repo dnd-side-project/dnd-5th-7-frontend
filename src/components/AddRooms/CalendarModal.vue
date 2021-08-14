@@ -1,10 +1,10 @@
 <template>
   <div id="modal-wrap">
     <div id="modal-box" class="w-320 h-352 p-3">
-      <monthly />
-      <div class="flex flex-row justify-end">
-        <span class="mr-1" @click="modalClose">취소</span>
-        <span class="mr-1">확인</span>
+      <monthly @dayClicked="dayClicked" />
+      <div class="flex flex-row justify-end mt-3 text-14">
+        <span class="mr-5" @click="modalClose">취소</span>
+        <span class="mx-5" @click="dayConfirm">확인</span>
       </div>
     </div>
     <label id="modal-bg" for="modal-status" />
@@ -12,13 +12,33 @@
 </template>
 
 <script>
-import Monthly from "../Calendars/monthly.vue";
+import Monthly from "./Calendar.vue";
 export default {
   components: { Monthly },
-  setup() {},
+  data() {
+    return {
+      year: 0,
+      month: 0,
+      day: 0,
+    };
+  },
   methods: {
     modalClose() {
       this.$emit("closeModal");
+    },
+    dayConfirm() {
+      const dates = {
+        year: this.year,
+        month: this.month,
+        day: this.day,
+      };
+      this.$emit("dayConfirmed", dates);
+      this.$emit("closeModal");
+    },
+    dayClicked(dates) {
+      this.year = dates.year;
+      this.month = dates.month;
+      this.day = dates.day;
     },
   },
 };

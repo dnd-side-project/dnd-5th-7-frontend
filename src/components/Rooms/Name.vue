@@ -18,5 +18,10 @@ export default {
       return this.Rname;
     },
   },
+  watch: {
+    name: function () {
+      this.Rname = this.name;
+    },
+  },
 };
 </script>

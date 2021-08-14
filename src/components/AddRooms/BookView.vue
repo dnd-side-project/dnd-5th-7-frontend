@@ -28,10 +28,9 @@ import RoomName from "../Rooms/Name.vue";
 import RoomDate from "../Rooms/Date.vue";
 
 export default {
-  props: ["data"],
+  props: ["nname", "ndate", "ntheme"],
   data() {
     return {
-      Rdata: this.data,
       name: "",
       date: "",
       theme: "",
@@ -52,9 +51,20 @@ export default {
     },
   },
   created() {
-    this.name = this.data.name;
-    this.date = this.data.date;
-    this.theme = this.data.theme;
+    this.name = this.nname;
+    this.date = this.ndate;
+    this.theme = this.ntheme;
+  },
+  watch: {
+    nname: function () {
+      this.name = this.nname;
+    },
+    ndate: function () {
+      this.date = this.ndate;
+    },
+    ntheme: function () {
+      this.theme = this.ntheme;
+    },
   },
 };
 </script>
