@@ -4,7 +4,7 @@
       <plusIcon class="absolute plus-icon" />
     </div>
     <addBackground />
-    <div class="text-12 mt-0.8" @click="sendMessage">추가</div>
+    <div class="text-12 mt-0.8" @click="sendMessage()">추가</div>
   </div>
 </template>
 
