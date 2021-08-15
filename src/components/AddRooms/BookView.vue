@@ -7,7 +7,7 @@
             <div id="bookBorderWrapper" class="absolute">
               <BookBorder id="bookBorder" />
             </div>
-            <div v-if="themeCheck()"><BookModernCover id="bookCover" /></div>
+            <div v-if="themeCheck()"><BookSimpleCover id="bookCover" /></div>
             <div v-else><BookHipCover id="bookCover" /></div>
           </div>
         </div>
@@ -22,7 +22,7 @@
 <script>
 import BookBorder from "../../assets/book_border.svg";
 import BookHipCover from "../../assets/book_image_hip.svg";
-import BookModernCover from "../../assets/book_image_modern.svg";
+import BookSimpleCover from "../../assets/book_image_modern.svg";
 import BookBackground from "../../assets/book_background.svg";
 import RoomName from "../Rooms/Name.vue";
 import RoomDate from "../Rooms/Date.vue";
@@ -39,14 +39,14 @@ export default {
   components: {
     BookBorder,
     BookHipCover,
-    BookModernCover,
+    BookSimpleCover,
     BookBackground,
     RoomName,
     RoomDate,
   },
   methods: {
     themeCheck() {
-      if (this.theme.includes("Modern")) return true;
+      if (this.theme.includes("Simple")) return true;
       return false;
     },
   },
