@@ -18,6 +18,7 @@ import mypageIcon from "../../assets/mypage_icon.svg";
 import SearchIcon from "../../assets/search_icon.svg";
 import AlarmIcon from "../../assets/alarm_icon.svg";
 import axios from "axios";
+import { BASE_URL } from "../../config";
 export default {
   components: {
     mypageIcon,
@@ -39,7 +40,7 @@ export default {
     },
     callGetId() {
       axios
-        .get("http://localhost:3000/auth/id", { withCredentials: true })
+        .get(`${BASE_URL}/auth/id`, { withCredentials: true })
         .then((res) => {
           this.id = res.id;
           console.log("응답 : ", res);
@@ -50,7 +51,7 @@ export default {
     },
     callCreateRoom() {
       axios
-        .post("http://localhost:3000/diaries", { title: "제목" }, { withCredentials: true })
+        .post(`${BASE_URL}/diaries`, { title: "제목" }, { withCredentials: true })
         .then((res) => {
           console.log("응답2 : ", res);
         })

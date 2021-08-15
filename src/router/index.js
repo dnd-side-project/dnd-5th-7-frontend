@@ -5,7 +5,7 @@ import Login from "../views/LoginPage.vue";
 import AddRoom from "../views/AddRoomPage.vue";
 import AddRoom2 from "../views/AddRoomPage2.vue";
 import MyPage from "../views/MyPage.vue";
-
+import Room from "../views/RoomPage.vue";
 const routes = [
   {
     path: "/",
@@ -36,6 +36,11 @@ const routes = [
     path: "/MyPage",
     name: "MyPage",
     component: MyPage,
+  },
+  {
+    path: "/Room/:id",
+    name: "Room",
+    component: Room,
   },
 ];
 
