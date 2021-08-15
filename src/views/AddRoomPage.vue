@@ -44,7 +44,7 @@ export default {
 
 <style>
 .alert {
-  top: 40%;
+  top: 100px;
   left: 50%;
   transform: translate(-50%, -50%);
 }

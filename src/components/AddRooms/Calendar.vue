@@ -34,7 +34,7 @@
             <td
               v-for="(day, index) in date"
               :key="index"
-              class="w-8 h-8 flex flex-col justify-center items-center hover-date rounded-full"
+              class="w-8 h-8 flex flex-col justify-center items-center hover-date"
               :class="{
                 'today-date': day === currentDate && isCurrentDate,
                 'prev-dates': isPrevDates(day, idx),
@@ -251,8 +251,11 @@ td.prev-dates {
   height: 20px;
 }
 .selected-date {
-  color: #ffffff;
-  background-color: #2d2d2d;
+  color: #2d2d2d;
+  background-image: url("data:image/svg+xml,%3Csvg width='44' height='36' viewBox='0 0 44 36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.75 27.1667L15.4 29H33V13.1111L31.35 10.6667L28.6 7H11V24.1111L13.75 27.1667Z' fill='%23FFD74A'/%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 .datepicker {
   top: 50;
