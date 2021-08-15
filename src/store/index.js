@@ -2,9 +2,11 @@ import { createStore } from "vuex";
 
 export const store = createStore({
   state: {
-    a: 0,
+    count: 1,
   },
-  mutations: {},
+  mutations: {
+    setCounter: (state) => state.count * 2,
+  },
   actions: {},
   modules: {},
 });
