@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col justify-center items-center mb-2">
-    <div class="relative" @click="sendMessage()">
+    <div class="relative" @click="sendMessage">
       <plusIcon class="absolute plus-icon" />
     </div>
     <addBackground />
