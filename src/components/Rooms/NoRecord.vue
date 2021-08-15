@@ -15,7 +15,7 @@ import nodrecordIcon from "../../assets/plus_icon_norecord.svg";
 import writingIcon from "../../assets/floating_writing2.svg";
 import hostIcon from "../../assets/floating_host2.svg";
 
-export default defineComponent({
+export default {
   name: "NoRoom",
   setup() {},
   props: {},
@@ -24,7 +24,7 @@ export default defineComponent({
     writingIcon,
     hostIcon,
   },
-});
+};
 </script>
 
 <style scoped></style>
