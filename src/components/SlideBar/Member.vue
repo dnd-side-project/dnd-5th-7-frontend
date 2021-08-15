@@ -34,9 +34,9 @@ export default {
 
 <style>
 .hostIcon {
-  transform: translate(20px, 20px);
+  transform: translate(25px, 20px);
 }
 .hosttext {
-  transform: translate(-20px);
+  transform: translate(-15px, 0px);
 }
 </style>
