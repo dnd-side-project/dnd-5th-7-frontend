@@ -1,10 +1,10 @@
 <template>
-  <div class="“flex" flex-row justify-between p-3”>
-    <div class="“flex" flex-row”>
+  <div class="flex flex-row justify-between p-3">
+    <div class="flex flex-row">
       <!-- <mypageIcon v-on:click=“goto(‘MyPage’)” /> -->
       <p>{{ id }}</p>
     </div>
-    <div class="“flex" flex-row justify-end”>
+    <div class="flex flex-row justify-end">
       <!-- <AlarmIcon class=“mr-3” v-on:click=“goto(‘Alarm’)” /> -->
       <!-- <SearchIcon v-on:click=“goto(‘Search’)” /> -->
       <button @click="callCreateRoom">방생성</button>
