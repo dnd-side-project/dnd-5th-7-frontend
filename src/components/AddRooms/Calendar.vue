@@ -34,7 +34,7 @@
             <td
               v-for="(day, index) in date"
               :key="index"
-              class="w-0.9 h-0.9 flex flex-col justify-center items-center hover-date rounded-full"
+              class="w-8 h-8 flex flex-col justify-center items-center hover-date rounded-full"
               :class="{
                 'today-date': day === currentDate && isCurrentDate,
                 'prev-dates': isPrevDates(day, idx),
