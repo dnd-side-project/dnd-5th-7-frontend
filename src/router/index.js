@@ -10,6 +10,7 @@ import RoomList from "../views/RoomListPage.vue";
 import LikeRoomList from "../views/LikeRoomListPage.vue";
 import INGRoomList from "../views/INGRoomListPage.vue";
 import test from "../views/storeTest.vue";
+import Room from "../views/RoomPage.vue";
 
 const routes = [
   {
@@ -68,6 +69,11 @@ const routes = [
     path: "/test",
     name: "test",
     component: test,
+  },
+  {
+    path: "/Room/:id",
+    name: "Room",
+    component: Room,
   },
 ];
 
