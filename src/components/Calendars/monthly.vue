@@ -35,7 +35,7 @@
               :class="{
                 'today-date': day === currentDate && isCurrentDate,
                 'prev-dates': isPrevDates(day, idx),
-                'ing-dates': isINGDates(day),
+                'etc-dates': isETCDates(day),
                 'like-dates': isLIKEDates(day),
               }"
             >
@@ -62,7 +62,7 @@ export default {
       days: ["일", "월", "화", "수", "목", "금", "토"],
       months: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"],
       dates: [],
-      INGdates: [10],
+      ETCdates: [10],
       LIKEdates: [13, 16],
       currentYear: 0,
       currentMonth: 0,
@@ -94,6 +94,9 @@ export default {
   methods: {
     goto(page) {
       this.$router.push(page);
+    },
+    goWithParam(page, param) {
+      this.$router.push({ name: page, params: { dates: param } });
     },
     init(param) {
       if (param) {
@@ -214,14 +217,16 @@ export default {
     isPrevDates(day, idx) {
       return (this.prevDate.indexOf(day) > -1 && idx < 1) || (this.previewDate.indexOf(day) > -1 && idx > 1);
     },
-    isINGDates(day) {
-      return this.INGdates.includes(day);
+    isETCDates(day) {
+      return this.ETCdates.includes(day);
     },
     isLIKEDates(day) {
       return this.LIKEdates.includes(day);
     },
     dayClicked(day) {
-      console.log(this.year + "년" + this.month + "월" + day + "일");
+      const dates = this.year + "-" + this.month + "-" + day;
+      if (this.ETCdates.includes(day) || this.LIKEdates.includes(day)) this.goWithParam("RoomList", dates);
+      // console.log(this.year + "년" + this.month + "월" + day + "일");
     },
   },
 };
@@ -250,7 +255,7 @@ td.prev-dates {
 .dateOnly {
   height: 20px;
 }
-.ing-dates {
+.etc-dates {
   color: #ffffff;
   background-image: url("data:image/svg+xml,%3Csvg width='44' height='36' viewBox='0 0 44 36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.75 27.1667L15.4 29H33V13.1111L31.35 10.6667L28.6 7H11V24.1111L13.75 27.1667Z' fill='%232D2D2D'/%3E%3C/svg%3E%0A");
   background-repeat: no-repeat;
