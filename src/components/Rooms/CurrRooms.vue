@@ -4,7 +4,7 @@
       <SymbolIcon class="mr-1" />
       <span class="text-lg font-bold text-black">진행중인 기록장들이에요</span>
     </div>
-    <span class="text-sm" style="color: #d2d2d2">더보기</span>
+    <span class="text-sm cursor-pointer" style="color: #d2d2d2" @click="goto('INGRoomList')">더보기</span>
   </div>
 
   <div v-if="getData()" class="flex flex-row justify-center items-center h-60">

@@ -6,6 +6,10 @@ import AddRoom from "../views/AddRoomPage.vue";
 import AddRoom2 from "../views/AddRoomPage2.vue";
 import MyPage from "../views/MyPage.vue";
 import RoomDetail from "../views/RoomDetailPage.vue";
+import RoomList from "../views/RoomListPage.vue";
+import LikeRoomList from "../views/LikeRoomListPage.vue";
+import INGRoomList from "../views/INGRoomListPage.vue";
+import test from "../views/storeTest.vue";
 
 const routes = [
   {
@@ -17,6 +21,7 @@ const routes = [
     path: "/main",
     name: "Main",
     component: Main,
+    props: true,
   },
   {
     path: "/Board",
@@ -42,6 +47,27 @@ const routes = [
     path: "/RoomDetail",
     name: "RoomDetail",
     component: RoomDetail,
+  },
+  {
+    path: "/RoomList/:dates",
+    name: "RoomList",
+    component: RoomList,
+    props: true,
+  },
+  {
+    path: "/LikeRoomList/",
+    name: "LikeRoomList",
+    component: LikeRoomList,
+  },
+  {
+    path: "/INGRoomList",
+    name: "INGRoomList",
+    component: INGRoomList,
+  },
+  {
+    path: "/test",
+    name: "test",
+    component: test,
   },
 ];
 

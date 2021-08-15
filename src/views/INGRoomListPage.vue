@@ -1,40 +1,25 @@
 <template>
   <v-app>
-    <Header
-      :datee="{
-        year: this.year,
-        month: this.month,
-        day: this.day,
-      }"
-    ></Header>
+    <Header :text="this.title"></Header>
     <div class="h-screen"><ListView :dummydata="roomList" /></div>
   </v-app>
 </template>
 
 <script>
-import Header from "../components/Headers/RoomListHeader.vue";
+import Header from "../components/Headers/MainRoomListHeader.vue";
 import ListView from "../components/RoomList/ListView.vue";
 import { computed } from "vue";
 import { useStore } from "vuex";
 import dummydata from "../data/CalendarEvent.json";
 
 export default {
-  props: ["dates"],
   data() {
     return {
+      title: "진행중인 기록들",
       dummydata: dummydata,
-      year: "",
-      month: "",
-      day: "",
     };
   },
   components: { Header, ListView },
-  created() {
-    const temp = this.$route.params.dates.split("-");
-    this.year = temp[0];
-    this.month = temp[1];
-    this.day = temp[2];
-  },
   setup() {
     const store = useStore();
     const roomList = computed(() => store.state.roomStore.RoomList);
