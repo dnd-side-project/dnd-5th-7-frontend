@@ -35,20 +35,11 @@ export default {
         content: {
           title: "xx님이 xx로 초대하였습니다.",
           description: "들어오세용",
-          imageUrl: "",
+          imageUrl: "../../assets/라이언.png",
           link: {
             webUrl: FRONT_URL,
             mobileWebUrl: FRONT_URL,
           },
-          buttons: [
-            {
-              titile: "입장하기",
-              link: {
-                webUrl: FRONT_URL,
-                mobileWebUrl: FRONT_URL,
-              },
-            },
-          ],
         },
       });
     },
