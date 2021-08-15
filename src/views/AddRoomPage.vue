@@ -1,17 +1,18 @@
 <template>
   <v-app>
     <Header :theme="this.theme" @showAlert="showAlert"></Header>
-    <div class="p-3">
-      <SelectTheme @themeSelected="themeSelected"></SelectTheme>
+    <div class="h-screen">
+      <div class="p-3">
+        <SelectTheme @themeSelected="themeSelected"></SelectTheme>
 
-      <alert v-if="this.isAlertShow" class="alert absolute" :text="this.alertText" />
+        <alert v-if="this.isAlertShow" class="alert absolute" :text="this.alertText" />
+      </div>
+      <Inputs @setName="setName" />
+      <SelectDate @click="modalToggle" :nyear="this.year" :nmonth="this.month" :nday="this.day" />
+      <div v-show="isModalClicked">
+        <Modal @closeModal="modalToggle" @dayConfirmed="dayConfirm" />
+      </div>
     </div>
-    <Inputs @setName="setName" />
-    <SelectDate @click="modalToggle" :nyear="this.year" :nmonth="this.month" :nday="this.day" />
-    <div v-show="isModalClicked">
-      <Modal @closeModal="modalToggle" @dayConfirmed="dayConfirm" />
-    </div>
-    <div class="flex justify-center mt-20"><OKBtn /></div>
   </v-app>
 </template>
 <script>
@@ -21,7 +22,6 @@ import alert from "../components/Alert/NotiLayer.vue";
 import Inputs from "../components/AddRooms/Inputs.vue";
 import SelectDate from "../components/AddRooms/SelectDate.vue";
 import Modal from "../components/AddRooms/CalendarModal.vue";
-import OKBtn from "../components/Common/OKButton.vue";
 
 export default {
   data() {
@@ -44,7 +44,6 @@ export default {
     Inputs,
     SelectDate,
     Modal,
-    OKBtn,
   },
   methods: {
     themeSelected(theme) {
