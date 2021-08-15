@@ -22,6 +22,7 @@ export default {
   },
   methods: {
     sendMessage() {
+      console.log("버튼 클릭함");
       window.Kakao.Link.sendDefault({
         objectType: "feed",
         content: {
