@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col justify-center items-center mb-2">
-    <div class="relative" @click="sendMessage">
+    <div class="relative">
       <plusIcon class="absolute plus-icon" />
     </div>
     <addBackground />
@@ -11,7 +11,6 @@
 <script>
 import addBackground from "../../assets/SelectMember_background.svg";
 import plusIcon from "../../assets/SelectMember_plus.svg";
-import { FRONT_URL } from "../../config";
 
 export default {
   name: "SelectMember",
@@ -20,32 +19,7 @@ export default {
     addBackground,
     plusIcon,
   },
-  methods: {
-    sendMessage() {
-      console.log("버튼 클릭함");
-      window.Kakao.Link.sendDefault({
-        objectType: "feed",
-        content: {
-          title: "xx님이 xx로 초대하였습니다.",
-          description: "들어오세용",
-          imageUrl: "",
-          link: {
-            webUrl: FRONT_URL,
-            mobileWebUrl: FRONT_URL,
-          },
-          buttons: [
-            {
-              titile: "입장하기",
-              link: {
-                webUrl: FRONT_URL,
-                mobileWebUrl: FRONT_URL,
-              },
-            },
-          ],
-        },
-      });
-    },
-  },
+  methods: {},
 };
 </script>
 
