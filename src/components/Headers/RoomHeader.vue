@@ -5,7 +5,7 @@
       <div class="text-16 header-text">기록장 이름</div>
       <div class="flex w-16 justify-between">
         <likeIcon />
-        <hamburgerIcon />
+        <hamburgerIcon class="z-10" @click="onClickSlider" />
       </div>
     </div>
     <div class="divider"></div>
@@ -23,12 +23,21 @@ export default {
     likeIcon,
     hamburgerIcon,
   },
+  data() {
+    return {
+      isClicked: false,
+    };
+  },
   methods: {
     goback() {
       window.history.back();
     },
     goto(page) {
       this.$router.push(page);
+    },
+    onClickSlider() {
+      this.isClicked = !this.isClicked;
+      this.$emit("onClickSlider", this.isClicked);
     },
   },
 };

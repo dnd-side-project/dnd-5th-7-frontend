@@ -12,6 +12,7 @@
     "@tailwindcss/postcss7-compat": "^2.2.4",
     "autoprefixer": "^9.8.6",
     "axios": "^0.21.1",
+    "click-outside-vue3": "4.0.1",
     "core-js": "^3.6.5",
     "node-sass": "^6.0.1",
     "postcss": "^7.0.36",
