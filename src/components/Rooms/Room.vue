@@ -7,77 +7,31 @@
             <div id="bookBorderWrapper" class="absolute">
               <BookBorder id="bookBorder" />
             </div>
-            <div v-if="themeCheck()"><BookModernCover id="bookCover" /></div>
+            <div v-if="themeCheck()"><BookSimpleCover id="bookCover" /></div>
             <div v-else><BookHipCover id="bookCover" /></div>
           </div>
         </div>
         <BookBackground id="bookBackground" />
       </div>
-      <RoomName :name="this.name" id="roomName" class="absolute" />
+      <RoomName :name="this.name" id="roomName" class="text-left absolute" />
       <RoomDate :date="this.date" id="roomDate" class="absolute" />
     </div>
   </div>
-  <!-- <div class="p-3 my-3 mr-3 bg-white rounded-xl shadow-md cursor-pointer">
-    <div class="flex flex-col w-36 h-44 justify-between">
-      <div class="flex text-sm font-bold text-black justify-end">남은 시간</div>
-
-      <div>
-        <div class="flex text-sm font-bold text-black mb-2">방 이름</div>
-        <div class="flex flex-row justify-between">
-          <div class="flex flex-row">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-              />
-            </svg>
-            <p class="text-gray-500 text-xs">5명</p>
-          </div>
-
-          <div class="flex flex-row">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-              />
-            </svg>
-            <p class="text-gray-500 text-xs">3개</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
 </template>
 
 <script>
 import BookBorder from "../../assets/book_border.svg";
 import BookHipCover from "../../assets/book_image_hip.svg";
-import BookModernCover from "../../assets/book_image_modern.svg";
+import BookSimpleCover from "../../assets/book_image_modern.svg";
 import BookBackground from "../../assets/book_background.svg";
 import RoomName from "./Name.vue";
 import RoomDate from "./Date.vue";
 export default {
   name: "Room",
-  props: ["dummydata"],
+  props: ["data"],
   data() {
     return {
-      Rdata: this.dummydata,
+      Rdata: this.data,
       name: "",
       date: "",
       theme: "",
@@ -88,19 +42,19 @@ export default {
     RoomDate,
     BookBorder,
     BookHipCover,
-    BookModernCover,
+    BookSimpleCover,
     BookBackground,
   },
   methods: {
     themeCheck() {
-      if (this.theme.includes("Modern")) return true;
+      if (this.theme.includes("Simple")) return true;
       return false;
     },
   },
   created() {
-    this.name = this.dummydata.name;
-    this.date = this.dummydata.date;
-    this.theme = this.dummydata.theme;
+    this.name = this.data.name;
+    this.date = this.data.date;
+    this.theme = this.data.theme;
   },
 };
 </script>

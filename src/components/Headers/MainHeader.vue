@@ -1,29 +1,30 @@
 <template>
   <div class="flex flex-row justify-between p-3">
     <div class="flex flex-row">
-      <!-- <mypageIcon v-on:click=“goto(‘MyPage’)” /> -->
-      <p>{{ id }}</p>
+      <mypageIcon v-on:click="goto('MyPage')" />
+      <!-- <p>{{ id }}</p> -->
     </div>
     <div class="flex flex-row justify-end">
-      <!-- <AlarmIcon class=“mr-3” v-on:click=“goto(‘Alarm’)” /> -->
-      <!-- <SearchIcon v-on:click=“goto(‘Search’)” /> -->
-      <button @click="callCreateRoom">방생성</button>
+      <AlarmIcon class="mr-3" v-on:click="goto('Alarm')" />
+      <SearchIcon v-on:click="goto('Search')" />
+      <!-- <button @click="callCreateRoom">방생성</button> -->
     </div>
-    <button @click="callGetRoom">방 조회</button>
+
+    <!-- <button @click="callGetRoom">방 조회</button>
     <button @click="callPatchRoom">방 수정</button>
-    <button @click="callDeleteRoom">방 삭제</button>
+    <button @click="callDeleteRoom">방 삭제</button> -->
   </div>
 </template>
 <script>
-// import mypageIcon from “../../assets/mypage_icon.svg”;
-// import SearchIcon from “../../assets/search_icon.svg”;
-// import AlarmIcon from “../../assets/alarm_icon.svg”;
+import mypageIcon from "../../assets/mypage_icon.svg";
+import SearchIcon from "../../assets/search_icon.svg";
+import AlarmIcon from "../../assets/alarm_icon.svg";
 import axios from "axios";
 export default {
   components: {
-    // mypageIcon,
-    // SearchIcon,
-    // AlarmIcon,
+    mypageIcon,
+    SearchIcon,
+    AlarmIcon,
   },
   data: () => {
     return {
@@ -66,7 +67,7 @@ export default {
     },
     callGetRoom() {
       axios
-        .get("https://tido-diary.herokuapp.com/diaries/" + this.roomId, { withCredentials: true })
+        .get("https://tido-diary.herokuapp.com/diaries/", +this.roomId, { withCredentials: true })
         .then((res) => {
           console.log("응답2 : ", res);
         })

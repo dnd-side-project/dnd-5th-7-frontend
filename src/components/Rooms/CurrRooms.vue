@@ -4,7 +4,7 @@
       <SymbolIcon class="mr-1" />
       <span class="text-lg font-bold text-black">진행중인 기록장들이에요</span>
     </div>
-    <span class="text-sm" style="color: #d2d2d2">더보기</span>
+    <span class="text-sm cursor-pointer" style="color: #d2d2d2" @click="goto('INGRoomList')">더보기</span>
   </div>
 
   <div v-if="getData()" class="flex flex-row justify-center items-center h-60">
@@ -17,12 +17,12 @@
       }"
       class="mySwiper"
     >
-      <swiper-slide v-for="dummydata in rooms" :key="dummydata.Rid">
+      <swiper-slide v-for="room in roomList" :key="room.Rid">
         <Room
-          :dummydata="{
-            name: dummydata.Rname,
-            date: dummydata.Rdate,
-            theme: dummydata.Rtheme,
+          :data="{
+            name: room.Rname,
+            date: room.Rdate,
+            theme: room.Rtheme,
           }"
           v-on:click="goto('Board')"
         />
@@ -36,6 +36,8 @@
 </template>
 
 <script>
+import { computed } from "vue";
+import { useStore } from "vuex";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import SwiperCore, { Scrollbar } from "swiper/core";
 import "swiper/swiper.scss";
@@ -53,8 +55,20 @@ export default {
   name: "CurrRooms",
   data() {
     return {
-      rooms: [dummydata[0], dummydata[1], dummydata[2], dummydata[3], dummydata[4], dummydata[5]],
+      // rooms: [dummydata[0], dummydata[1], dummydata[2], dummydata[3], dummydata[4], dummydata[5]],
     };
+  },
+  setup() {
+    const store = useStore();
+    const roomList = computed(() => store.state.roomStore.RoomList);
+    store.commit("setRoomList", []);
+
+    dummydata.forEach((element) => {
+      store.commit("addRoomList", element);
+    });
+
+    // const getRoomList = computed(() => store.getters.roomList);
+    return { roomList };
   },
   components: {
     Swiper,
@@ -70,7 +84,7 @@ export default {
       this.$router.push(page);
     },
     getData() {
-      if (this.rooms.length > 0) return true;
+      if (this.roomList.length > 0) return true;
       return false;
     },
   },

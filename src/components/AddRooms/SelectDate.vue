@@ -10,6 +10,7 @@
 <script>
 import DateIcon from "../../assets/SelectDate.svg";
 export default {
+  props: ["nyear", "nmonth", "nday"],
   data() {
     return {
       year: new Date().getFullYear(),
@@ -21,5 +22,12 @@ export default {
     DateIcon,
   },
   methods: {},
+  watch: {
+    nday: function () {
+      this.year = this.nyear;
+      this.month = this.nmonth;
+      this.day = this.nday;
+    },
+  },
 };
 </script>

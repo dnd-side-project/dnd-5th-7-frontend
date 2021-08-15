@@ -4,7 +4,8 @@
       <div class="flex items-center py-2">
         <resetIcon class="resetIcon flex justify-end absolute" />
         <input
-          v-model="InputName"
+          @input="ChangeName"
+          :value="name"
           class="
             mt-0
             mx-2
@@ -31,14 +32,13 @@ export default {
   components: { resetIcon },
   data() {
     return {
-      InputName: "",
+      name: "",
     };
   },
-  watch: {
-    InputName: function () {
-      let InputName = this.InputName;
-      console.log(InputName);
-      this.$emit("set-name", InputName);
+  methods: {
+    ChangeName(e) {
+      this.name = e.target.value;
+      this.$emit("setName", this.name);
     },
   },
 };

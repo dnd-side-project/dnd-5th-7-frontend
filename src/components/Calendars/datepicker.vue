@@ -5,7 +5,7 @@
       class="flex justify-center items-center py-2.5 p-0.6 h-256 w-140 hoverPicker"
       v-for="[y, m] in list"
       v-bind:key="[y, m]"
-      :class="{ 'selected-date': y === currYear && m === currMonth }"
+      :class="{ 'picker-selected-date': y === currYear && m === currMonth }"
     >
       <span @click="onEmit(y, m)">{{ y }}년 {{ m }}월</span>
     </div>
@@ -62,7 +62,7 @@ export default {
 }
 
 .hoverPicker:hover,
-.selected-date {
+.picker-selected-date {
   background-color: #eaeaea;
 }
 </style>
