@@ -12,7 +12,7 @@
         "Rid":2,
         "Rname":"제주도 가족 여행!",
         "Rdate":"2020-09-28",
-        "Rtheme":"Modern",
+        "Rtheme":"Simple",
         "Rurl":"https://cmu.edu/fusce.jpg",
         "Rpeople":"mnewnham1",
         "Rdata":"item1"
@@ -39,13 +39,13 @@
         "Rid":5,
         "Rname":"Will, Paucek and Predovic",
         "Rdate":"2020-10-23",
-        "Rtheme":"Modern",
+        "Rtheme":"Simple",
         "Rurl":"http://arstechnica.com/donec/vitae/nisi/nam/ultrices/libero/non.xml",
         "Rpeople":"blautie4",
         "Rdata":"item2"
     },
     {"Rid":6,"Rname":"Boyle, Jacobi and Hettinger","Rdate":"2020-10-03","Rtheme":"Hip","Rurl":"https://qq.com/in/blandit/ultrices.html","Rpeople":"aharmes5","Rdata":"item2"},
     {"Rid":7,"Rname":"Hudson and Sons","Rdate":"2020-08-17","Rtheme":"Hip","Rurl":"https://usnews.com/donec/dapibus/duis/at/velit/eu/est.aspx","Rpeople":"dstuck6","Rdata":"item3"},
-    {"Rid":8,"Rname":"Daugherty, McLaughlin and Strosin","Rdate":"2021-07-22","Rtheme":"Modern","Rurl":"http://mapy.cz/ac/nulla/sed.aspx","Rpeople":"imarkova7","Rdata":"item3"},
-    {"Rid":9,"Rname":"Williamson-Ratke","Rdate":"2021-07-23","Rtheme":"Modern","Rurl":"https://tiny.cc/nulla/ac/enim/in/tempor/turpis/nec.json","Rpeople":"dhattoe8","Rdata":"item1"},
+    {"Rid":8,"Rname":"Daugherty, McLaughlin and Strosin","Rdate":"2021-07-22","Rtheme":"Simple","Rurl":"http://mapy.cz/ac/nulla/sed.aspx","Rpeople":"imarkova7","Rdata":"item3"},
+    {"Rid":9,"Rname":"Williamson-Ratke","Rdate":"2021-07-23","Rtheme":"Simple","Rurl":"https://tiny.cc/nulla/ac/enim/in/tempor/turpis/nec.json","Rpeople":"dhattoe8","Rdata":"item1"},
     {"Rid":10,"Rname":"Jenkins-Dibbert","Rdate":"2020-09-16","Rtheme":"Hip","Rurl":"https://usa.gov/erat.html","Rpeople":"sbreach9","Rdata":"item1"}]

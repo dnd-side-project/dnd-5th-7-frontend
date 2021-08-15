@@ -1,8 +1,8 @@
 import { createApp } from "vue";
 import { router } from "./router";
+import store from "./store";
 import SwiperCore, { Navigation, Pagination } from "swiper/core";
 import App from "./App.vue";
-import store from "./store";
 import "./assets/styles/index.css";
 
 const app = createApp(App);

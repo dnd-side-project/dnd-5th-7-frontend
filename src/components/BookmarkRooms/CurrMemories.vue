@@ -4,7 +4,7 @@
       <symbolIcon class="mr-1" />
       <span class="text-lg font-bold text-black">즐거웠던 기록장들을 모았어요</span>
     </div>
-    <span class="text-sm" style="color: #d2d2d2">더보기</span>
+    <span class="text-sm cursor-pointer" style="color: #d2d2d2" @click="goto('LikeRoomList')">더보기</span>
   </div>
   <div v-if="getData()" class="flex flex-row h-56 mb-5 mt-3">
     <swiper
@@ -53,6 +53,9 @@ export default {
   },
   props: {},
   methods: {
+    goto(page) {
+      this.$router.push(page);
+    },
     getData() {
       if (this.memories.length > 0) return true;
       return false;

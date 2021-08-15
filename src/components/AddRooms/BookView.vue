@@ -7,7 +7,7 @@
             <div id="bookBorderWrapper" class="absolute">
               <BookBorder id="bookBorder" />
             </div>
-            <div v-if="themeCheck()"><BookModernCover id="bookCover" /></div>
+            <div v-if="themeCheck()"><BookSimpleCover id="bookCover" /></div>
             <div v-else><BookHipCover id="bookCover" /></div>
           </div>
         </div>
@@ -22,16 +22,15 @@
 <script>
 import BookBorder from "../../assets/book_border.svg";
 import BookHipCover from "../../assets/book_image_hip.svg";
-import BookModernCover from "../../assets/book_image_modern.svg";
+import BookSimpleCover from "../../assets/book_image_modern.svg";
 import BookBackground from "../../assets/book_background.svg";
 import RoomName from "../Rooms/Name.vue";
 import RoomDate from "../Rooms/Date.vue";
 
 export default {
-  props: ["data"],
+  props: ["nname", "ndate", "ntheme"],
   data() {
     return {
-      Rdata: this.data,
       name: "",
       date: "",
       theme: "",
@@ -40,21 +39,32 @@ export default {
   components: {
     BookBorder,
     BookHipCover,
-    BookModernCover,
+    BookSimpleCover,
     BookBackground,
     RoomName,
     RoomDate,
   },
   methods: {
     themeCheck() {
-      if (this.theme.includes("Modern")) return true;
+      if (this.theme.includes("Simple")) return true;
       return false;
     },
   },
   created() {
-    this.name = this.data.name;
-    this.date = this.data.date;
-    this.theme = this.data.theme;
+    this.name = this.nname;
+    this.date = this.ndate;
+    this.theme = this.ntheme;
+  },
+  watch: {
+    nname: function () {
+      this.name = this.nname;
+    },
+    ndate: function () {
+      this.date = this.ndate;
+    },
+    ntheme: function () {
+      this.theme = this.ntheme;
+    },
   },
 };
 </script>
