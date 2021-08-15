@@ -33,9 +33,9 @@ export default {
       window.Kakao.Link.sendDefault({
         objectType: "feed",
         content: {
-          title: "xx님이 xx로 초대하였습니다.",
-          description: "들어오세용",
-          imageUrl: "../../assets/라이언.png",
+          title: "‘기록(방) 명’에서 같이 추억을 공유해요!",
+          description: "함께 추억을 기록하고 보관해요.",
+          imageUrl: "../../assets/book_image_simple.png",
           link: {
             webUrl: FRONT_URL,
             mobileWebUrl: FRONT_URL,
