@@ -1,10 +1,8 @@
 import { createStore } from "vuex";
+import createPersistedState from "vuex-persistedstate";
+import { roomStore } from "./modules/room_module";
 
-export const store = createStore({
-  state: {
-    a: 0,
-  },
-  mutations: {},
-  actions: {},
-  modules: {},
+export default createStore({
+  modules: { roomStore },
+  plugins: [createPersistedState()],
 });

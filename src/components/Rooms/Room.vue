@@ -74,10 +74,10 @@ import RoomName from "./Name.vue";
 import RoomDate from "./Date.vue";
 export default {
   name: "Room",
-  props: ["dummydata"],
+  props: ["data"],
   data() {
     return {
-      Rdata: this.dummydata,
+      Rdata: this.data,
       name: "",
       date: "",
       theme: "",
@@ -98,9 +98,9 @@ export default {
     },
   },
   created() {
-    this.name = this.dummydata.name;
-    this.date = this.dummydata.date;
-    this.theme = this.dummydata.theme;
+    this.name = this.data.name;
+    this.date = this.data.date;
+    this.theme = this.data.theme;
   },
 };
 </script>

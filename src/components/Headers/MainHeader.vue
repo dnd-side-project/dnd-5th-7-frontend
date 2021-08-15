@@ -2,14 +2,17 @@
   <div class="flex flex-row justify-between p-3">
     <div class="flex flex-row">
       <mypageIcon v-on:click="goto('MyPage')" />
-      <!-- <p>{{ id }}</p> -->
+      <p>{{ id }}</p>
     </div>
     <div class="flex flex-row justify-end">
       <AlarmIcon class="mr-3" v-on:click="goto('Alarm')" />
       <SearchIcon v-on:click="goto('Search')" />
+      <button @click="callCreateRoom">방생성</button>
     </div>
-    <!-- <button @click="callGetId">Id 가져오셈</button>
-    <button @click="callCreateRoom">방생성</button> -->
+
+    <button @click="callGetRoom">방 조회</button>
+    <button @click="callPatchRoom">방 수정</button>
+    <button @click="callDeleteRoom">방 삭제</button>
   </div>
 </template>
 
@@ -27,11 +30,11 @@ export default {
   data: () => {
     return {
       id: [],
+      roomId: 0,
     };
   },
   created() {
     this.callGetId();
-    this.callCreateRoom();
   },
   methods: {
     goto(page) {
@@ -53,9 +56,43 @@ export default {
       axios
         .post(
           "https://tido-diary.herokuapp.com/diaries",
-          { title: "제목", date: "2020/2/23", theme: "simple" },
+          { title: "제목", date: "2020-2-23", mood: "simple" },
           { withCredentials: true },
         )
+        .then((res) => {
+          console.log("응답2 : ", res);
+        })
+        .catch((e) => {
+          console.log("error : ", e);
+        });
+    },
+    callGetRoom() {
+      axios
+        .get("https://tido-diary.herokuapp.com/diaries/", +this.roomId, { withCredentials: true })
+        .then((res) => {
+          console.log("응답2 : ", res);
+        })
+        .catch((e) => {
+          console.log("error : ", e);
+        });
+    },
+    callPatchRoom() {
+      axios
+        .patch(
+          "https://tido-diary.herokuapp.com/diaries/" + this.roomId,
+          { title: "수정된~이름", date: "2020/2/23", mood: "simple", lock: 0 },
+          { withCredentials: true },
+        )
+        .then((res) => {
+          console.log("응답2 : ", res);
+        })
+        .catch((e) => {
+          console.log("error : ", e);
+        });
+    },
+    callDeleteRoom() {
+      axios
+        .delete("https://tido-diary.herokuapp.com/diaries/" + this.roomId, { withCredentials: true })
         .then((res) => {
           console.log("응답2 : ", res);
         })
