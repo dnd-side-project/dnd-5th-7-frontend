@@ -33,6 +33,9 @@ export default {
     // const getRoomList = computed(() => store.getters.roomList);
     return { roomList };
   },
+  created() {
+    window.scrollTo(0, 0);
+  },
 };
 </script>
 

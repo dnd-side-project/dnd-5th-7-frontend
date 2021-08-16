@@ -10,7 +10,7 @@
         <div class="font-light text-12 text-grayscale">{{ this.date }}-{{ data.day }}</div>
         <div class="flex flex-row items-center mt-1.2">
           <!-- 방 소속 인원 -->
-          <div class="w-56 mr-0.8"><profiles /></div>
+          <div class="w-56 mr-1.4"><profiles /></div>
           <div class="font-light text-12">{{ data.people.length }}명</div>
         </div>
       </div>

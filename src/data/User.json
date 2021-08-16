@@ -1,0 +1,62 @@
+[
+    {
+        "uId":1,
+        "uName": "닭대갈", 
+        "isHost": false
+    },
+    {
+        "uId":2,
+        "uName": "향상된 하드웨어", 
+        "isHost": true
+    },
+    {
+        "uId":3,
+        "uName": "Mingyu", 
+        "isHost": false
+    },
+    {
+        "uId":4,
+        "uName": "도연", 
+        "isHost": false
+    },
+    {
+        "uId":5,
+        "uName": "대현", 
+        "isHost": false
+    },
+    {
+        "uId":6,
+        "uName": "본", 
+        "isHost": false
+    },
+    {
+        "uId":7,
+        "uName": "모공", 
+        "isHost": false
+    },
+    {
+        "uId":8,
+        "uName": "샌드백", 
+        "isHost": false
+    },
+    {
+        "uId":9,
+        "uName": "암튼멋진별명", 
+        "isHost": false
+    },
+    {
+        "uId":10,
+        "uName": "별명최대길이는아홉글자", 
+        "isHost": false
+    },
+    {
+        "uId":11,
+        "uName": "스크롤도 된다구요", 
+        "isHost": false
+    },
+    {
+        "uId":12,
+        "uName": "안되나요", 
+        "isHost": false
+    }
+]

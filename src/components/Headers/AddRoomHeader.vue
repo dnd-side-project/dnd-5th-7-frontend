@@ -1,18 +1,18 @@
 <template>
   <div class="flex flex-row justify-between items-center p-3 h-56 header">
-    <cancleIcon @click="goback()" />
+    <backIcon @click="goback()" />
     <div class="text-16 header-text">기록장 시작하기</div>
-    <div class="text-16 header-text" @click="goto('AddRoom2')">다음</div>
+    <div></div>
   </div>
   <div class="divider"></div>
 </template>
 
 <script>
-import cancleIcon from "../../assets/icon_cancle.svg";
+import backIcon from "../../assets/icon_back.svg";
 export default {
   props: ["theme"],
   components: {
-    cancleIcon,
+    backIcon,
   },
   methods: {
     goback() {
