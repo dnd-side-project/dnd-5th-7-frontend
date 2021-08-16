@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center">
-    <div class="flex flex-col w-48 h-60 justify-center items-center">
+    <div class="flex flex-col w-168 h-60 justify-center items-center">
       <div>
         <div class="relative">
           <div id="bookCoverWrapper" class="absolute">
