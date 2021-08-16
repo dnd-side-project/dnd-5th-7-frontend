@@ -19,6 +19,7 @@ export default {
     addBackground,
     plusIcon,
   },
+  methods: {},
 };
 </script>
 
