@@ -22,7 +22,7 @@ export default {
   },
   watch: {
     date: function () {
-      let temp = this.date.split("/");
+      let temp = this.date.split("-");
       this.Rdate = this.date;
       this.Year = temp[0];
       this.Month = temp[1];

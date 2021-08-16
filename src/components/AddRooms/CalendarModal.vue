@@ -15,11 +15,12 @@
 import Monthly from "./Calendar.vue";
 export default {
   components: { Monthly },
+  props: ["myear", "mmonth", "mday"],
   data() {
     return {
-      year: 0,
-      month: 0,
-      day: 0,
+      year: this.myear,
+      month: this.mmonth,
+      day: this.mday,
     };
   },
   methods: {
