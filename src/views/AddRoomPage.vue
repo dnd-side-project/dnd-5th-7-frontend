@@ -67,6 +67,9 @@ export default {
     },
     AddRoom() {
       RoomService.CreateRoom(this.name, this.date, this.theme).then((result) => {
+        console.log("name: " + this.name);
+        console.log("date: " + this.date);
+        console.log("theme: " + this.theme);
         console.log(result);
       });
     },
