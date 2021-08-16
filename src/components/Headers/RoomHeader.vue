@@ -3,7 +3,7 @@
     <div class="flex flex-row justify-between items-center p-5 h-56 header">
       <cancleIcon @click="goback()" />
       <div class="text-16 header-text">기록장 이름</div>
-      <div class="flex w-16 justify-between">
+      <div class="flex w-56 justify-between">
         <likeIcon />
         <hamburgerIcon class="z-10" @click="onClickSlider" />
       </div>

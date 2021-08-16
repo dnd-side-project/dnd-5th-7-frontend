@@ -1,29 +1,18 @@
 <template>
-  <v-app>
-    <form class="w-full max-w-sm p-3">
-      <div class="flex items-center py-2">
-        <resetIcon class="resetIcon flex justify-end absolute" />
-        <input
-          @input="ChangeName"
-          :value="name"
-          class="
-            mt-0
-            mx-2
-            block
-            w-full
-            px-0.5
-            border-0 border-b-2
-            text-16 text-gray300
-            border-gray300
-            focus:ring-0 focus:border-gray500 focus:text-gray500
-          "
-          type="text"
-          placeholder="기록장의 이름을 적어주세요"
-          aria-label="Bookname"
-        />
-      </div>
-    </form>
-  </v-app>
+  <form class="w-full">
+    <div class="flex items-center">
+      <resetIcon class="resetIcon flex justify-end absolute" />
+      <input
+        @input="ChangeName"
+        :value="name"
+        class="block w-full text-16 text-gray300 bg-bg focus:ring-0 focus:border-gray500 focus:text-gray500"
+        type="text"
+        placeholder="기록장의 이름을 적어주세요"
+        aria-label="Bookname"
+        width="280px"
+      />
+    </div>
+  </form>
 </template>
 
 <script>
@@ -54,6 +43,6 @@ input :active {
 }
 
 .resetIcon {
-  margin-left: 310px;
+  margin-left: 260px;
 }
 </style>

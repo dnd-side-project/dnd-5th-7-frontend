@@ -2,7 +2,7 @@
   <div class="flex flex-row mt-5 justify-between items-center content-center">
     <div class="flex flex-row items-center">
       <symbolIcon class="mr-1" />
-      <span class="text-lg font-bold text-black">즐거웠던 기록장들을 모았어요</span>
+      <span class="text-18 font-semibold text-black">다시 보고 싶은 기록장 주섬주섬..</span>
     </div>
     <span class="text-sm cursor-pointer" style="color: #d2d2d2" @click="goto('LikeRoomList')">더보기</span>
   </div>

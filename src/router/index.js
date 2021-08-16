@@ -1,16 +1,15 @@
 import { createWebHistory, createRouter } from "vue-router";
 import Main from "../views/MainPage.vue";
-import Board from "../views/BoardPage.vue";
+import Room from "../views/RoomPage.vue";
 import Login from "../views/LoginPage.vue";
 import AddRoom from "../views/AddRoomPage.vue";
-import AddRoom2 from "../views/AddRoomPage2.vue";
 import MyPage from "../views/MyPage.vue";
 import RoomDetail from "../views/RoomDetailPage.vue";
 import RoomList from "../views/RoomListPage.vue";
 import LikeRoomList from "../views/LikeRoomListPage.vue";
 import INGRoomList from "../views/INGRoomListPage.vue";
+import ThemePreview from "../views/ThemePreviewPage.vue";
 // import test from "../views/storeTest.vue";
-import Room from "../views/RoomPage.vue";
 
 const routes = [
   {
@@ -25,19 +24,14 @@ const routes = [
     props: true,
   },
   {
-    path: "/Board",
-    name: "Board",
-    component: Board,
+    path: "/Room/:id",
+    name: "Room",
+    component: Room,
   },
   {
     path: "/AddRoom",
     name: "AddRoom",
     component: AddRoom,
-  },
-  {
-    path: "/AddRoom2",
-    name: "AddRoom2",
-    component: AddRoom2,
   },
   {
     path: "/MyPage",
@@ -65,16 +59,16 @@ const routes = [
     name: "INGRoomList",
     component: INGRoomList,
   },
+  {
+    path: "/ThemePreview",
+    name: "ThemePreview",
+    component: ThemePreview,
+  },
   // {
   //   path: "/test",
   //   name: "test",
   //   component: test,
   // },
-  {
-    path: "/Room/:id",
-    name: "Room",
-    component: Room,
-  },
 ];
 
 export const router = createRouter({

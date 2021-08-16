@@ -67,7 +67,7 @@ export default {
     },
     callGetRoom() {
       axios
-        .get("https://tido-diary.herokuapp.com/diaries/", +this.roomId, { withCredentials: true })
+        .get("https://tido-diary.herokuapp.com/diaries/" + this.roomId, { withCredentials: true })
         .then((res) => {
           console.log("응답2 : ", res);
         })

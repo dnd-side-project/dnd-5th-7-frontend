@@ -7,7 +7,7 @@
           {{ year }}.{{ monthToString }}
           <div v-show="isPickerClicked" class="w-0">
             <DatePicker
-              class="datepicker relative bg-white -left-24 top-36"
+              class="datepicker relative bg-white -left-88 top-36"
               id="scrollView"
               :SelectedYear="this.year"
               :SelectedMonth="this.month"
@@ -252,13 +252,9 @@ td.prev-dates {
 }
 .selected-date {
   color: #2d2d2d;
-  background-image: url("data:image/svg+xml,%3Csvg width='44' height='36' viewBox='0 0 44 36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.75 27.1667L15.4 29H33V13.1111L31.35 10.6667L28.6 7H11V24.1111L13.75 27.1667Z' fill='%23FFD74A'/%3E%3C/svg%3E%0A");
+  background-image: url("data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.75 20.1667L4.4 22H22V6.11111L20.35 3.66667L17.6 0H0V17.1111L2.75 20.1667Z' fill='%23EAEAEA'/%3E%3C/svg%3E%0A");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-}
-.datepicker {
-  top: 50;
-  left: 20;
 }
 </style>
