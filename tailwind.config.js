@@ -14,7 +14,7 @@ module.exports = {
       ExtraBold: ["Pretendard-ExtraBold", "Pretendard-Bold"],
     },
     fontSize: {
-      "4xl": [
+      36: [
         "36px",
         {
           letterSpacing: " -0.02em",
@@ -93,6 +93,7 @@ module.exports = {
         218: "218px",
         208: "208px",
         200: "200px",
+        168: "168px",
         154: "154px",
         152: "152px",
         140: "140px",
@@ -106,6 +107,7 @@ module.exports = {
         76: "76px",
         80: "80px",
         6.4: "64px",
+        62: "62px",
         56: "56px",
         52: "52px",
         50: "50px",
