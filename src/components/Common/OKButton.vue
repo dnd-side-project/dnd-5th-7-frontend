@@ -1,5 +1,5 @@
 <template>
-  <button class="okbtn h-52 w-320 bg-gray500" style="color: white">확인</button>
+  <button class="okbtn h-52 w-full bg-gray500" style="color: white">확인</button>
 </template>
 
 <style>

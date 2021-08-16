@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="flex bg-bg h-screen">
     <div v-for="(data, index) in lst" v-bind:key="data.id">
       <layoutFrame :data="data" :index="index" :width="data.x" :height="data.y"></layoutFrame>
     </div>

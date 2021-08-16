@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-row justify-between p-3">
+  <div class="flex flex-row justify-between p-3 bg-bg">
     <div class="flex flex-row">
       <mypageIcon v-on:click="goto('MyPage')" />
       <!-- <p>{{ id }}</p> -->
