@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <Header :theme="this.theme"></Header>
-    <div class="p-3 h-screen">
+    <div class="pt-28 px-20 h-screen bg-bg">
       <SelectTheme @themeSelected="themeSelected"></SelectTheme>
       <!-- <SelectMember></SelectMember> -->
       <EnterInfo @dateChanged="dateChanged" @nameChanged="nameChanged" />
@@ -43,7 +43,7 @@ export default {
   methods: {
     themeSelected(theme) {
       this.theme = theme;
-      console.log("선택된 테마 :" + this.theme);
+      // console.log("선택된 테마 :" + this.theme);
     },
     goto(page) {
       if (this.theme != "") this.$router.push(page);
@@ -60,11 +60,11 @@ export default {
     },
     dateChanged(date) {
       this.date = date;
-      console.log("선택된 날짜 :" + this.date);
+      // console.log("선택된 날짜 :" + this.date);
     },
     nameChanged(name) {
       this.name = name;
-      console.log("입력된 이름 :" + this.name);
+      // console.log("입력된 이름 :" + this.name);
     },
     AddRoom() {
       axios

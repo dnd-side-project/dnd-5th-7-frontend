@@ -9,7 +9,8 @@
   <div v-if="getData()" class="flex flex-row h-56 mb-5 mt-3">
     <swiper
       :slidesPerView="2"
-      :freeMode="false"
+      :freeMode="true"
+      :autoHeight="true"
       :spaceBetween="5"
       :scrollbar="{
         hide: true,

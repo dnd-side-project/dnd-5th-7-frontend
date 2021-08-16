@@ -5,7 +5,7 @@
       <Slider v-if="this.onClickedHamburger" @sliderClosed="onClickSlider"></Slider>
     </teleport>
     <FloatingBtn />
-    <div v-if="this.rooms == null" class="h-full">
+    <div v-if="this.rooms == null" class="h-full bg-bg">
       <NoRecord></NoRecord>
     </div>
     <div v-else class="h-full ml-1"><LayoutView /></div>

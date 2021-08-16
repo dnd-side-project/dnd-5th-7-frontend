@@ -1,11 +1,11 @@
 <!-- @format -->
 
 <template>
-  <div class="text-left ml-2 flex-col mb-11">
-    <div class="colors.gray.500 font-bold text-4xl mb-0.5">TIDO와</div>
-    <div class="colors.gray.500 font-bold text-4xl mb-0.5">같이</div>
-    <div class="colors.gray.500 text-4xl mb-0.5">일상을</div>
-    <div class="colors.gray.500 text-4xl">기록하세요</div>
+  <div class="text-left text-36 ml-2 mb-0.5 flex-col mb-11 text-gray500">
+    <div class="font-bold">TIDO와</div>
+    <div class="font-bold">같이</div>
+    <div>일상을</div>
+    <div>기록하세요</div>
   </div>
 </template>
 

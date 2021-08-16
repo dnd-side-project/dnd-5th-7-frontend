@@ -2,7 +2,7 @@
   <div class="w-280 flex flex-row justify-between items-center">
     <span class="text-16">추억생성일</span>
     <div class="flex flex-row text-16 border-b-2 border-gray100 pb-0.4" @click="dateClicked">
-      <DateIcon class="mr-0.4" />{{ this.year }}. {{ this.month }}. {{ this.day }}
+      <DateIcon class="mr-0.4 cursor-pointer" />{{ this.year }}. {{ this.month }}. {{ this.day }}
     </div>
   </div>
 </template>

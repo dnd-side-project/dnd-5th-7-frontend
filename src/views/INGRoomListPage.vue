@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <Header :text="this.title"></Header>
-    <div class="h-screen"><ListView :dummydata="roomList" /></div>
+    <div class="h-screen bg-bg"><ListView :dummydata="roomList" /></div>
   </v-app>
 </template>
 

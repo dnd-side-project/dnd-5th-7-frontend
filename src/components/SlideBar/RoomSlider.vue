@@ -9,7 +9,7 @@
             <member :UserName="user.uName" :host="user.isHost" />
           </div>
         </div>
-        <div class="font-bold text-14 pt-16 pl-20 flex flex-row items-center">
+        <div class="font-bold text-14 pt-16 pl-20 flex flex-row items-center cursor-pointer">
           기록장 나가기<exitIcon class="ml-1" />
         </div>
       </div>

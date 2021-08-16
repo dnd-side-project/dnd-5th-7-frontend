@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-row justify-between items-center p-3 h-56 header">
-    <backIcon @click="goback()" />
+    <backIcon class="cursor-pointer" @click="goback()" />
     <div class="text-16 header-text">테마 상세보기</div>
     <div></div>
   </div>
