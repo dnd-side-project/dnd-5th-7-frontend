@@ -7,12 +7,13 @@
       <div class="flex flex-col">
         <div class="w-280 flex flex-col items-center justify-center">
           <Inputs class="w-280 mb-28" @setName="setName" />
-          <SelectDate @click="modalToggle" :nyear="this.year" :nmonth="this.month" :nday="this.day" />
+          <SelectDate @dateClicked="dateClicked" :nyear="this.year" :nmonth="this.month" :nday="this.day" />
           <div v-show="isModalClicked">
             <Modal
               :myear="this.year"
               :mmonth="this.month"
               :mday="this.day"
+              @dayClicked="modalToggle"
               @closeModal="modalToggle"
               @dayConfirmed="dayConfirm"
             />
@@ -54,6 +55,9 @@ export default {
       this.day = dates.day;
       this.date = dates.year + "-" + dates.month + "-" + dates.day;
       console.log(this.date);
+    },
+    dateClicked() {
+      this.isModalClicked = !this.isModalClicked;
     },
   },
   created() {
