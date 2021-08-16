@@ -6,11 +6,14 @@
       <!-- <SelectMember></SelectMember> -->
       <EnterInfo @dateChanged="dateChanged" @nameChanged="nameChanged" />
       <alert v-if="this.isAlertShow == true" class="alert absolute" :text="this.alertText" />
-      <OKBtn class="mt-42" @click="goto('room')" />
+      <OKBtn class="mt-42" @click="AddRoom" />
+      <!-- <OKBtn class="mt-42" @click="goto('room')" /> -->
     </div>
   </v-app>
 </template>
+
 <script>
+import RoomService from "../api/Room/services/room.service";
 import Header from "../components/Headers/AddRoomHeader.vue";
 import SelectTheme from "../components/AddRooms/SelectTheme.vue";
 // import SelectMember from "../components/AddRooms/SelectMember.vue";
@@ -61,6 +64,11 @@ export default {
     nameChanged(name) {
       this.name = name;
       console.log("입력된 이름 :" + this.name);
+    },
+    AddRoom() {
+      RoomService.CreateRoom(this.name, this.date, this.theme).then((result) => {
+        console.log(result);
+      });
     },
   },
 };
