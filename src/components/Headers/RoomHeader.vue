@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="flex flex-row justify-between items-center p-5 h-56 header">
-      <cancleIcon @click="goback()" />
+      <cancleIcon class="cursor-pointer" @click="goback()" />
       <div class="text-16 header-text">기록장 이름</div>
       <div class="flex w-56 justify-between">
-        <likeIcon />
-        <hamburgerIcon class="z-10" @click="onClickSlider" />
+        <likeIcon class="cursor-pointer" />
+        <hamburgerIcon class="z-10 cursor-pointer" @click="onClickSlider" />
       </div>
     </div>
     <div class="divider"></div>

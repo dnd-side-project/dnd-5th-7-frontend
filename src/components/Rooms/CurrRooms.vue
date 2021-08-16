@@ -26,6 +26,7 @@
             theme: room.Rtheme,
           }"
           v-on:click="goWithParam('Room', room.Rid)"
+          class="cursor-pointer"
         />
       </swiper-slide>
     </swiper>

@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-row justify-between items-center p-3 h-56 header">
-    <div><backIcon @click="goback()" /></div>
+    <div class="cursor-pointer"><backIcon @click="goback()" /></div>
 
     <div class="text-16 header-text">{{ this.text }}</div>
     <div></div>

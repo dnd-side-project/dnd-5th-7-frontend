@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-row justify-between items-center p-3 h-56 header">
-    <backIcon @click="goback()" />
+    <backIcon class="cursor-pointer" @click="goback()" />
     <div class="text-16 header-text">기록장 시작하기</div>
     <div></div>
   </div>

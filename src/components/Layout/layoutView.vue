@@ -1,6 +1,6 @@
 <template>
   <div class="flex bg-bg h-screen">
-    <div v-for="(data, index) in lst" v-bind:key="data.id">
+    <div v-for="(data, index) in lst" v-bind:key="data.id" class="cursor-pointer">
       <layoutFrame :data="data" :index="index" :width="data.x" :height="data.y"></layoutFrame>
     </div>
   </div>

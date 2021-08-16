@@ -3,7 +3,7 @@
     <section class="flex flex-col justify-center items-center rounded h-full">
       <div class="flex flex-row justify-between items-center w-320 text-16 h-12 px-5">
         <div class="header-arrow cursor-pointer" @click="controlMonth('prev')">&lt;</div>
-        <div class="flex flex-row items-center justify-center" @click="datepicker()">
+        <div class="flex flex-row items-center justify-center cursor-pointer" @click="datepicker()">
           {{ year }}.{{ monthToString }}
           <div v-show="isPickerClicked" class="w-0">
             <DatePicker

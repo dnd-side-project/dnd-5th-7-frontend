@@ -1,7 +1,7 @@
 <!-- @format -->
 
 <template>
-  <div class="p-3 bg-bg">
+  <div class="p-3 flex flex-col justify-start h-screen bg-bg">
     <Logo></Logo>
     <BrandingText></BrandingText>
     <EnterPageImg></EnterPageImg>
