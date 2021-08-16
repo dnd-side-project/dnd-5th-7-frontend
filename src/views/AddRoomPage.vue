@@ -13,7 +13,8 @@
 </template>
 
 <script>
-import RoomService from "../api/Room/services/room.service";
+import axios from "axios";
+// import RoomService from "../api/Room/services/room.service";
 import Header from "../components/Headers/AddRoomHeader.vue";
 import SelectTheme from "../components/AddRooms/SelectTheme.vue";
 // import SelectMember from "../components/AddRooms/SelectMember.vue";
@@ -66,12 +67,24 @@ export default {
       console.log("입력된 이름 :" + this.name);
     },
     AddRoom() {
-      RoomService.CreateRoom(this.name, this.date, this.theme).then((result) => {
-        console.log("name: " + this.name);
-        console.log("date: " + this.date);
-        console.log("theme: " + this.theme);
-        console.log(result);
-      });
+      axios
+        .post(
+          "https://tido-diary.herokuapp.com/diaries",
+          { title: this.name, date: this.date, mood: this.theme },
+          { withCredentials: true },
+        )
+        .then((res) => {
+          console.log("응답2 : ", res);
+        })
+        .catch((e) => {
+          console.log("error : ", e);
+        });
+      // RoomService.CreateRoom(this.name, this.date, this.theme).then((result) => {
+      //   console.log("name: " + this.name);
+      //   console.log("date: " + this.date);
+      //   console.log("theme: " + this.theme);
+      //   console.log(result);
+      // });
     },
   },
 };
