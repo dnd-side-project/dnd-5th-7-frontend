@@ -5,7 +5,13 @@
       <input
         @input="ChangeName"
         :value="name"
-        class="block w-full text-16 text-gray300 bg-bg focus:ring-0 focus:border-gray500 focus:text-gray500"
+        class="
+          block
+          w-full
+          text-16 text-gray300
+          bg-bg
+          focus:ring-0 focus:border-gray500 focus:text-gray500 focus:outline-none
+        "
         type="text"
         placeholder="기록장의 이름을 적어주세요"
         aria-label="Bookname"
