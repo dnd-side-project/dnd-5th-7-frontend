@@ -20,6 +20,7 @@ import mypageIcon from "../../assets/mypage_icon.svg";
 import SearchIcon from "../../assets/search_icon.svg";
 import AlarmIcon from "../../assets/alarm_icon.svg";
 import axios from "axios";
+import { BASE_URL } from "../../config";
 export default {
   components: {
     mypageIcon,
@@ -41,7 +42,7 @@ export default {
     },
     callGetId() {
       axios
-        .get("https://tido-diary.herokuapp.com/auth/id", { withCredentials: true })
+        .get(`${BASE_URL}/auth/id`, { withCredentials: true })
         .then((res) => {
           this.id = res.id;
           console.log(this.id);
@@ -53,11 +54,7 @@ export default {
     },
     callCreateRoom() {
       axios
-        .post(
-          "https://tido-diary.herokuapp.com/diaries",
-          { title: "제목", date: "2020-2-23", mood: "simple" },
-          { withCredentials: true },
-        )
+        .post(`${BASE_URL}/diaries`, { title: "제목", date: "2020-2-23", mood: "simple" }, { withCredentials: true })
         .then((res) => {
           console.log("응답2 : ", res);
         })
@@ -67,7 +64,7 @@ export default {
     },
     callGetRoom() {
       axios
-        .get("https://tido-diary.herokuapp.com/diaries/" + this.roomId, { withCredentials: true })
+        .get(`${BASE_URL}/diaries/` + this.roomId, { withCredentials: true })
         .then((res) => {
           console.log("응답2 : ", res);
         })
@@ -78,7 +75,7 @@ export default {
     callPatchRoom() {
       axios
         .patch(
-          "https://tido-diary.herokuapp.com/diaries/" + this.roomId,
+          `${BASE_URL}/diaries/` + this.roomId,
           { title: "수정된~이름", date: "2020/2/23", mood: "simple", lock: 0 },
           { withCredentials: true },
         )
@@ -91,7 +88,7 @@ export default {
     },
     callDeleteRoom() {
       axios
-        .delete("https://tido-diary.herokuapp.com/diaries/" + this.roomId, { withCredentials: true })
+        .delete(`${BASE_URL}/diaries/` + this.roomId, { withCredentials: true })
         .then((res) => {
           console.log("응답2 : ", res);
         })
