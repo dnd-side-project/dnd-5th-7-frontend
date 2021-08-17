@@ -11,6 +11,7 @@
     <swiper
       :slidesPerView="2"
       :freeMode="true"
+      :autoHeight="true"
       :spaceBetween="10"
       :scrollbar="{
         hide: true,
@@ -25,9 +26,9 @@
             theme: room.Rtheme,
           }"
           v-on:click="goWithParam('Room', room.Rid)"
+          class="cursor-pointer"
         />
       </swiper-slide>
-      <swiper-slide><AddRoom /></swiper-slide>
     </swiper>
   </div>
   <div v-else><NoRoom /></div>
@@ -46,7 +47,6 @@ SwiperCore.use([Scrollbar]);
 import SymbolIcon from "../../assets/title_symbol_1.svg";
 import Room from "./Room.vue";
 import NoRoom from "./NoRoom.vue";
-import AddRoom from "./AddRoom.vue";
 import dummydata from "../../data/rooms.json";
 
 export default {
@@ -73,7 +73,6 @@ export default {
     SwiperSlide,
     Room,
     NoRoom,
-    AddRoom,
     SymbolIcon,
   },
   props: {},

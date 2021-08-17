@@ -1,8 +1,8 @@
 <template>
   <div class="h-122 flex flex-col justify-between absolute top-76 right-5 z-10">
-    <writingIcon class="z-10" @click="Wbtnclicked" />
+    <writingIcon class="z-10 cursor-pointer" @click="Wbtnclicked" />
     <div v-show="this.WriteBtnClicked" class="absolute z-20 FirstfuncList"><WriteFunction /></div>
-    <hostIcon class="z-10" @click="Hbtnclicked" />
+    <hostIcon class="z-10 cursor-pointer" @click="Hbtnclicked" />
     <div v-show="this.HostBtnClicked" class="absolute SecondfuncList"><HostFunction /></div>
   </div>
 </template>

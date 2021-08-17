@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <Header :theme="this.theme"></Header>
-    <div class="p-3 h-screen">
+    <div class="pt-28 px-20 h-screen bg-bg">
       <SelectTheme @themeSelected="themeSelected"></SelectTheme>
       <!-- <SelectMember></SelectMember> -->
       <EnterInfo @dateChanged="dateChanged" @nameChanged="nameChanged" />
@@ -13,7 +13,8 @@
 </template>
 
 <script>
-import RoomService from "../api/Room/services/room.service";
+import axios from "axios";
+// import RoomService from "../api/Room/services/room.service";
 import Header from "../components/Headers/AddRoomHeader.vue";
 import SelectTheme from "../components/AddRooms/SelectTheme.vue";
 // import SelectMember from "../components/AddRooms/SelectMember.vue";
@@ -42,7 +43,7 @@ export default {
   methods: {
     themeSelected(theme) {
       this.theme = theme;
-      console.log("선택된 테마 :" + this.theme);
+      // console.log("선택된 테마 :" + this.theme);
     },
     goto(page) {
       if (this.theme != "") this.$router.push(page);
@@ -59,19 +60,31 @@ export default {
     },
     dateChanged(date) {
       this.date = date;
-      console.log("선택된 날짜 :" + this.date);
+      // console.log("선택된 날짜 :" + this.date);
     },
     nameChanged(name) {
       this.name = name;
-      console.log("입력된 이름 :" + this.name);
+      // console.log("입력된 이름 :" + this.name);
     },
     AddRoom() {
-      RoomService.CreateRoom(this.name, this.date, this.theme).then((result) => {
-        console.log("name: " + this.name);
-        console.log("date: " + this.date);
-        console.log("theme: " + this.theme);
-        console.log(result);
-      });
+      axios
+        .post(
+          "https://tido-diary.herokuapp.com/diaries",
+          { title: this.name, date: this.date, mood: this.theme },
+          { withCredentials: true },
+        )
+        .then((res) => {
+          console.log("응답2 : ", res);
+        })
+        .catch((e) => {
+          console.log("error : ", e);
+        });
+      // RoomService.CreateRoom(this.name, this.date, this.theme).then((result) => {
+      //   console.log("name: " + this.name);
+      //   console.log("date: " + this.date);
+      //   console.log("theme: " + this.theme);
+      //   console.log(result);
+      // });
     },
   },
 };

@@ -2,20 +2,20 @@
   <div class="border-2 border-gray100 px-20 py-20">
     <div class="flex flex-row justify-between items-center">
       <div class="font-bold text-gray500 text-18">테마를 선택해주세요.</div>
-      <div class="text-12 pb-02 border-b border-gray100" @click="goto('ThemePreview')">미리보기</div>
+      <div class="text-12 pb-02 border-b border-gray100 cursor-pointer" @click="goto('ThemePreview')">미리보기</div>
     </div>
     <div class="pt-22 flex flex-col justify-center items-center">
       <div class="flex flex-col">
         <div class="w-280 h-24 flex flex-row items-center justify-between pb-1.4 border-b-2 border-gray100">
           <div class="flex flex-row items-center"><themeHip class="mr-1.2" /> HIP</div>
-          <div @click="themeSelected('hip')">
+          <div class="cursor-pointer" @click="themeSelected('hip')">
             <img v-if="this.Selected == 'hip'" src="../../assets/check.png" width="24" height="24" />
             <img v-else src="../../assets/not_check.png" width="24" height="24" />
           </div>
         </div>
         <div class="w-280 h-24 flex flex-row items-center justify-between mt-1.4">
           <div class="flex flex-row items-center"><themeSimple class="mr-1.2" /> SIMPLE</div>
-          <div @click="themeSelected('simple')">
+          <div class="cursor-pointer" @click="themeSelected('simple')">
             <img v-if="this.Selected == 'simple'" src="../../assets/check.png" width="24" height="24" />
             <img v-else src="../../assets/not_check.png" width="24" height="24" />
           </div>

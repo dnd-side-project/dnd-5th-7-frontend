@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col justify-center items-center mb-2">
+  <div class="flex flex-col justify-center items-center mb-2 cursor-pointer">
     <div class="relative">
       <plusIcon class="absolute plus-icon" />
     </div>

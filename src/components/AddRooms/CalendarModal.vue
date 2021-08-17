@@ -3,8 +3,8 @@
     <div id="modal-box" class="w-320 h-352 p-3">
       <monthly @dayClicked="dayClicked" />
       <div class="flex flex-row justify-end mt-3 text-14">
-        <span class="mr-5" @click="modalClose">취소</span>
-        <span class="mx-5" @click="dayConfirm">확인</span>
+        <span class="mr-5 cursor-pointer" @click="modalClose">취소</span>
+        <span class="mx-5 cursor-pointer" @click="dayConfirm">확인</span>
       </div>
     </div>
     <label id="modal-bg" for="modal-status" />

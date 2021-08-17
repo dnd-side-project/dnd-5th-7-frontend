@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <Header :theme="this.theme"></Header>
-    <div class="h-screen">
+    <div class="h-screen bg-bg">
       <div class="flex flex-row justify-between">
         <div
           class="text-14 py-18 px-78 border-b-2 border-gray100"
@@ -11,7 +11,7 @@
           HIP
         </div>
         <div
-          class="text-14 py-18 px-78 border-b-2 border-gray100"
+          class="text-14 py-18 px-62 border-b-2 border-gray100"
           @click="themeSelected('simple')"
           :class="{ 'selected-theme': this.theme == 'simple' }"
         >
@@ -20,8 +20,12 @@
       </div>
 
       <div class="flex">
-        <div v-if="this.theme == 'hip'">hip</div>
-        <div v-if="this.theme == 'simple'">simple</div>
+        <div v-if="this.theme == 'hip'" class="pt-28 px-20">
+          <img src="../assets/preview_hip.png" />
+        </div>
+        <div v-if="this.theme == 'simple'" class="pt-28 px-20">
+          <img src="../assets/preview_simple.png" />
+        </div>
       </div>
     </div>
   </v-app>

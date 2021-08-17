@@ -1,12 +1,12 @@
 <template>
-  <div class="flex flex-row justify-between p-3">
-    <div class="flex flex-row">
+  <div class="flex flex-row justify-between p-3 bg-bg">
+    <div class="flex flex-row cursor-pointer">
       <mypageIcon v-on:click="goto('MyPage')" />
       <!-- <p>{{ id }}</p> -->
     </div>
     <div class="flex flex-row justify-end">
-      <AlarmIcon class="mr-3" v-on:click="goto('Alarm')" />
-      <SearchIcon v-on:click="goto('Search')" />
+      <AlarmIcon class="mr-3 cursor-pointer" v-on:click="goto('Alarm')" />
+      <SearchIcon class="cursor-pointer" v-on:click="goto('Search')" />
       <!-- <button @click="callCreateRoom">방생성</button> -->
     </div>
 
