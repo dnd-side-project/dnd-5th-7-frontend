@@ -25,7 +25,13 @@ import OKBtn from "../components/Common/OKButton.vue";
 export default {
   data() {
     return {
-      theme: "",
+      name: "기록장의 이름을 적어주세요",
+      date: "2021/3/4",
+      year: 0,
+      month: 0,
+      day: 0,
+      theme: "hip",
+      isModalClicked: false,
       alertText: "테마를 선택해주세요!",
       isAlertShow: false,
       date: "",
