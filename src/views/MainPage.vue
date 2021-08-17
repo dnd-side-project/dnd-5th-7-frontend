@@ -21,9 +21,9 @@ import { useStore } from "vuex";
 export default {
   setup() {
     const store = useStore();
-    return {
-      asyncGetUser: () => store.dispatch("FETCH_USER"),
-    };
+    const data = store.dispatch("FETCH_USER");
+    console.log(data);
+    return {};
   },
   components: {
     Header,
