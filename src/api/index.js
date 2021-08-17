@@ -1,6 +1,6 @@
 import axios from "axios";
-
+import { BASE_URL } from "../config";
 export const instance = axios.create({
-  baseURL: "https://tido-diary.herokuapp.com/diaries",
+  baseURL: `${BASE_URL}`,
   withCredentials: true,
 });
