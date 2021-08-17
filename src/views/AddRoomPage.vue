@@ -34,8 +34,6 @@ export default {
       isModalClicked: false,
       alertText: "테마를 선택해주세요!",
       isAlertShow: false,
-      date: "",
-      name: "",
     };
   },
   components: {
