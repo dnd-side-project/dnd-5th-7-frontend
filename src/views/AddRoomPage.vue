@@ -28,6 +28,8 @@ export default {
       theme: "",
       alertText: "테마를 선택해주세요!",
       isAlertShow: false,
+      name: "",
+      date: "",
     };
   },
   components: {
@@ -62,7 +64,7 @@ export default {
     },
     nameChanged(name) {
       this.name = name;
-      // console.log("입력된 이름 :" + this.name);
+      console.log("입력된 이름 :" + this.name);
     },
     AddRoom() {
       axios

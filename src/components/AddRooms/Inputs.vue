@@ -24,7 +24,7 @@
         />
       </div>
       <div class="flex justify-between w-full mt-1 px-2">
-        <span class="text-error text-12">제목을 입력해주세요</span>
+        <span v-show="this.isNameNull == true" class="text-error text-12">제목을 입력해주세요</span>
         <span class="text-gray300 text-12">{{ name.length }}/20</span>
       </div>
     </div>
@@ -38,15 +38,31 @@ export default {
   data() {
     return {
       name: "",
+      isNameNull: false,
     };
   },
   methods: {
     ChangeName(e) {
+      this.isNameNull = false;
       this.name = e.target.value;
       this.$emit("setName", this.name);
     },
     ClearName() {
       this.name = "";
+      this.isNameNull = true;
+      this.$emit("setName", this.name);
+    },
+  },
+  watch: {
+    name: function () {
+      if (this.name == "") {
+        this.isNameNull = true;
+      } else {
+        this.isNameNull = false;
+      }
+    },
+    isNameNull: function () {
+      console.log(this.isNameNull);
     },
   },
 };
