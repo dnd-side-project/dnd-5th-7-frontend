@@ -22,7 +22,7 @@ export default {
   setup() {
     const store = useStore();
     const data = store.dispatch("FETCH_USER");
-    console.log(data);
+    console.log("dddd", data);
     return {};
   },
   components: {
