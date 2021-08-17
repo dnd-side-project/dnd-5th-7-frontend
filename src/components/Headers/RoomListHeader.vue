@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-row justify-between items-center p-3 h-56 header">
-    <cancleIcon @click="goback()" />
+    <cancleIcon class="cursor-pointer" @click="goback()" />
     <div class="text-16 header-text">{{ this.year }}.{{ this.month }}.{{ this.day }}</div>
-    <DateIcon @click="modalToggle" />
+    <DateIcon class="cursor-pointer" @click="modalToggle" />
     <div v-show="isModalClicked">
       <Modal @closeModal="modalToggle" @dayConfirmed="dayConfirm" />
     </div>

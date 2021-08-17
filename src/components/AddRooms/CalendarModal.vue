@@ -3,8 +3,8 @@
     <div id="modal-box" class="w-320 h-352 p-3">
       <monthly @dayClicked="dayClicked" />
       <div class="flex flex-row justify-end mt-3 text-14">
-        <span class="mr-5" @click="modalClose">취소</span>
-        <span class="mx-5" @click="dayConfirm">확인</span>
+        <span class="mr-5 cursor-pointer" @click="modalClose">취소</span>
+        <span class="mx-5 cursor-pointer" @click="dayConfirm">확인</span>
       </div>
     </div>
     <label id="modal-bg" for="modal-status" />
@@ -15,11 +15,12 @@
 import Monthly from "./Calendar.vue";
 export default {
   components: { Monthly },
+  props: ["myear", "mmonth", "mday"],
   data() {
     return {
-      year: 0,
-      month: 0,
-      day: 0,
+      year: this.myear,
+      month: this.mmonth,
+      day: this.mday,
     };
   },
   methods: {

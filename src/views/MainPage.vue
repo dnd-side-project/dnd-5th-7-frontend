@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <Header></Header>
-    <div class="p-3">
+    <div class="p-3 bg-bg">
       <Calendar></Calendar>
       <CurrRooms></CurrRooms>
       <CurrMemories></CurrMemories>

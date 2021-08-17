@@ -7,7 +7,7 @@
         day: this.day,
       }"
     ></Header>
-    <div class="h-screen"><ListView :dummydata="roomList" /></div>
+    <div class="h-screen bg-bg pt-18"><ListView :dummydata="roomList" /></div>
   </v-app>
 </template>
 

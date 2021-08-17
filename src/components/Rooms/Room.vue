@@ -1,6 +1,6 @@
 <template>
-  <div class="flex items-center">
-    <div class="flex flex-col w-48 h-60 justify-center items-center">
+  <div class="flex items-center justify-center">
+    <div class="flex flex-col w-168 h-60 justify-center items-center">
       <div>
         <div class="relative">
           <div id="bookCoverWrapper" class="absolute">
@@ -61,7 +61,7 @@ export default {
 
 <style>
 #bookBackground {
-  width: 154px;
+  width: 168px;
 }
 
 #bookCover {
@@ -88,7 +88,7 @@ export default {
   font-size: 14px;
   line-height: 16px;
   top: 170px;
-  left: 30px;
+  left: 23px;
 }
 
 #roomDate {
@@ -98,6 +98,6 @@ export default {
   line-height: 16px;
   padding-top: 3px;
   top: 188px;
-  left: 30px;
+  left: 23px;
 }
 </style>

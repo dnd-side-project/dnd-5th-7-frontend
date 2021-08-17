@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <Header></Header>
-    <div class="p-3">MyPage</div>
+    <div class="p-3 bg-bg">MyPage</div>
   </v-app>
 </template>
 

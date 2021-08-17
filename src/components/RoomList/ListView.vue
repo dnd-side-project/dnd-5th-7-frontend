@@ -1,5 +1,5 @@
 <template>
-  <div v-for="data in list" :key="data.Rid" class="w-360 flex justify-center">
+  <div v-for="data in list" :key="data.Rid" class="w-360 flex justify-center cursor-pointer">
     <div class="w-320 h-84 mx-20 my-10 flex flex-row">
       <div class="w-76 h-84 mr-1.2">
         <img v-if="data.mood == 'simple'" src="../../assets/book_image_modern.png" class="w-76 h-84 object-fit" />
@@ -10,7 +10,7 @@
         <div class="font-light text-12 text-grayscale">{{ this.date }}-{{ data.day }}</div>
         <div class="flex flex-row items-center mt-1.2">
           <!-- 방 소속 인원 -->
-          <div class="w-56 mr-0.8"><profiles /></div>
+          <div class="w-56 mr-1.4"><profiles /></div>
           <div class="font-light text-12">{{ data.people.length }}명</div>
         </div>
       </div>

@@ -2,7 +2,7 @@
   <div class="flex flex-row mt-5 justify-between items-center content-center">
     <div class="flex flex-row items-center">
       <SymbolIcon class="mr-1" />
-      <span class="text-lg font-bold text-black">진행중인 기록장들이에요</span>
+      <span class="text-18 font-semibold text-black">티도와 함께 정리 중!</span>
     </div>
     <span class="text-sm cursor-pointer" style="color: #d2d2d2" @click="goto('INGRoomList')">더보기</span>
   </div>
@@ -11,6 +11,7 @@
     <swiper
       :slidesPerView="2"
       :freeMode="true"
+      :autoHeight="true"
       :spaceBetween="10"
       :scrollbar="{
         hide: true,
@@ -24,12 +25,10 @@
             date: room.Rdate,
             theme: room.Rtheme,
           }"
-          v-on:click="goto('Board')"
+          v-on:click="goWithParam('Room', room.Rid)"
+          class="cursor-pointer"
         />
       </swiper-slide>
-      <!-- <swiper-slide><Room v-on:click="goto('Board')" /></swiper-slide>
-      <swiper-slide><Room v-on:click="goto('Board')" /></swiper-slide> -->
-      <swiper-slide><AddRoom /></swiper-slide>
     </swiper>
   </div>
   <div v-else><NoRoom /></div>
@@ -48,7 +47,6 @@ SwiperCore.use([Scrollbar]);
 import SymbolIcon from "../../assets/title_symbol_1.svg";
 import Room from "./Room.vue";
 import NoRoom from "./NoRoom.vue";
-import AddRoom from "./AddRoom.vue";
 import dummydata from "../../data/rooms.json";
 
 export default {
@@ -75,13 +73,15 @@ export default {
     SwiperSlide,
     Room,
     NoRoom,
-    AddRoom,
     SymbolIcon,
   },
   props: {},
   methods: {
     goto(page) {
       this.$router.push(page);
+    },
+    goWithParam(page, param) {
+      this.$router.push({ name: page, params: { id: param } });
     },
     getData() {
       if (this.roomList.length > 0) return true;

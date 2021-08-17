@@ -14,13 +14,13 @@
                 @setEmitDate="setEmitDate"
               />
             </div>
-            <div class="ml-1"><ComboBox class="relative" /></div>
+            <div class="ml-1"><ComboBox class="relative cursor-pointer" /></div>
           </div>
 
           <!-- <div class="header-arrow cursor-pointer" @click="controlMonth('prev')">&lt;</div>
           <div class="header-arrow cursor-pointer" @click="controlMonth('next')">&gt;</div> -->
         </div>
-        <div class="flex mr-1" @click="goto('AddRoom')"><AddBtn class="mr-1" />추가</div>
+        <div class="flex mr-1 cursor-pointer" @click="goto('AddRoom')"><AddBtn class="mr-1" />추가</div>
       </div>
       <table class="w-full h-auto">
         <thead class="flex w-full h-12 justify-around items-center">
@@ -261,6 +261,7 @@ td.prev-dates {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  cursor: pointer;
 }
 .like-dates {
   color: #ffffff;
@@ -268,6 +269,7 @@ td.prev-dates {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  cursor: pointer;
 }
 .datepicker {
   top: 50;
