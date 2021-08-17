@@ -10,6 +10,7 @@ process.env.KAKAO_KEY;
 window.Kakao.init(`${process.env.VUE_APP_KAKAO_KEY}`);
 app.use(router);
 app.use(store);
+app.config.devtools = true;
 SwiperCore.use([Navigation, Pagination]);
 
 app.mount("#app");
