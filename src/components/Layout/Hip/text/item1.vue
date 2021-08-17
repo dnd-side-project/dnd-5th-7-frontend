@@ -1,16 +1,17 @@
 <template>
-  <div class="bg-white w-152 h-152 pt-10 pl-1.2 pr-16">
-    <div class="font-bold text-18 pb-10">{{ this.index }}</div>
-    <div class="text-14 h-80 overflow-hidden overflow-ellipsis">{{ this.text }}</div>
-    <background />
+  <div class="w-154 h-154 layout">
+    <div class="text-14 w-110 h-800 overflow-hidden overflow-ellipsis absolute left-20 top-4.8">{{ this.text }}</div>
+
+    <img src="../../../../assets/layout_hip_text_1.png" class="w-154 h-154 object-fill" />
+    <!-- <background /> -->
   </div>
 </template>
 
 <script>
-import background from "../../../../assets/layout_hip_text_1.svg";
+// import background from "../../../../assets/layout_hip_text_1.svg";
 export default {
   props: ["index", "text"],
-  components: { background },
+  components: {},
   setup() {},
 };
 </script>
