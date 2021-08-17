@@ -64,6 +64,7 @@ module.exports = {
       black_dim: "rgba(0, 0, 0, 0.6)",
       bg: "#f9f9f9",
       white: colors.white,
+      error: "#E95959",
     },
     backgroundColor: (theme) => ({
       ...theme("colors"),

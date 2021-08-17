@@ -16,8 +16,15 @@ import Calendar from "../components/Calendars/monthly.vue";
 import Header from "../components/Headers/MainHeader.vue";
 import CurrRooms from "../components/Rooms/CurrRooms.vue";
 import CurrMemories from "../components/BookmarkRooms/CurrMemories.vue";
+import { useStore } from "vuex";
 
 export default {
+  setup() {
+    const store = useStore();
+    const data = store.dispatch("FETCH_USER");
+    console.log(data);
+    return {};
+  },
   components: {
     Header,
     // MemoryText,
