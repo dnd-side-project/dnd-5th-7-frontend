@@ -21,14 +21,13 @@ import SelectTheme from "../components/AddRooms/SelectTheme.vue";
 import EnterInfo from "../components/AddRooms/EnterInfo.vue";
 import alert from "../components/Alert/NotiLayer.vue";
 import OKBtn from "../components/Common/OKButton.vue";
+
 export default {
   data() {
     return {
       theme: "",
       alertText: "테마를 선택해주세요!",
       isAlertShow: false,
-      date: "",
-      name: "",
     };
   },
   components: {
