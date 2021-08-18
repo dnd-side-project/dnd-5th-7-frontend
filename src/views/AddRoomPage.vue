@@ -25,11 +25,15 @@ import OKBtn from "../components/Common/OKButton.vue";
 export default {
   data() {
     return {
+      // [방 생성 api 호출] - post:diaries
+      //  방 이름 = name, 방 날짜 = date, 방 테마 = theme
+      // response 로 방 번호가 올 텐데(room_id) this.roomId 에 저장해주세요~!
       theme: "",
       alertText: "테마를 선택해주세요!",
       isAlertShow: false,
       name: "",
       date: "",
+      roomId: "",
     };
   },
   components: {
@@ -48,6 +52,9 @@ export default {
     goto(page) {
       if (this.theme != "") this.$router.push(page);
       else this.showAlert();
+    },
+    goWithParam(page, param) {
+      this.$router.push({ name: page, params: { dates: param } });
     },
     showAlert() {
       this.isAlertShow = true;
@@ -75,6 +82,8 @@ export default {
         )
         .then((res) => {
           console.log("응답2 : ", res);
+          this.roomId = res.room_id;
+          this.goWithParam("room", this.roomId);
         })
         .catch((e) => {
           console.log("error : ", e);
