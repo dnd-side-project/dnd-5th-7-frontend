@@ -10,11 +10,18 @@
 import layoutFrame from "./layoutFrame.vue";
 import jsonData from "../../data/Picture.json";
 
+import DiaryService from "../../api/Room/services/diary.service";
+
 export default {
+  props: ["roomId", "mood"],
   data() {
+    // [일기 리스트 조회 api 호출] - get:contents/list/:contentIdx
+    //  방 번호인 this.room_id 를 파라미터로 넣어주세요
+    // 아래에 수정 사항 더 있습니다.
     return {
       lst: [],
-      theme: "hip",
+      room_id: this.roomId,
+      theme: this.mood,
       x: 0,
       y: 0,
       maxFH: 0,
@@ -27,7 +34,19 @@ export default {
   components: {
     layoutFrame,
   },
+  setup() {
+    // const roomList = computed(() => store.state.DairyStore.RoomList);
+    // DiaryService.GetDiaryList(this.room_id).then((result) => {
+    //   console.log("[DiaryService.GetDiaryList]: ", result);
+    // });
+    // const getRoomList = computed(() => store.getters.roomList);
+    // return { roomList };
+  },
   created() {
+    DiaryService.GetDiaryList(this.room_id).then((result) => {
+      console.log("[DiaryService.GetDiaryList]: ", result);
+    });
+
     this.w = this.theme == "hip" ? 154 : 152;
     this.h = this.theme == "hip" ? 186 : 208;
     this.p = this.theme == "hip" ? 12 : 16;
@@ -35,6 +54,8 @@ export default {
     console.log(this.w);
     console.log(this.h);
     console.log(this.p);
+
+    // [일기 리스트 조회 api 호출]  jsonData가 아닌 받아온 데이터를 store에 저장한 뒤, 가져오도록 해주세요!
     for (var i = 0; i < jsonData.length; i++) {
       let data = jsonData[i];
 

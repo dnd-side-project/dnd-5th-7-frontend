@@ -26,8 +26,15 @@ import User from "../../data/User.json";
 
 export default {
   name: "RoomSlider",
+  props: ["userId", "roomId"],
   data() {
     return {
+      // / [멤버 리스트 조회 api 호출] - get:members/:roomIdx
+      //  방 번호를 this.roomId에 넣어두었습니다.
+      // 멤버를 받아와서 Users 배열에 넣어주세옹
+      // 위에 import 되어있는 User.json 는 더미데이터로 지워주시면 됩니다.
+      HostId: this.userId,
+      RoomId: this.roomId,
       Users: [],
     };
   },

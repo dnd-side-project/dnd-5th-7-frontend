@@ -2,7 +2,7 @@
   <div>
     <div class="flex flex-row justify-between items-center p-5 h-56 header">
       <cancleIcon class="cursor-pointer" @click="goback()" />
-      <div class="text-16 header-text">기록장 이름</div>
+      <div class="text-16 header-text">{{ this.RoomName }}</div>
       <div class="flex w-56 justify-between">
         <likeIcon class="cursor-pointer" />
         <hamburgerIcon class="z-10 cursor-pointer" @click="onClickSlider" />
@@ -17,7 +17,7 @@ import cancleIcon from "../../assets/icon_cancle.svg";
 import likeIcon from "../../assets/like.svg";
 import hamburgerIcon from "../../assets/hamburger.svg";
 export default {
-  props: {},
+  props: ["title"],
   components: {
     cancleIcon,
     likeIcon,
@@ -25,6 +25,7 @@ export default {
   },
   data() {
     return {
+      RoomName: this.title,
       isClicked: false,
     };
   },

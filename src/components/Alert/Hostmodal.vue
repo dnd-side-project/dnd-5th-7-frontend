@@ -6,18 +6,10 @@
 export default {
   data() {
     return {
-      Selected: ",",
+      Selected: "",
     };
   },
 };
 </script>
 
-<style>
-.funcpicker {
-  background-color: white;
-}
-
-.hoverPicker:hover {
-  background-color: #eaeaea;
-}
-</style>
+<style></style>
