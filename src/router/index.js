@@ -9,6 +9,7 @@ import RoomList from "../views/RoomListPage.vue";
 import LikeRoomList from "../views/LikeRoomListPage.vue";
 import INGRoomList from "../views/INGRoomListPage.vue";
 import ThemePreview from "../views/ThemePreviewPage.vue";
+import contents from "../views/ContentsPage.vue";
 // import test from "../views/storeTest.vue";
 
 const routes = [
@@ -27,6 +28,7 @@ const routes = [
     path: "/Room/:id",
     name: "Room",
     component: Room,
+    props: true,
   },
   {
     path: "/AddRoom",
@@ -63,6 +65,11 @@ const routes = [
     path: "/ThemePreview",
     name: "ThemePreview",
     component: ThemePreview,
+  },
+  {
+    path: "/contents/:want",
+    name: "contents",
+    component: contents,
   },
   // {
   //   path: "/test",

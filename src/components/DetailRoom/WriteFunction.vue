@@ -5,7 +5,7 @@
       v-for="(func, index) in functions"
       v-bind:key="index"
     >
-      <div>{{ func }}</div>
+      <div @click="goWithParam('contents', func.want)">{{ func.text }}</div>
     </div>
   </div>
 </template>
@@ -15,8 +15,16 @@ export default {
   data() {
     return {
       Selected: ",",
-      functions: ["글 기록하기", "사진 기록하기"],
+      functions: [
+        { text: "글 기록하기", want: "text" },
+        { text: "사진 기록하기", want: "picture" },
+      ],
     };
+  },
+  methods: {
+    goWithParam(page, param) {
+      this.$router.push({ name: page, params: { want: param } });
+    },
   },
 };
 </script>
