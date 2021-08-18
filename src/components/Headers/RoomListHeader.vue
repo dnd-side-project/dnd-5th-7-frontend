@@ -1,13 +1,15 @@
 <template>
-  <div class="flex flex-row justify-between items-center p-3 h-56 header">
-    <cancleIcon class="cursor-pointer" @click="goback()" />
-    <div class="text-16 header-text">{{ this.year }}.{{ this.month }}.{{ this.day }}</div>
-    <DateIcon class="cursor-pointer" @click="modalToggle" />
-    <div v-show="isModalClicked">
-      <Modal @closeModal="modalToggle" @dayConfirmed="dayConfirm" />
+  <div>
+    <div class="flex flex-row justify-between items-center p-3 h-56 header">
+      <cancleIcon class="cursor-pointer" @click="goback()" />
+      <div class="text-16 header-text">{{ this.year }}.{{ this.month }}.{{ this.day }}</div>
+      <DateIcon class="cursor-pointer" @click="modalToggle" />
+      <div v-show="isModalClicked">
+        <Modal @closeModal="modalToggle" @dayConfirmed="dayConfirm" />
+      </div>
     </div>
+    <div class="divider"></div>
   </div>
-  <div class="divider"></div>
 </template>
 
 <script>
