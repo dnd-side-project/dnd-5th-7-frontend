@@ -1,15 +1,14 @@
 import { instance } from "../..";
 
 class UserServices {
-  GetUserData() {
-    return instance
-      .get("/users/me")
-      .then((res) => {
-        console.log("유저 데이터응답 : ", res);
-      })
-      .catch((e) => {
-        console.log("error : ", e);
-      });
+  async GetUserData() {
+    try {
+      const response = await instance.get("/users/me");
+      console.log(response);
+      return response;
+    } catch (e) {
+      console.log(e);
+    }
   }
 }
 

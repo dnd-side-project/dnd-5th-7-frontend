@@ -1,11 +1,13 @@
 <template>
-  <div class="flex flex-row justify-between items-center p-3 h-56 header">
-    <div class="cursor-pointer"><backIcon @click="goback()" /></div>
+  <div>
+    <div class="flex flex-row justify-between items-center p-3 h-56 header">
+      <div class="cursor-pointer"><backIcon @click="goback()" /></div>
 
-    <div class="text-16 header-text">{{ this.text }}</div>
-    <div></div>
+      <div class="text-16 header-text">{{ this.text }}</div>
+      <div></div>
+    </div>
+    <div class="divider"></div>
   </div>
-  <div class="divider"></div>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen bg-bg"><layoutView /></div>
+  <div class="h-full bg-bg"><layoutView /></div>
 </template>
 
 <script>
