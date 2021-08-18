@@ -48,6 +48,7 @@ import SymbolIcon from "../../assets/title_symbol_1.svg";
 import Room from "./Room.vue";
 import NoRoom from "./NoRoom.vue";
 import dummydata from "../../data/rooms.json";
+// import MainService from "../../api/Room/services/main.service";
 
 export default {
   name: "CurrRooms",
@@ -59,7 +60,14 @@ export default {
   setup() {
     const store = useStore();
     const roomList = computed(() => store.state.roomStore.RoomList);
-    store.commit("setRoomList", []);
+
+    // [api 연결] ; 로컬에서 에러 나서 주석 처리 했습니다.
+    // const uid = computed(() => store.state.userStore.id);
+
+    // MainService.GetInProgress(uid).then((result) => {
+    //   console.log("[MainService.GetInProgress]: ", result);
+    //   store.commit("setRoomList", result);
+    // });
 
     dummydata.forEach((element) => {
       store.commit("addRoomList", element);

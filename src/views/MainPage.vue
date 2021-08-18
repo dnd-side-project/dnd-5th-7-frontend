@@ -6,6 +6,7 @@
       <CurrRooms></CurrRooms>
       <CurrMemories></CurrMemories>
     </div>
+    <h1>{{ userData.id }}</h1>
     <!-- <MemoryText></MemoryText> -->
   </v-app>
 </template>
@@ -17,13 +18,17 @@ import Header from "../components/Headers/MainHeader.vue";
 import CurrRooms from "../components/Rooms/CurrRooms.vue";
 import CurrMemories from "../components/BookmarkRooms/CurrMemories.vue";
 import { useStore } from "vuex";
+import { computed } from "vue";
 
 export default {
   setup() {
     const store = useStore();
-    const data = store.dispatch("FETCH_USER");
-    console.log("dddd", data);
-    return {};
+    store.dispatch("userStore/FETCH_USER");
+    const userData = computed(() => {
+      return store.getters[`userStore/getUser`];
+    });
+
+    return { userData };
   },
   components: {
     Header,

@@ -27,9 +27,9 @@ export const roomStore = {
     setRoomList(state, value) {
       state.RoomList = value;
     },
-    addRoomList(state, data) {
-      state.RoomList.push(data);
-    },
+    // addRoomList(state, data) {
+    //   state.RoomList.push(data);
+    // },
     setRoomDetail(state, value) {
       state.RoomList = value;
     },
