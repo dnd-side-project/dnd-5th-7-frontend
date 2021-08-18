@@ -33,6 +33,7 @@ export default {
     });
 
     // const getRoomList = computed(() => store.getters.roomList);
+
     return { roomList };
   },
   created() {

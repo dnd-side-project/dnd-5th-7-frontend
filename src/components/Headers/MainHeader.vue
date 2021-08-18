@@ -45,7 +45,7 @@ export default {
         .get(`${BASE_URL}/auth/id`, { withCredentials: true })
         .then((res) => {
           this.id = res.id;
-          console.log(this.id);
+
           console.log("응답 : ", res.data);
         })
         .catch((e) => {
