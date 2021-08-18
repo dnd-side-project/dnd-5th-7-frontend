@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import Modal from "../Alert/HostModal";
+import Modal from "../Alert/Hostmodal";
 import cencleIcon from "../../assets/cancel_s.svg";
 export default {
   props: ["HostBtnClicked"],
