@@ -6,6 +6,8 @@
 </template>
 
 <script>
+// 주석 풀어주세여~!
+// import MainService from "../api/Room/services/main.service";
 import Header from "../components/Headers/MainRoomListHeader.vue";
 import ListView from "../components/RoomList/ListView.vue";
 import { computed } from "vue";
@@ -36,6 +38,9 @@ export default {
   },
   created() {
     window.scrollTo(0, 0);
+    // MainService.GetInProgressList().then((result) => {
+    //   console.log(result);
+    // });
   },
 };
 </script>
