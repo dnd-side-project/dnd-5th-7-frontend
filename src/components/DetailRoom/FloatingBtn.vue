@@ -3,13 +3,15 @@
     <writingIcon class="z-10 cursor-pointer" @click="Wbtnclicked" />
     <div v-show="this.WriteBtnClicked" class="absolute z-20 FirstfuncList"><WriteFunction /></div>
     <hostIcon class="z-10 cursor-pointer" @click="Hbtnclicked" />
-    <div v-show="this.HostBtnClicked" class="absolute SecondfuncList"><HostFunction /></div>
+    <div v-show="this.HostBtnClicked" class="absolute SecondfuncList z-20">
+      <HostFunction :HostBtnClicked="this.HostBtnClicked" @closeModal="Hbtnclicked" />
+    </div>
   </div>
 </template>
 
 <script>
 import WriteFunction from "./WriteFunction.vue";
-import HostFunction from "./WriteFunction.vue";
+import HostFunction from "./HostFunction.vue";
 import writingIcon from "../../assets/floating_writing2.svg";
 import hostIcon from "../../assets/floating_host2.svg";
 export default {
