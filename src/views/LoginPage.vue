@@ -24,7 +24,7 @@ export default {
   methods: {
     kakaoLogin() {
       window.Kakao.Auth.login({
-        scope: "account_email profile_nickname profile_image",
+        scope: "profile_nickname profile_image",
         success: this.getKakaoAccount,
       });
     },
@@ -36,9 +36,9 @@ export default {
           const accessToken = window.Kakao.Auth.getAccessToken();
           const kakao_account = res.kakao_account;
           const nickname = kakao_account.profile.nickname;
-          const email = kakao_account.email;
+          // const email = kakao_account.email;
           console.log(nickname, "nickname");
-          console.log(email, "email");
+          // console.log(email, "email");
           console.log(kakao_account);
           console.log(accessToken);
         },
