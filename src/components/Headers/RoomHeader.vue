@@ -2,7 +2,7 @@
   <div>
     <div class="flex flex-row justify-between items-center p-5 h-56 header">
       <cancleIcon class="cursor-pointer" @click="goback()" />
-      <div class="text-16 header-text">{{ this.RoomName }}</div>
+      <div class="text-16 header-text">{{ this.title }}</div>
       <div class="flex w-56 justify-between">
         <likeIcon class="cursor-pointer" />
         <hamburgerIcon class="z-10 cursor-pointer" @click="onClickSlider" />
@@ -25,7 +25,6 @@ export default {
   },
   data() {
     return {
-      RoomName: this.title,
       isClicked: false,
     };
   },

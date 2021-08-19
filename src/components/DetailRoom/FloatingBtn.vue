@@ -25,11 +25,11 @@ export default {
   },
   methods: {
     Wbtnclicked() {
-      console.log("Wbtnclicked");
+      // console.log("Wbtnclicked");
       this.WriteBtnClicked = !this.WriteBtnClicked;
     },
     Hbtnclicked() {
-      console.log("Hbtnclicked");
+      // console.log("Hbtnclicked");
       this.HostBtnClicked = !this.HostBtnClicked;
     },
   },

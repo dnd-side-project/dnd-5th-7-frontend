@@ -12,16 +12,14 @@ class DiaryServices {
         console.log("error : ", e);
       });
   }
-  GetDiaryList(rid) {
+  async GetDiaryList(rid) {
     //  해당 방에 있는 다이어리 조회
-    return instance
-      .get("/contents/list/" + rid)
-      .then((res) => {
-        console.log("유저 데이터응답 : ", res);
-      })
-      .catch((e) => {
-        console.log("error : ", e);
-      });
+    try {
+      const response = await instance.get("/contents/list/" + rid);
+      return response;
+    } catch (e) {
+      console.log(e);
+    }
   }
   EditDiary(pid, rid, imgUrl, text) {
     //  다이어리 수정 - 이러케 작성하는 게 맞나요 . . ?

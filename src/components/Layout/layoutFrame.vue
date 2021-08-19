@@ -68,9 +68,9 @@ export default {
     };
   },
   created() {
-    console.log(this.target);
-    console.log("[x]:" + this.x + "/[y]:" + this.y);
-    console.log("[index]" + this.index);
+    // console.log(this.target);
+    // console.log("[x]:" + this.x + "/[y]:" + this.y);
+    // console.log("[index]" + this.index);
   },
   computed: {
     translateStyle() {

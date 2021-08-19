@@ -3,16 +3,17 @@
     <Header></Header>
     <div class="p-3 bg-bg">
       <Calendar></Calendar>
-      <CurrRooms></CurrRooms>
+      <CurrRooms :id="this.userData.id"></CurrRooms>
       <CurrMemories></CurrMemories>
     </div>
-    <h1>{{ userData.id }}</h1>
+    <!-- <h1>{{ userData.id }}</h1> -->
     <!-- <MemoryText></MemoryText> -->
   </v-app>
 </template>
 
 <script>
 // import MemoryText from "../components/Memory/MemoryText.vue";
+// import MainService from "../api/Room/services/main.service";
 import Calendar from "../components/Calendars/monthly.vue";
 import Header from "../components/Headers/MainHeader.vue";
 import CurrRooms from "../components/Rooms/CurrRooms.vue";
@@ -29,6 +30,11 @@ export default {
     });
 
     return { userData };
+  },
+  async created() {
+    // await MainService.GetInProgressList(this.userData.id).then((result) => {
+    //   console.log("[MainService.GetInProgressList]", result);
+    // });
   },
   components: {
     Header,
