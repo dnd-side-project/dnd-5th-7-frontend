@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import axios from "axios";
-// import RoomService from "../api/Room/services/room.service";
+// import axios from "axios";
+import RoomService from "../api/Room/services/room.service";
 import Header from "../components/Headers/AddRoomHeader.vue";
 import SelectTheme from "../components/AddRooms/SelectTheme.vue";
 // import SelectMember from "../components/AddRooms/SelectMember.vue";
@@ -54,7 +54,7 @@ export default {
       else this.showAlert();
     },
     goWithParam(page, param) {
-      this.$router.push({ name: page, params: { dates: param } });
+      this.$router.push({ name: page, params: { id: param } });
     },
     showAlert() {
       this.isAlertShow = true;
@@ -74,26 +74,17 @@ export default {
       console.log("입력된 이름 :" + this.name);
     },
     AddRoom() {
-      axios
-        .post(
-          "https://tido-diary.herokuapp.com/diaries",
-          { title: this.name, date: this.date, mood: this.theme },
-          { withCredentials: true },
-        )
-        .then((res) => {
-          console.log("응답2 : ", res);
-          this.roomId = res.room_id;
-          this.goWithParam("room", this.roomId);
-        })
-        .catch((e) => {
-          console.log("error : ", e);
-        });
-      // RoomService.CreateRoom(this.name, this.date, this.theme).then((result) => {
-      //   console.log("name: " + this.name);
-      //   console.log("date: " + this.date);
-      //   console.log("theme: " + this.theme);
-      //   console.log(result);
-      // });
+      RoomService.CreateRoom(this.name, this.date, this.theme).then((result) => {
+        console.log("name: " + this.name);
+        console.log("date: " + this.date);
+        console.log("theme: " + this.theme);
+        console.log(result);
+
+        this.room_id = result.data.room_id;
+        this.goWithParam("Room", this.room_id);
+        // Error: No match for {"name":"room","params":{"id":"64"}}
+        console.log(this.room_id);
+      });
     },
   },
 };

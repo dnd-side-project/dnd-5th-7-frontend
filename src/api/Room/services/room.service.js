@@ -1,17 +1,18 @@
 import axios from "axios";
+import { BASE_URL } from "../../../config";
 
-const API_URL = "https://tido-diary.herokuapp.com/diaries/";
+const API_URL = `${BASE_URL}` + "/diaries/";
 
 class RoomServices {
-  CreateRoom(title, date, mood) {
-    return axios
-      .post(API_URL, { title: title, date: date, mood: mood }, { withCredentials: true })
-      .then((res) => {
-        console.log("응답2 : ", res);
-      })
-      .catch((e) => {
-        console.log("error : ", e);
-      });
+  async CreateRoom(title, date, mood) {
+    try {
+      const response = await axios.post(API_URL, { title: title, date: date, mood: mood }, { withCredentials: true });
+      console.log(response);
+      return response;
+    } catch (e) {
+      console.log(e);
+    }
+    return;
   }
   GetRoomList(rId) {
     return axios
