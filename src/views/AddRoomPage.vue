@@ -73,18 +73,11 @@ export default {
       this.name = name;
       console.log("입력된 이름 :" + this.name);
     },
-    AddRoom() {
-      RoomService.CreateRoom(this.name, this.date, this.theme).then((result) => {
-        console.log("name: " + this.name);
-        console.log("date: " + this.date);
-        console.log("theme: " + this.theme);
-        console.log(result);
+    async AddRoom() {
+      const response = await RoomService.CreateRoom(this.name, this.date, this.theme);
 
-        this.room_id = result.data.room_id;
-        this.goWithParam("Room", this.room_id);
-        // Error: No match for {"name":"room","params":{"id":"64"}}
-        console.log(this.room_id);
-      });
+      this.room_id = response.data.room_id;
+      this.goWithParam("Room", this.room_id);
     },
   },
 };

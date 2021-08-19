@@ -13,7 +13,7 @@
     <div v-if="this.rooms == null" class="h-full bg-bg">
       <NoRecord></NoRecord>
     </div>
-    <div v-else class="h-full"><LayoutView class="h-full" :roomId="this.roomId" :mood="this.rooms.mood" /></div>
+    <div v-else class="h-full"><LayoutView class="h-full" :roomId="this.rooms.roomId" :mood="this.rooms.mood" /></div>
   </v-app>
 </template>
 
@@ -23,6 +23,8 @@ import NoRecord from "../components/Rooms/NoRecord.vue";
 import Slider from "../components/SlideBar/RoomSlider.vue";
 import LayoutView from "../components/Layout/layoutView.vue";
 import FloatingBtn from "../components/DetailRoom/FloatingBtn.vue";
+
+import RoomService from "../api/Room/services/room.service";
 
 export default {
   props: ["id"],
@@ -36,9 +38,6 @@ export default {
   data() {
     return {
       // [방 조회 api 호출] - get:diaries/:diaryIdx
-      //  페이지 이동하면서 props로 받아온 id를 roomId에 넣어두었습니다.
-      // response의 mood, date, title, user_id를  this.rooms에 저장해주세욥
-      roomId: this.id,
       rooms: { roomId: this.id, title: "일기장 제목", date: "", user_id: 0, mood: "hip" },
       onClickedHamburger: "",
     };
@@ -47,9 +46,19 @@ export default {
     onClickSlider(signal) {
       this.onClickedHamburger = signal;
     },
-    created() {
-      window.scrollTo(0, 0);
-    },
+  },
+  async created() {
+    window.scrollTo(0, 0);
+    await RoomService.GetRoomList(this.id).then((res) => {
+      this.rooms = {
+        roomId: res.data.id,
+        title: res.data.title,
+        date: res.data.date,
+        user_id: res.data.user_id,
+        mood: res.data.mood,
+      };
+    });
+    console.log("rooms:", this.rooms);
   },
 };
 </script>

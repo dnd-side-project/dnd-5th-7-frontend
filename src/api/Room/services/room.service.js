@@ -14,15 +14,15 @@ class RoomServices {
     }
     return;
   }
-  GetRoomList(rId) {
-    return axios
-      .get(API_URL + rId, { withCredentials: true })
-      .then((res) => {
-        console.log("응답2 : ", res);
-      })
-      .catch((e) => {
-        console.log("error : ", e);
-      });
+  async GetRoomList(rId) {
+    try {
+      const response = await axios.get(API_URL + rId, { withCredentials: true });
+      console.log(response);
+      return response;
+    } catch (e) {
+      console.log(e);
+    }
+    return;
   }
   EditRoom(rId, ntitle, ndate, nmood, nlock) {
     return axios
