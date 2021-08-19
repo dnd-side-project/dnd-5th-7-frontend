@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-row pb-16">
+  <div class="flex flex-row">
     <div class="hostIcon z-10"><hostIcon v-if="this.host == true" /></div>
     <noDataIcon :class="{ hosttext: this.host == true }" />
     <div class="ml-10 flex items-center" :class="{ hosttext: this.host == true }">{{ this.name }}</div>
