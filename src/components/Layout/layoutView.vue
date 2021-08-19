@@ -1,14 +1,14 @@
 <template>
   <div class="flex bg-bg h-screen">
     <div v-for="(data, index) in lst" v-bind:key="data.id" class="cursor-pointer">
-      <layoutFrame :data="data" :index="index" :width="data.x" :height="data.y" :theme="this.theme"></layoutFrame>
+      <layoutFrame :data="data" :index="index" :width="data.x" :height="data.y" :theme="this.mood"></layoutFrame>
     </div>
   </div>
 </template>
 
 <script>
 import layoutFrame from "./layoutFrame.vue";
-import jsonData from "../../data/Picture.json";
+// import jsonData from "../../data/Picture.json";
 
 import DiaryService from "../../api/Room/services/diary.service";
 
@@ -20,6 +20,7 @@ export default {
     // 아래에 수정 사항 더 있습니다.
     return {
       lst: [],
+      datalist: [],
       room_id: this.roomId,
       theme: this.mood,
       x: 0,
@@ -36,28 +37,24 @@ export default {
   },
   setup() {
     // const roomList = computed(() => store.state.DairyStore.RoomList);
-    // DiaryService.GetDiaryList(this.room_id).then((result) => {
-    //   console.log("[DiaryService.GetDiaryList]: ", result);
-    // });
     // const getRoomList = computed(() => store.getters.roomList);
     // return { roomList };
   },
-  created() {
-    DiaryService.GetDiaryList(this.room_id).then((result) => {
-      console.log("[DiaryService.GetDiaryList]: ", result);
+  async created() {
+    await DiaryService.GetDiaryList(this.room_id).then((result) => {
+      console.log("[DiaryService.GetDiaryList]: ", result.data);
+      result.data.forEach((element) => {
+        this.datalist.push(element);
+      });
     });
 
     this.w = this.theme == "hip" ? 154 : 152;
     this.h = this.theme == "hip" ? 186 : 208;
     this.p = this.theme == "hip" ? 12 : 16;
 
-    console.log(this.w);
-    console.log(this.h);
-    console.log(this.p);
-
     // [일기 리스트 조회 api 호출]  jsonData가 아닌 받아온 데이터를 store에 저장한 뒤, 가져오도록 해주세요!
-    for (var i = 0; i < jsonData.length; i++) {
-      let data = jsonData[i];
+    for (var i = 0; i < this.datalist.length; i++) {
+      let data = this.datalist[i];
 
       if (i % 2 == 0) this.x = 0;
       else this.x = this.w + this.p;
