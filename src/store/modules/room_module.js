@@ -54,7 +54,7 @@ export const roomStore = {
   },
   actions: {
     test() {
-      console.log("testttt");
+      // console.log("testttt");
     },
   },
 };

@@ -71,7 +71,7 @@ export default {
     },
     nameChanged(name) {
       this.name = name;
-      console.log("입력된 이름 :" + this.name);
+      // console.log("입력된 이름 :" + this.name);
     },
     async AddRoom() {
       const response = await RoomService.CreateRoom(this.name, this.date, this.theme);

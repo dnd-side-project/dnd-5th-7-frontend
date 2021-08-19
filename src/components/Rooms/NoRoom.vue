@@ -29,7 +29,7 @@ export default {
     plusicon,
   },
   created() {
-    console.log(this.from);
+    // console.log(this.from);
   },
 };
 </script>

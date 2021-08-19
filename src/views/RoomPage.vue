@@ -58,7 +58,7 @@ export default {
         mood: res.data.mood,
       };
     });
-    console.log("rooms:", this.rooms);
+    // console.log("rooms:", this.rooms);
   },
 };
 </script>

@@ -3,24 +3,20 @@ import { instance } from "../..";
 
 class MainServices {
   // uid = computed(() => useStore().state.userStore.user.id);
-  GetCalendar(date) {
-    //  진행중인 기록 리스트 조회
-    return (
-      instance
-        .get("/main/calenda", { date: date })
-        // "2021-08" 형식의 date 넣어줘야 함
-        .then((res) => {
-          console.log("유저 데이터응답 : ", res);
-        })
-        .catch((e) => {
-          console.log("error : ", e);
-        })
-    );
+  async GetCalendar(date) {
+    //  달력에 표시될 정보 조회
+    try {
+      const response = await instance.get("/main/calendar", { date: date });
+      return response;
+      // "2021-08" 형식의 date 넣어줘야 함
+    } catch (e) {
+      console.log(e);
+    }
   }
   async GetInProgress() {
     //  진행중인 기록 리스트 조회
     try {
-      const response = instance.get("/main/inProgress/");
+      const response = await instance.get("/main/inProgress/");
       return response;
     } catch (e) {
       console.log(e);

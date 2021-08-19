@@ -61,7 +61,7 @@ export default {
     };
   },
   async created() {
-    console.log(this.id);
+    // console.log(this.id);
     const response = await MainService.GetInProgress();
     response.data.forEach((element) => {
       this.datalst.push({
@@ -71,7 +71,7 @@ export default {
         // 대현님이 말슴해주시면 수정
         Rtheme: "simple",
       });
-      console.log(element.DiaryRoom);
+      // console.log(element.DiaryRoom);
     });
   },
   setup() {

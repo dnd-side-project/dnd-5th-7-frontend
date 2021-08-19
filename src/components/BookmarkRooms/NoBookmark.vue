@@ -29,7 +29,7 @@ export default {
     heartIcon,
   },
   created() {
-    console.log(this.from);
+    // console.log(this.from);
   },
 };
 </script>
