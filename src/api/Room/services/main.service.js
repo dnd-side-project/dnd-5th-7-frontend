@@ -1,8 +1,8 @@
 import { instance } from "../..";
-import { userStore } from "../../../store/modules/user_module";
+// import { userStore } from "../../../store/modules/user_module";
 
 class MainServices {
-  uid = userStore().state.userStore.id;
+  // uid = computed(() => useStore().state.userStore.user.id);
   GetCalendar(date) {
     //  진행중인 기록 리스트 조회
     return (
@@ -17,49 +17,42 @@ class MainServices {
         })
     );
   }
-  GetInProgress() {
+  async GetInProgress() {
     //  진행중인 기록 리스트 조회
-    return instance
-      .get("/main/inProgress/" + this.uid)
-      .then((res) => {
-        console.log("유저 데이터응답 : ", res);
-      })
-      .catch((e) => {
-        console.log("error : ", e);
-      });
+    try {
+      const response = instance.get("/main/inProgress/");
+      return response;
+    } catch (e) {
+      console.log(e);
+    }
   }
-  GetInProgressList() {
+  async GetInProgressList() {
     //  진행중인 기록 리스트 상세 조회
-    return instance
-      .get("/main/inProgressList/" + this.uid)
-      .then((res) => {
-        console.log("유저 데이터응답 : ", res);
-      })
-      .catch((e) => {
-        console.log("error : ", e);
-      });
+    try {
+      const response = await instance.get("/main/inProgressList/");
+      console.log(response);
+      return response;
+    } catch (e) {
+      console.log(e);
+    }
   }
-  GetBookmark() {
+  async GetBookmark() {
     //  즐겨찾기 한 기록 리스트 조회
-    return instance
-      .get("/main/bookmark/" + this.uid)
-      .then((res) => {
-        console.log("유저 데이터응답 : ", res);
-      })
-      .catch((e) => {
-        console.log("error : ", e);
-      });
+    try {
+      const response = instance.get("/main/bookmark/");
+      return response;
+    } catch (e) {
+      console.log(e);
+    }
   }
-  GetBookmarkList() {
+  async GetBookmarkList() {
     //  즐겨찾기 한 기록 리스트 상세 조회
-    return instance
-      .get("/main/bookmarkList/" + this.uid)
-      .then((res) => {
-        console.log("유저 데이터응답 : ", res);
-      })
-      .catch((e) => {
-        console.log("error : ", e);
-      });
+    try {
+      const response = instance.get("/main/bookmarkList/");
+      return response;
+    } catch (e) {
+      console.log(e);
+    }
   }
 }
 
