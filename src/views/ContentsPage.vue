@@ -1,9 +1,14 @@
 <template>
   <v-app>
-    <Header :want="this.text"></Header>
+    <Header :want="this.text" :textData="this.recordText"></Header>
     <div class="h-screen">
       <div v-if="param == 'text'" class="p-3 bg-bg h-screen">
-        <textarea placeholder="친구들과 있었던 일들을 적어보세요:)" class="text-gray500 w-full h-544 p-20"></textarea>
+        <textarea
+          v-bind="recordText"
+          v-on:input="updateRecordData"
+          placeholder="친구들과 있었던 일들을 적어보세요:)"
+          class="text-gray500 w-full h-544 p-20"
+        ></textarea>
       </div>
       <div v-else class="bg-bg">
         <div class="bg-white">
@@ -40,9 +45,14 @@ export default {
       pictureList: [],
       param: this.$route.params.want,
       text: this.$route.params.want == "text" ? "글 기록하기" : "사진 기록하기",
+      recordText: "",
     };
   },
   methods: {
+    updateRecordData: function (event) {
+      this.recordText = event.target.value;
+      console.log(event.target.value);
+    },
     uploadImage: function () {
       let form = new FormData();
       let image = this.$refs["image"].files[0];
