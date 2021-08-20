@@ -17,7 +17,7 @@
       }"
       class="mySwiper"
     >
-      <swiper-slide v-for="room in datalst" :key="room.Rid">
+      <swiper-slide v-for="room in memories" :key="room.Rid">
         <Room
           :data="{
             name: room.Rname,
@@ -61,7 +61,7 @@ export default {
         Rname: element.DiaryRoom.title,
         Rdate: element.DiaryRoom.date,
         // 대현님이 말슴해주시면 수정
-        Rtheme: "simple",
+        Rtheme: element.DiaryRoom.mood,
       });
       // console.log(element.DiaryRoom);
     });
