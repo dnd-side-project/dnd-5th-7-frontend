@@ -24,9 +24,9 @@
 <script>
 import Modal from "../Alert/Hostmodal";
 import cencleIcon from "../../assets/cancel_s.svg";
-// import { BASE_URL } from "../../config";
+import { FRONT_URL } from "../../config";
 export default {
-  props: ["HostBtnClicked", "rId"],
+  props: ["HostBtnClicked", "rId", "rTitle"],
   components: { Modal, cencleIcon },
   data() {
     console.log("ㅁ무무무", this.rId);
@@ -34,6 +34,7 @@ export default {
       message: "",
       isModalOpen: this.HostBtnClicked,
       roomId: this.rid,
+      roomTitle: this.rTitle,
     };
   },
   methods: {
@@ -44,12 +45,12 @@ export default {
       window.Kakao.Link.sendDefault({
         objectType: "feed",
         content: {
-          title: "zz",
-          description: "gg",
-          imageUrl: "afds",
+          title: `${this.rTitle}에서 같이 추억을 공유해요!`,
+          description: "함께 추억을 기록하고 보관해요.",
+          imageUrl: "https://dnd57-bucket.s3.ap-northeast-2.amazonaws.com/mood/book_image_hip.png",
           link: {
-            webUrl: `https://www.inflearn.com/questions/38367`,
-            mobileWebUrl: `https://www.inflearn.com/questions/38367`,
+            webUrl: `${FRONT_URL}?${this.rId}`,
+            mobileWebUrl: `${FRONT_URL}?${this.rId}`,
           },
           // buttons: [
           //   {
