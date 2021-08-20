@@ -38,7 +38,7 @@ export default {
     if (roomId) {
       axios.post(API_URL, { admin: "false", room_id: roomId }, { withCredentials: true }).then((res) => {
         console.log(res);
-        localStorage.remove("roomId");
+        localStorage.removeItem("roomId");
         this.$route.go({ path: "room/" + roomId });
       });
       // 멤버 추가
