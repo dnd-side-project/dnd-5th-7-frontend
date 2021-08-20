@@ -35,8 +35,9 @@ import RoomService from "../api/Room/services/room.service";
 
 import axios from "axios";
 import { useRoute } from "vue-router";
+import { BASE_URL } from "../config";
 
-const API_URL = `http://localhost:3000` + "/diaries/";
+const API_URL = `${BASE_URL}` + "/diaries/";
 
 export default {
   props: ["id"],
