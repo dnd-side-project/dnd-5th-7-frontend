@@ -32,9 +32,9 @@ export default {
   data() {
     return {
       Rdata: this.data,
-      name: "",
-      date: "",
-      theme: "",
+      name: this.data.name,
+      date: this.data.date,
+      theme: this.data.theme,
     };
   },
   components: {
@@ -47,11 +47,12 @@ export default {
   },
   methods: {
     themeCheck() {
-      if (this.theme.includes("Simple")) return true;
+      if (this.theme == "simple") return true;
       return false;
     },
   },
   created() {
+    // console.log(this.data.theme);
     this.name = this.data.name;
     this.date = this.data.date;
     this.theme = this.data.theme;

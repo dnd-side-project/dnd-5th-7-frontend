@@ -54,6 +54,7 @@
 import ComboBox from "../../assets/combobox.svg";
 import DatePicker from "./datepicker.vue";
 import AddBtn from "../../assets/calendar_plus_btn.svg";
+import MainService from "../../api/Room/services/main.service";
 
 export default {
   components: { ComboBox, AddBtn, DatePicker },
@@ -88,8 +89,12 @@ export default {
       return status;
     },
   },
-  created() {
+  async created() {
     this.init();
+    const params = this.year + "-" + this.month;
+    await MainService.GetCalendar(params).then((res) => {
+      console.log(res);
+    });
   },
   methods: {
     goto(page) {
@@ -111,6 +116,7 @@ export default {
       }
     },
     setEmitDate(param) {
+      console.log(param[0] + "-" + param[1]);
       this.init(param);
     },
     calendarDate() {

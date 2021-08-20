@@ -48,7 +48,7 @@ export default {
       this.month = dates.month;
       this.day = dates.day;
       //   this.date = dates.year + "/" + dates.month + "/" + dates.day;
-      console.log(this.date);
+      // console.log(this.date);
     },
   },
 };

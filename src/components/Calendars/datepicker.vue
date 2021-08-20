@@ -6,8 +6,9 @@
       v-for="[y, m] in list"
       v-bind:key="[y, m]"
       :class="{ 'picker-selected-date': y === currYear && m === currMonth }"
+      @click="onEmit(y, m)"
     >
-      <span @click="onEmit(y, m)">{{ y }}년 {{ m }}월</span>
+      <span>{{ y }}년 {{ m }}월</span>
     </div>
   </div>
 </template>

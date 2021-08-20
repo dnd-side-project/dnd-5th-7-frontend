@@ -41,7 +41,7 @@ export default {
     store.commit("setRoomList", []);
 
     dummydata.forEach((element) => {
-      console.log(element);
+      // console.log(element);
       store.commit("setRoomList", element);
     });
 
