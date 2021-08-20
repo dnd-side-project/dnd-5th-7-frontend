@@ -14,7 +14,7 @@
         :roomId="this.rooms.roomId"
       ></Slider>
     </teleport>
-    <FloatingBtn :host_id="this.rooms.user_id" />
+    <FloatingBtn :host_id="this.rooms.user_id" :roomId="this.rooms.roomId" :roomTitle="this.rooms.title" />
     <div v-if="this.rooms == null" class="h-full bg-bg">
       <NoRecord></NoRecord>
     </div>
@@ -33,6 +33,10 @@ import { computed } from "vue";
 import { useStore } from "vuex";
 import RoomService from "../api/Room/services/room.service";
 
+import axios from "axios";
+
+const API_URL = `http://localhost:3000` + "/diaries/";
+
 export default {
   props: ["id"],
   components: {
@@ -45,7 +49,7 @@ export default {
   data() {
     return {
       // [방 조회 api 호출] - get:diaries/:diaryIdx
-      rooms: { roomId: this.id, title: "일기장 제목", date: "", user_id: 0, mood: "hip" },
+      rooms: { roomId: this.id, title: "일기장 제목", date: "", user_id: 0, mood: "", bookmark: false },
       onClickedHamburger: "",
       host_id: 0,
     };
@@ -60,6 +64,10 @@ export default {
   },
   async created() {
     window.scrollTo(0, 0);
+
+    const response = await axios.get(API_URL + this.id, { withCredentials: true });
+    console.log(response);
+
     await RoomService.GetRoomList(this.id).then((res) => {
       this.rooms = {
         roomId: res.data.id,

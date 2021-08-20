@@ -12,6 +12,8 @@
 
 <script>
 export default {
+  // 민규님 여기에요!!!!!!!!!@!@!@
+  props: ["rId", "rTitle"],
   data() {
     return {
       Selected: ",",
@@ -23,7 +25,7 @@ export default {
   },
   methods: {
     goWithParam(page, param) {
-      this.$router.push({ name: page, params: { want: param } });
+      this.$router.push({ name: page, params: { want: param, roomId: this.rId, roomTitle: this.rTitle } });
     },
   },
 };

@@ -25,18 +25,24 @@
 import Modal from "../Alert/Hostmodal";
 import cencleIcon from "../../assets/cancel_s.svg";
 export default {
-  props: ["HostBtnClicked"],
+  props: ["HostBtnClicked", "rId", "rTitle"],
   components: { Modal, cencleIcon },
   data() {
     return {
       message: "",
       isModalOpen: this.HostBtnClicked,
+      roomId: this.rId,
+      roomTitle: this.rTitle,
     };
   },
   methods: {
     closeModal() {
       this.$emit("closeModal");
     },
+  },
+  created() {
+    console.log(this.roomId + " / " + this.roomTitle);
+    // 민규님 여기에요 에ㅕ기!!!!!!!!!!!!!!1!@!@!@@!@!
   },
 };
 </script>
