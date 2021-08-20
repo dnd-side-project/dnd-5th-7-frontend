@@ -1,5 +1,5 @@
 <template>
-  <div v-if="this.mood == 'simple'" class="p-16 absolute">
+  <div v-if="this.theme == 'simple'" class="p-16 absolute">
     <div v-if="this.idx == 0" class="relative w-152 h-152 bg-white shadow-layout" :style="translateStyle">
       <div v-if="this.target.text == null"><mp1 :index="Rindex" :url="this.target.imgUrl" /></div>
       <div v-else><mt1 :index="Rindex" :text="this.target.text" /></div>
@@ -68,6 +68,8 @@ export default {
     };
   },
   created() {
+    console.log(this.theme);
+    console.log(this.mood);
     // console.log(this.target);
     // console.log("[x]:" + this.x + "/[y]:" + this.y);
     // console.log("[index]" + this.index);
