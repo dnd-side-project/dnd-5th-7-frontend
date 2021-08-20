@@ -53,7 +53,7 @@ export default {
       this.year = dates.year;
       this.month = this.dateLength(dates.month);
       this.day = this.dateLength(dates.day);
-      this.date = dates.year + "-" + dates.month + "-" + dates.day;
+      this.date = this.year + "-" + this.month + "-" + this.day;
       console.log(this.date);
     },
     dateClicked() {
@@ -68,18 +68,14 @@ export default {
   },
   created() {
     this.year = new Date().getFullYear();
-    this.month = new Date().getMonth() + 1;
-    this.day = new Date().getDate();
-    this.date =
-      new Date().getFullYear() +
-      "-" +
-      this.dateLength(new Date().getMonth() + 1) +
-      "-" +
-      this.dateLength(new Date().getDate());
+    this.month = this.dateLength(new Date().getMonth() + 1);
+    this.day = this.dateLength(new Date().getDate());
+    this.date = this.year + "-" + this.month + "-" + this.day;
     this.$emit("dateChanged", this.date);
   },
   watch: {
     day: function () {
+      console.log(this.date);
       this.$emit("dateChanged", this.date);
     },
     name: function () {
