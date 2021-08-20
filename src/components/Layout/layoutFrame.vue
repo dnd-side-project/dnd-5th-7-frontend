@@ -67,13 +67,7 @@ export default {
       y: this.height,
     };
   },
-  created() {
-    console.log(this.theme);
-    console.log(this.mood);
-    // console.log(this.target);
-    // console.log("[x]:" + this.x + "/[y]:" + this.y);
-    // console.log("[index]" + this.index);
-  },
+  created() {},
   computed: {
     translateStyle() {
       return { transform: "translate(" + this.x + "px," + this.y + "px)" };
