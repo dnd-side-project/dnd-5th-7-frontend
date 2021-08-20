@@ -68,8 +68,7 @@ export default {
         Rid: element.DiaryRoom.id,
         Rname: element.DiaryRoom.title,
         Rdate: element.DiaryRoom.date,
-        // 대현님이 말슴해주시면 수정
-        Rtheme: "simple",
+        Rtheme: element.DiaryRoom.mood,
       });
       // console.log(element.DiaryRoom);
     });
