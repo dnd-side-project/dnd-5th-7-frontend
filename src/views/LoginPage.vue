@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { useRoute } from "vue-router";
 import Logo from "../components/Login/Logo.vue";
 import BrandingText from "../components/Login/BrandingText.vue";
 import LoginBtn from "../components/Login/LoginBtn.vue";
@@ -20,6 +21,19 @@ export default {
     BrandingText,
     LoginBtn,
     EnterPageImg,
+  },
+  setup() {
+    const route = useRoute();
+    const key = Object.keys(route.query);
+
+    localStorage.setItem("roomId", key);
+    // function pushWithQuery(query) {
+    //   route.push({
+    //     name: "search",
+    //     query: {
+    //       ...route.query,
+    //     },
+    //   });
   },
   methods: {
     kakaoLogin() {
