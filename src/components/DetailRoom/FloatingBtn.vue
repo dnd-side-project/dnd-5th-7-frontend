@@ -1,10 +1,17 @@
 <template>
   <div class="h-122 flex flex-col justify-between absolute top-76 right-5 z-10">
     <writingIcon class="z-10 cursor-pointer" @click="Wbtnclicked" />
-    <div v-show="this.WriteBtnClicked" class="absolute z-20 FirstfuncList"><WriteFunction /></div>
+    <div v-show="this.WriteBtnClicked" class="absolute z-20 FirstfuncList">
+      <WriteFunction />
+    </div>
     <hostIcon v-show="this.host_id == userData.id" class="z-10 cursor-pointer" @click="Hbtnclicked" />
     <div v-show="this.HostBtnClicked" class="absolute SecondfuncList z-20">
-      <HostFunction :HostBtnClicked="this.HostBtnClicked" @closeModal="Hbtnclicked" />
+      <HostFunction
+        :HostBtnClicked="this.HostBtnClicked"
+        @closeModal="Hbtnclicked"
+        :rId="this.roomId"
+        :rTitle="this.roomTitle"
+      />
     </div>
   </div>
 </template>
@@ -19,11 +26,13 @@ import { computed } from "vue";
 import { useStore } from "vuex";
 export default {
   components: { writingIcon, hostIcon, HostFunction, WriteFunction },
-  props: ["host_id"],
+  props: ["host_id", "roomId", "roomTitle"],
   data() {
     return {
       WriteBtnClicked: false,
       HostBtnClicked: false,
+      rId: this.roomId,
+      rtitle: this.roomTitle,
     };
   },
   methods: {

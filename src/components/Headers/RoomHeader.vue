@@ -5,8 +5,8 @@
       <div class="text-16 header-text">{{ this.title }}</div>
       <div class="flex w-56 justify-between">
         <div @click="likeBtnClicked">
-          <likeIcon v-if="this.isLiked == false" class="cursor-pointer" />
-          <likeFillIcon v-else class="cursor-pointer" />
+          <likeFillIcon v-if="isLIkeClicked()" class="cursor-pointer" />
+          <likeIcon v-else class="cursor-pointer" />
         </div>
         <hamburgerIcon class="z-10 cursor-pointer" @click="onClickSlider" />
       </div>
@@ -36,6 +36,11 @@ export default {
       isLiked: this.like,
     };
   },
+  async created() {
+    // this.isLiked = this.like;
+    this.isLiked = await this.like;
+    console.log(await this.isLiked);
+  },
   methods: {
     goback() {
       window.history.back();
@@ -52,6 +57,9 @@ export default {
         this.isLiked = !this.isLiked;
         console.log(res);
       });
+    },
+    isLIkeClicked() {
+      return this.isLiked || this.like;
     },
   },
 };

@@ -40,6 +40,8 @@ export default {
       pictureList: [],
       param: this.$route.params.want,
       text: this.$route.params.want == "text" ? "글 기록하기" : "사진 기록하기",
+      rId: this.$route.params.roomId,
+      rTitle: this.$route.params.roomTitle,
     };
   },
   methods: {
@@ -70,7 +72,7 @@ export default {
     // MemoryText,
   },
   created() {
-    // console.log(this.$route.params);
+    console.log(this.$route.params);
   },
 };
 </script>
