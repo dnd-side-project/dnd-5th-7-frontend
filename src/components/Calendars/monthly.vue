@@ -92,10 +92,9 @@ export default {
   async created() {
     this.init();
     const params = this.year + "-" + this.month;
-    const response = await MainService.GetCalendar(params).then((res) => {
+    await MainService.GetCalendar(params).then((res) => {
       console.log(res);
     });
-    console.log(response);
   },
   methods: {
     goto(page) {
