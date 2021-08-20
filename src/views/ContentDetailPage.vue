@@ -6,7 +6,7 @@
         <div class="bg-white">
           <div class="h-56 flex flex-row items-center justify-between px-20 py-1">
             <div class="flex flex-row">
-              <trashIcon />
+              <trashIcon @click="DeleteContent(this.cid)" />
               <rewriteIcon class="ml-16" />
             </div>
           </div>
@@ -78,6 +78,13 @@ export default {
       }
       console.log(this.isText);
     });
+  },
+  methods: {
+    async DeleteContent(cid) {
+      const response = await DiaryService.DeleteDiary(cid);
+      console.log(response);
+      this.$router.go(-1);
+    },
   },
   setup() {},
 };
