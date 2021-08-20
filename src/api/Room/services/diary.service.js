@@ -1,16 +1,14 @@
 import { instance } from "../..";
 
 class DiaryServices {
-  GetDiaryDetail(pid) {
+  async GetDiaryDetail(pid) {
     //  다이어리 상세 조회 - 누가 작성했는지, 언제 작성했는지
-    return instance
-      .get("/contents/" + pid)
-      .then((res) => {
-        console.log("유저 데이터응답 : ", res);
-      })
-      .catch((e) => {
-        console.log("error : ", e);
-      });
+    try {
+      const response = instance.get("/contents/" + pid);
+      return response;
+    } catch (e) {
+      console.log(e);
+    }
   }
   async GetDiaryList(rid) {
     //  해당 방에 있는 다이어리 조회
