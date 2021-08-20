@@ -18,7 +18,7 @@
     <div v-if="this.rooms == null" class="h-full bg-bg">
       <NoRecord></NoRecord>
     </div>
-    <div v-else class="h-full"><LayoutView class="h-full" :roomId="this.rooms.roomId" :mood="this.rooms.mood" /></div>
+    <div v-else class="h-full"><LayoutView v-if="this.rooms" class="h-full" :roomsInfo="this.rooms" /></div>
   </v-app>
 </template>
 
@@ -34,8 +34,10 @@ import { useStore } from "vuex";
 import RoomService from "../api/Room/services/room.service";
 
 import axios from "axios";
+import { useRoute } from "vue-router";
+import { BASE_URL } from "../config";
 
-const API_URL = `http://localhost:3000` + "/diaries/";
+const API_URL = `${BASE_URL}` + "/diaries/";
 
 export default {
   props: ["id"],
@@ -68,26 +70,37 @@ export default {
     const response = await axios.get(API_URL + this.id, { withCredentials: true });
     console.log(response);
 
-    await RoomService.GetRoomList(this.id).then((res) => {
-      this.rooms = {
-        roomId: res.data.id,
-        title: res.data.title,
-        date: res.data.date,
-        user_id: res.data.user_id,
-        mood: res.data.mood,
-        bookmark: res.data.bookmark,
-      };
-    });
+    const roomListRes = await RoomService.GetRoomList(this.id);
+    const { id, title, date, user_id, mood, bookmark } = roomListRes.data;
+    const result = {
+      roomId: id,
+      title: title,
+      date: date,
+      user_id: user_id,
+      mood: mood,
+      bookmark: bookmark,
+    };
+    this.rooms = { ...result };
+
+    console.log(">>>", this.rooms);
     // console.log("rooms:", this.rooms);
   },
   setup() {
     const store = useStore();
+    const route = useRoute();
     const roomList = computed(() => store.state.roomStore.RoomList);
     // [api 연결] ; 로컬에서 에러 나서 주석 처리 했습니다.
     // const uid = computed(() => store.state.userStore.id);
     const userData = computed(() => {
       return store.getters[`userStore/getUser`];
     });
+    const roomIdData = computed(() => {
+      return store.getters[`roomStore/getRoomId`];
+    });
+    store.commit("roomStore/setRoomId", route.params.id);
+    console.log("adsfsadfdsa", route.params.id);
+    console.log("adfsailhfdsalhflkdsahflksahfdl", roomIdData.value);
+
     // dummydata.forEach((element) => {
     //   store.commit("addRoomList", element);
     // });

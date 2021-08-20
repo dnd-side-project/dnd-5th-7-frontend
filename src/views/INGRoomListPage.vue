@@ -2,7 +2,7 @@
   <v-app>
     <Header :text="this.title"></Header>
     <div class="h-screen bg-bg">
-      <ListView v-if="dataCheck()" :dummydata="dataList" />
+      <ListView v-if="dataCheck()" :CalendarList="dataList" />
       <NoRoom :from="this.from" v-else />
     </div>
   </v-app>
@@ -14,7 +14,7 @@ import Header from "../components/Headers/MainRoomListHeader.vue";
 import ListView from "../components/RoomList/ListView.vue";
 import { computed } from "vue";
 import { useStore } from "vuex";
-import dummydata from "../data/CalendarEvent.json";
+
 import MainService from "../api/Room/services/main.service";
 import NoRoom from "../components/Rooms/NoRoom.vue";
 
@@ -23,7 +23,6 @@ export default {
     return {
       title: "진행중인 기록들",
       from: "list",
-      dummydata: dummydata,
       dataList: [],
     };
   },
@@ -33,10 +32,10 @@ export default {
     const roomList = computed(() => store.state.roomStore.RoomList);
     store.commit("setRoomList", []);
 
-    dummydata.forEach((element) => {
-      // console.log(element);
-      store.commit("setRoomList", element);
-    });
+    // dummydata.forEach((element) => {
+    //   // console.log(element);
+    //   store.commit("setRoomList", element);
+    // });
 
     // const getRoomList = computed(() => store.getters.roomList);
 
@@ -44,10 +43,11 @@ export default {
   },
   async created() {
     window.scrollTo(0, 0);
-    const response = await MainService.GetInProgressList();
-
-    response.data.forEach((element) => {
-      this.dataList.push(element.DiaryRoom);
+    const response = await MainService.GetInProgressList(false);
+    // console.log(response.data);
+    response.data.forEach((e) => {
+      this.dataList.push(e.DiaryRoom);
+      // console.log(">>ING>>>", e.DiaryRoom);
     });
   },
   methods: {

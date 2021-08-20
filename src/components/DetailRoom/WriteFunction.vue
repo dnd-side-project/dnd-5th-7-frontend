@@ -18,7 +18,7 @@ export default {
     return {
       Selected: ",",
       functions: [
-        { text: "글 기록하기", want: "text" },
+        { text: "글 기록하기", want: "text", roomId: this.rId, roomTitle: this.rTitle },
         { text: "사진 기록하기", want: "picture" },
       ],
     };
