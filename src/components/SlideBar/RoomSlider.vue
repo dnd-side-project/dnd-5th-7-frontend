@@ -9,7 +9,7 @@
             <member :UserName="user.uName" :host="user.isHost" />
           </div>
         </div>
-        <div class="font-bold text-14 pt-16 pl-20 flex flex-row items-center cursor-pointer">
+        <div class="font-bold text-14 pt-16 pl-20 flex flex-row items-center cursor-pointer" @click="outRoom">
           기록장 나가기<exitIcon class="ml-1" />
         </div>
       </div>
@@ -24,6 +24,7 @@ import member from "./Member.vue";
 import exitIcon from "../../assets/icon_exit.svg";
 
 import MemberService from "../../api/Room/services/member.service";
+import RoomService from "../../api/Room/services/room.service";
 
 export default {
   name: "RoomSlider",
@@ -40,6 +41,15 @@ export default {
   methods: {
     sliderClosed() {
       this.$emit("sliderClosed", false);
+    },
+    async outRoom() {
+      const response = await RoomService.DeleteRoom(this.roomId).then(() => {
+        this.gotoMain();
+      });
+      console.log(response);
+    },
+    gotoMain() {
+      this.$router.replace({ path: "/main" });
     },
   },
   setup() {

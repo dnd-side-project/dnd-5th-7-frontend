@@ -1,8 +1,8 @@
 <template>
-  <div class="bg-gray500 text-black w-152 h-152 layout">
+  <a class="text-black w-152 h-152 layout">
     <div class="font-bold text-18 pt-10 pl-1.2 absolute text-stroke">{{ this.index }}</div>
-    <img v-bind:src="this.image" class="w-152 h-152 object-cover" />
-  </div>
+    <img :src="image" class="w-152 h-152 object-cover" />
+  </a>
 </template>
 
 <script>

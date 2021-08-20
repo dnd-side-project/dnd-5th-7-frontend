@@ -1,6 +1,6 @@
 <template>
   <div v-for="data in list" :key="data.id" class="w-360 flex justify-center cursor-pointer">
-    <div class="w-320 h-84 mx-20 my-10 flex flex-row">
+    <div class="w-320 h-84 mx-20 my-10 flex flex-row" @click="goRoom(data.id)">
       <div class="w-76 h-84 mr-1.2">
         <img v-if="data.mood == 'simple'" src="../../assets/book_image_modern.png" class="w-76 h-84 object-fit" />
         <img v-else src="../../assets/book_image_hip.png" />
@@ -38,6 +38,9 @@ export default {
     getData() {
       if (this.roomList.length > 0) return true;
       return false;
+    },
+    goRoom(rid) {
+      this.$router.push({ path: "/room/" + rid });
     },
   },
 };

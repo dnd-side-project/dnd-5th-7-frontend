@@ -24,25 +24,34 @@ class RoomServices {
     }
     return;
   }
-  EditRoom(rId, ntitle, ndate, nmood, nlock) {
-    return axios
-      .patch(API_URL + rId, { title: ntitle, date: ndate, mood: nmood, lock: nlock }, { withCredentials: true })
-      .then((res) => {
-        console.log("응답2 : ", res);
-      })
-      .catch((e) => {
-        console.log("error : ", e);
-      });
+  async EditRoom(rId, ntitle, ndate, nmood, nlock) {
+    try {
+      const response = await axios.patch(
+        API_URL + rId,
+        { title: ntitle, date: ndate, mood: nmood, lock: nlock },
+        { withCredentials: true },
+      );
+      return response;
+    } catch (e) {
+      console.log(e);
+    }
   }
-  DeleteRoom(rId) {
-    return axios
-      .delete(API_URL + rId, { withCredentials: true })
-      .then((res) => {
-        console.log("응답2 : ", res);
-      })
-      .catch((e) => {
-        console.log("error : ", e);
-      });
+  async DeleteRoom(rId) {
+    try {
+      const response = await axios.delete(API_URL + rId, { withCredentials: true });
+      return response;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  async BookmarkRoom(rid) {
+    //  방 즐겨찾기 등록/해제
+    try {
+      const response = await axios.post(API_URL + "bookmark/", { room_id: rid }, { withCredentials: true });
+      return response;
+    } catch (e) {
+      console.log(e);
+    }
   }
 }
 
