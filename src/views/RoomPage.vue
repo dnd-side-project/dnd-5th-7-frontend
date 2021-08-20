@@ -34,8 +34,10 @@ import { useStore } from "vuex";
 import RoomService from "../api/Room/services/room.service";
 
 import axios from "axios";
+import { useRoute } from "vue-router";
+import { BASE_URL } from "../config";
 
-const API_URL = `http://localhost:3000` + "/diaries/";
+const API_URL = `${BASE_URL}` + "/diaries/";
 
 export default {
   props: ["id"],
@@ -85,12 +87,20 @@ export default {
   },
   setup() {
     const store = useStore();
+    const route = useRoute();
     const roomList = computed(() => store.state.roomStore.RoomList);
     // [api 연결] ; 로컬에서 에러 나서 주석 처리 했습니다.
     // const uid = computed(() => store.state.userStore.id);
     const userData = computed(() => {
       return store.getters[`userStore/getUser`];
     });
+    const roomIdData = computed(() => {
+      return store.getters[`roomStore/getRoomId`];
+    });
+    store.commit("roomStore/setRoomId", route.params.id);
+    console.log("adsfsadfdsa", route.params.id);
+    console.log("adfsailhfdsalhflkdsahflksahfdl", roomIdData.value);
+
     // dummydata.forEach((element) => {
     //   store.commit("addRoomList", element);
     // });

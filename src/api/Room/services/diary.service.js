@@ -42,6 +42,14 @@ class DiaryServices {
       console.log(e);
     }
   }
+  async AddTextDiary(data) {
+    try {
+      const response = await instance.post("/contents/text", data);
+      return response;
+    } catch (e) {
+      console.log(e);
+    }
+  }
 }
 
 export default new DiaryServices();

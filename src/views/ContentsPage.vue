@@ -1,16 +1,27 @@
 <template>
   <v-app>
-    <Header :want="this.text"></Header>
+    <Header
+      :want="this.text"
+      :textData="this.recordText"
+      :roomid="this.rId"
+      :roomTitle="this.rTitle"
+      @upload="uploadText"
+    ></Header>
     <div class="h-screen">
       <div v-if="param == 'text'" class="p-3 bg-bg h-screen">
-        <textarea placeholder="친구들과 있었던 일들을 적어보세요:)" class="text-gray500 w-full h-544 p-20"></textarea>
+        <textarea
+          v-bind="recordText"
+          v-on:input="updateRecordData"
+          placeholder="친구들과 있었던 일들을 적어보세요:)"
+          class="text-gray500 w-full h-544 p-20"
+        ></textarea>
       </div>
       <div v-else class="bg-bg">
         <div class="bg-white">
           <div class="h-56 flex flex-row items-center justify-between px-20 py-1">
             <div>
               <input
-                ref="image"
+                ref="imageBtn"
                 id="input"
                 type="file"
                 name="image"
@@ -18,7 +29,7 @@
                 multiple="multiple"
                 class="hidden"
                 @change="uploadImage()"
-              /><picIcon />
+              /><picIcon @click="clickInputTag()" />
             </div>
             <trashIcon v-if="this.pictureList.length > 0" />
           </div>
@@ -34,8 +45,10 @@ import Header from "../components/Headers/ContentsHeader.vue";
 import picIcon from "../assets/btn_picture.svg";
 import trashIcon from "../assets/btn_trash.svg";
 
+import { instance } from "../api/index";
 export default {
   data() {
+    console.log("고고", this.$route.params.roomId);
     return {
       pictureList: [],
       param: this.$route.params.want,
@@ -45,23 +58,49 @@ export default {
     };
   },
   methods: {
+    updateRecordData: function (event) {
+      this.recordText = event.target.value;
+      console.log(event.target.value);
+    },
     uploadImage: function () {
       let form = new FormData();
-      let image = this.$refs["image"].files[0];
+      let image = this.$refs["imageBtn"].files[0];
 
-      form.append("image", image);
-
-      // axios
-      //   .post("/upload", form, {
-      //     header: { "Content-Type": "multipart/form-data" },
-      //   })
-      //   .then(({ data }) => {
-      //     this.images = data;
-      //   })
-      //   .catch((err) => console.log(err));
+      form.append("imgUrl", image);
+      console.log(form);
+      instance
+        .post("/contents/image", form, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            room_id: this.$route.params.roomId,
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          window.history.back();
+        });
     },
     clickInputTag: function () {
-      this.$refs["image"].click();
+      this.$refs["imageBtn"].click();
+    },
+    uploadText: async function () {
+      let config = {
+        headers: {
+          room_id: this.$route.params.roomId,
+        },
+      };
+      await instance
+        .post(
+          "/contents/text",
+          {
+            text: this.recordText,
+          },
+          config,
+        )
+        .then((res) => {
+          console.log(res);
+          window.history.back();
+        });
     },
   },
   setup() {},
@@ -71,9 +110,7 @@ export default {
     trashIcon,
     // MemoryText,
   },
-  created() {
-    console.log(this.$route.params);
-  },
+  created() {},
 };
 </script>
 

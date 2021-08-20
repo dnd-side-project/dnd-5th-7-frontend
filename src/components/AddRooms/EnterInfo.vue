@@ -1,5 +1,5 @@
 <template>
-  <div class="border-2 border-gray100 px-20 py-20 mt-20">
+  <div class="border-2 border-gray100 px-20 py-20 mt-20 bg-white">
     <div class="flex flex-row justify-between items-center">
       <div class="font-bold text-gray500 text-18">기록장의 정보를 입력해주세요.</div>
     </div>

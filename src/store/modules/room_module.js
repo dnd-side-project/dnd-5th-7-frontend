@@ -1,10 +1,12 @@
 export const roomStore = {
+  namespaced: true,
   state: () => ({
     RoomList: [],
     RoomDetail: [],
     LikeRoomList: [],
     INGRoomList: [],
     userList: [],
+    roomId: null,
   }),
   getters: {
     getRoomDetail: (state) => {
@@ -21,6 +23,9 @@ export const roomStore = {
     },
     getUserList: (state) => {
       return state.userList;
+    },
+    getRoomId: (state) => {
+      return state.roomId;
     },
   },
   mutations: {
@@ -51,10 +56,14 @@ export const roomStore = {
     addUserList(state, data) {
       state.userList.push(data);
     },
+    setRoomId(state, value) {
+      state = { ...state };
+      state.roomId = value;
+    },
   },
   actions: {
-    test() {
-      // console.log("testttt");
+    async FETCH_ROOM({ state }) {
+      console.log(state);
     },
   },
 };
