@@ -10,8 +10,8 @@
         <div class="font-light text-12 text-grayscale">{{ data.date }}</div>
         <div class="flex flex-row items-center mt-1.2">
           <!-- 방 소속 인원 -->
-          <div class="w-56 mr-1.4"><profiles /></div>
-          <div class="font-light text-12">00명</div>
+          <div class="w-56 mr-1.4"><profiles :len="data.Members.length" /></div>
+          <div class="font-light text-12">{{ data.Members.length }}명</div>
           <!-- <div class="font-light text-12">{{ data.people.length }}명</div> -->
         </div>
       </div>
@@ -23,11 +23,12 @@
 import profiles from "./Profiles.vue";
 export default {
   name: "ListView",
-  props: ["dates", "dummydata"],
+  props: ["dates", "CalendarList"],
   data() {
     return {
-      list: this.dummydata,
-      date: this.dummydata.date,
+      list: this.CalendarList,
+      date: this.CalendarList.date,
+      members: this.CalendarList.Members,
     };
   },
   components: { profiles },
@@ -36,12 +37,15 @@ export default {
       this.$router.push(page);
     },
     getData() {
-      if (this.roomList.length > 0) return true;
+      if (this.CalendarList.length > 0) return true;
       return false;
     },
     goRoom(rid) {
       this.$router.push({ path: "/room/" + rid });
     },
+  },
+  created() {
+    console.log(this.list);
   },
 };
 </script>
