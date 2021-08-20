@@ -65,6 +65,7 @@ export default {
     this.month = new Date().getMonth() + 1;
     this.day = new Date().getDate();
     this.date = new Date().getFullYear() + "-" + (new Date().getMonth() + 1) + "-" + new Date().getDate();
+    this.$emit("dateChanged", this.date);
   },
   watch: {
     day: function () {
