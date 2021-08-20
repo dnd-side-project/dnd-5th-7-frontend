@@ -8,7 +8,7 @@
 
 <script>
 import hostIcon from "../../assets/icon_host.svg";
-import noDataIcon from "../../assets/nodata_m.svg";
+import noDataIcon from "../../assets/nodata_s2.svg";
 export default {
   props: ["UserName", "host"],
   components: { hostIcon, noDataIcon },
