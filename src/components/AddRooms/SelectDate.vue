@@ -14,8 +14,8 @@ export default {
   data() {
     return {
       year: new Date().getFullYear(),
-      month: new Date().getMonth() + 1,
-      day: new Date().getDate(),
+      month: this.datelength(new Date().getMonth() + 1),
+      day: this.datelength(new Date().getDate()),
     };
   },
   components: {
@@ -24,6 +24,12 @@ export default {
   methods: {
     dateClicked() {
       this.$emit("dateClicked");
+    },
+    datelength(d) {
+      if ("" + d.length < 2) {
+        return "0" + d;
+      }
+      return d;
     },
   },
   watch: {

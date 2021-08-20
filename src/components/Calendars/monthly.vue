@@ -63,8 +63,8 @@ export default {
       days: ["일", "월", "화", "수", "목", "금", "토"],
       months: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"],
       dates: [],
-      ETCdates: [10],
-      LIKEdates: [13, 16],
+      ETCdates: [],
+      LIKEdates: [],
       currentYear: 0,
       currentMonth: 0,
       year: 0,
@@ -91,10 +91,22 @@ export default {
   },
   async created() {
     this.init();
-    const params = this.year + "-" + this.month;
+    const params = this.year + "-" + this.daylength(this.month);
     await MainService.GetCalendar(params).then((res) => {
       console.log(res);
+      res.data.forEach((element) => {
+        const data = element.DiaryRoom;
+        let day = data.date.split("-")[2];
+        if (data.Bookmarks.length > 0) {
+          // 북마크 된 방이 있다는 뜻
+          this.LIKEdates.push(day);
+        } else {
+          this.ETCdates.push(day);
+        }
+      });
     });
+    console.log(this.LIKEdates);
+    console.log(this.ETCdates);
   },
   methods: {
     goto(page) {
@@ -114,6 +126,12 @@ export default {
         this.month = date.getMonth() + 1;
         this.calendarDate();
       }
+    },
+    daylength(day) {
+      if (("" + day).length < 2) {
+        return "0" + day;
+      }
+      return day;
     },
     setEmitDate(param) {
       console.log(param[0] + "-" + param[1]);
@@ -227,6 +245,7 @@ export default {
       return this.ETCdates.includes(day);
     },
     isLIKEDates(day) {
+      // console.log(day + " " + this.LIKEdates);
       return this.LIKEdates.includes(day);
     },
     dayClicked(day) {

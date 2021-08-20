@@ -1,5 +1,5 @@
 <template>
-  <div class="border-2 border-gray100 px-20 py-20">
+  <div class="border-2 border-gray100 px-20 py-20 bg-white">
     <div class="flex flex-row justify-between items-center">
       <div class="font-bold text-gray500 text-18">테마를 선택해주세요.</div>
       <div class="text-12 pb-02 border-b border-gray100 cursor-pointer" @click="goto('ThemePreview')">미리보기</div>

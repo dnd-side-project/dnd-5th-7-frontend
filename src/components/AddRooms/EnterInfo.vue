@@ -1,5 +1,5 @@
 <template>
-  <div class="border-2 border-gray100 px-20 py-20 mt-20">
+  <div class="border-2 border-gray100 px-20 py-20 mt-20 bg-white">
     <div class="flex flex-row justify-between items-center">
       <div class="font-bold text-gray500 text-18">기록장의 정보를 입력해주세요.</div>
     </div>
@@ -51,20 +51,32 @@ export default {
     },
     dayConfirm(dates) {
       this.year = dates.year;
-      this.month = dates.month;
-      this.day = dates.day;
+      this.month = this.dateLength(dates.month);
+      this.day = this.dateLength(dates.day);
       this.date = dates.year + "-" + dates.month + "-" + dates.day;
       console.log(this.date);
     },
     dateClicked() {
       this.isModalClicked = !this.isModalClicked;
     },
+    dateLength(m) {
+      if (("" + m).length < 2) {
+        return "0" + m;
+      }
+      return m;
+    },
   },
   created() {
     this.year = new Date().getFullYear();
     this.month = new Date().getMonth() + 1;
     this.day = new Date().getDate();
-    this.date = new Date().getFullYear() + "-" + (new Date().getMonth() + 1) + "-" + new Date().getDate();
+    this.date =
+      new Date().getFullYear() +
+      "-" +
+      this.dateLength(new Date().getMonth() + 1) +
+      "-" +
+      this.dateLength(new Date().getDate());
+    this.$emit("dateChanged", this.date);
   },
   watch: {
     day: function () {
