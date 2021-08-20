@@ -21,30 +21,26 @@ class DiaryServices {
       console.log(e);
     }
   }
-  EditDiary(pid, rid, imgUrl, text) {
+  async EditDiary(pid, rid, imgUrl, text) {
     //  다이어리 수정 - 이러케 작성하는 게 맞나요 . . ?
-    return instance
-      .patch("/contents/" + pid, {
+    try {
+      const response = await instance.patch("/contents/" + pid, {
         Headers: { room_id: rid },
         data: { imgUrl: imgUrl, text: text },
-      })
-      .then((res) => {
-        console.log("유저 데이터응답 : ", res);
-      })
-      .catch((e) => {
-        console.log("error : ", e);
       });
+      return response;
+    } catch (e) {
+      console.log(e);
+    }
   }
-  DeleteDiary(pid) {
+  async DeleteDiary(pid) {
     //  다이어리 삭제
-    return instance
-      .delete("/contents/" + pid)
-      .then((res) => {
-        console.log("유저 데이터응답 : ", res);
-      })
-      .catch((e) => {
-        console.log("error : ", e);
-      });
+    try {
+      const response = await instance.delete("/contents/" + pid);
+      return response;
+    } catch (e) {
+      console.log(e);
+    }
   }
 }
 
