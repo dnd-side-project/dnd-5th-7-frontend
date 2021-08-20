@@ -47,7 +47,8 @@ export default {
         this.datalist.push(element);
       });
     });
-
+    console.log(this.theme);
+    console.log(this.mood);
     this.w = this.theme == "hip" ? 154 : 152;
     this.h = this.theme == "hip" ? 186 : 208;
     this.p = this.theme == "hip" ? 12 : 16;

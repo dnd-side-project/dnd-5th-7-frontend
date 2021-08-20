@@ -12,18 +12,20 @@
 
 <script>
 export default {
+  // 민규님 여기에요!!!!!!!!!@!@!@
+  props: ["rId", "rTitle"],
   data() {
     return {
       Selected: ",",
       functions: [
-        { text: "글 기록하기", want: "text" },
+        { text: "글 기록하기", want: "text", roomId: this.rId, roomTitle: this.rTitle },
         { text: "사진 기록하기", want: "picture" },
       ],
     };
   },
   methods: {
     goWithParam(page, param) {
-      this.$router.push({ name: page, params: { want: param } });
+      this.$router.push({ name: page, params: { want: param, roomId: this.rId, roomTitle: this.rTitle } });
     },
   },
 };

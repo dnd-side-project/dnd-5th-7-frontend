@@ -2,7 +2,7 @@
   <div class="flex flex-row justify-between items-center p-3 h-56 header">
     <cancleIcon class="cursor-pointer" @click="goback()" />
     <div class="text-16">{{ this.want }}</div>
-    <div class="text-16" @click="sendEvent()">등록</div>
+    <div class="text-16" @click="$emit('upload')">등록</div>
   </div>
   <div class="divider"></div>
 </template>
@@ -10,7 +10,7 @@
 <script>
 import cancleIcon from "../../assets/icon_cancle.svg";
 export default {
-  props: ["want", "textData"],
+  props: ["want", "textData", "roomId", "roomTitle", "upload"],
   data() {
     return {};
   },
@@ -28,6 +28,7 @@ export default {
     },
     sendEvent: function () {
       console.log("hi", this.textData);
+      console.log(this.roomId);
     },
   },
 };

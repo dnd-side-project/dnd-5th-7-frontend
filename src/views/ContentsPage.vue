@@ -1,6 +1,12 @@
 <template>
   <v-app>
-    <Header :want="this.text" :textData="this.recordText"></Header>
+    <Header
+      :want="this.text"
+      :textData="this.recordText"
+      :roomid="this.rId"
+      :roomTitle="this.rTitle"
+      @upload="uploadText"
+    ></Header>
     <div class="h-screen">
       <div v-if="param == 'text'" class="p-3 bg-bg h-screen">
         <textarea
@@ -15,7 +21,7 @@
           <div class="h-56 flex flex-row items-center justify-between px-20 py-1">
             <div>
               <input
-                ref="image"
+                ref="imageBtn"
                 id="input"
                 type="file"
                 name="image"
@@ -23,7 +29,7 @@
                 multiple="multiple"
                 class="hidden"
                 @change="uploadImage()"
-              /><picIcon />
+              /><picIcon @click="clickInputTag()" />
             </div>
             <trashIcon v-if="this.pictureList.length > 0" />
           </div>
@@ -39,13 +45,16 @@ import Header from "../components/Headers/ContentsHeader.vue";
 import picIcon from "../assets/btn_picture.svg";
 import trashIcon from "../assets/btn_trash.svg";
 
+import { instance } from "../api/index";
 export default {
   data() {
+    console.log("고고", this.$route.params.roomId);
     return {
       pictureList: [],
       param: this.$route.params.want,
       text: this.$route.params.want == "text" ? "글 기록하기" : "사진 기록하기",
-      recordText: "",
+      rId: this.$route.params.roomId,
+      rTitle: this.$route.params.roomTitle,
     };
   },
   methods: {
@@ -55,21 +64,43 @@ export default {
     },
     uploadImage: function () {
       let form = new FormData();
-      let image = this.$refs["image"].files[0];
+      let image = this.$refs["imageBtn"].files[0];
 
-      form.append("image", image);
-
-      // axios
-      //   .post("/upload", form, {
-      //     header: { "Content-Type": "multipart/form-data" },
-      //   })
-      //   .then(({ data }) => {
-      //     this.images = data;
-      //   })
-      //   .catch((err) => console.log(err));
+      form.append("imgUrl", image);
+      console.log(form);
+      instance
+        .post("/contents/image", form, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            room_id: this.$route.params.roomId,
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          window.history.back();
+        });
     },
     clickInputTag: function () {
-      this.$refs["image"].click();
+      this.$refs["imageBtn"].click();
+    },
+    uploadText: async function () {
+      let config = {
+        headers: {
+          room_id: this.$route.params.roomId,
+        },
+      };
+      await instance
+        .post(
+          "/contents/text",
+          {
+            text: this.recordText,
+          },
+          config,
+        )
+        .then((res) => {
+          console.log(res);
+          window.history.back();
+        });
     },
   },
   setup() {},
@@ -79,9 +110,7 @@ export default {
     trashIcon,
     // MemoryText,
   },
-  created() {
-    // console.log(this.$route.params);
-  },
+  created() {},
 };
 </script>
 

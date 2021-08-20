@@ -70,6 +70,7 @@ const routes = [
     path: "/contents/:want",
     name: "contents",
     component: contents,
+    props: true,
   },
   // {
   //   path: "/test",
