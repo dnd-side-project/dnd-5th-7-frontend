@@ -2,7 +2,7 @@
   <v-app>
     <Header :text="this.title"></Header>
     <div class="h-screen bg-bg">
-      <ListView v-if="dataCheck()" :dummydata="dataList" />
+      <ListView v-if="dataCheck()" :CalendarList="dataList" />
       <NoBookmark :from="this.from" v-else />
     </div>
   </v-app>
@@ -33,21 +33,20 @@ export default {
     const roomList = computed(() => store.state.roomStore.RoomList);
     store.commit("setRoomList", []);
 
-    dummydata.forEach((element) => {
-      // console.log(element);
-      store.commit("setRoomList", element);
-    });
+    // dummydata.forEach((element) => {
+    //   // console.log(element);
+    //   store.commit("setRoomList", element);
+    // });
 
     // const getRoomList = computed(() => store.getters.roomList);
     return { roomList };
   },
   async created() {
     window.scrollTo(0, 0);
-
-    const response = await MainService.GetBookmarkList();
-
-    response.data.forEach((element) => {
-      this.dataList.push(element.DiaryRoom);
+    const response = await MainService.GetBookmarkList(false);
+    response.data.forEach((e) => {
+      this.dataList.push(e.DiaryRoom);
+      // console.log(">>ING>>>", e.DiaryRoom);
     });
   },
   methods: {

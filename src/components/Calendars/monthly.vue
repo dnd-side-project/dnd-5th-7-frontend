@@ -91,24 +91,29 @@ export default {
   },
   async created() {
     this.init();
-    const params = this.year + "-" + this.daylength(this.month);
-    await MainService.GetCalendar(params).then((res) => {
-      console.log(res);
-      res.data.forEach((element) => {
-        const data = element.DiaryRoom;
-        let day = data.date.split("-")[2];
-        if (data.Bookmarks.length > 0) {
-          // 북마크 된 방이 있다는 뜻
-          this.LIKEdates.push(day);
-        } else {
-          this.ETCdates.push(day);
-        }
-      });
-    });
-    console.log(this.LIKEdates);
-    console.log(this.ETCdates);
   },
   methods: {
+    async CalendarData() {
+      const params = this.year + "-" + this.daylength(this.month);
+      await MainService.GetCalendar(params).then((res) => {
+        res.data.forEach((element) => {
+          const data = element.DiaryRoom;
+          this.CalendarData = data;
+          console.log("data", data);
+
+          let day = data.date.split("-")[2];
+          if (data.Bookmarks.length > 0) {
+            // 북마크 된 방이 있다는 뜻
+            this.LIKEdates.push(day);
+          } else {
+            this.ETCdates.push(day);
+            // this.ETCdates.push(day);
+          }
+        });
+
+        console.log("외않되" + this.LIKEdates + " " + this.ETCdates);
+      });
+    },
     goto(page) {
       this.$router.push(page);
     },
@@ -126,6 +131,7 @@ export default {
         this.month = date.getMonth() + 1;
         this.calendarDate();
       }
+      this.CalendarData();
     },
     daylength(day) {
       if (("" + day).length < 2) {
@@ -242,15 +248,20 @@ export default {
       return (this.prevDate.indexOf(day) > -1 && idx < 1) || (this.previewDate.indexOf(day) > -1 && idx > 1);
     },
     isETCDates(day) {
-      return this.ETCdates.includes(day);
+      for (let i = 0; i < this.ETCdates.length; i++) {
+        if (this.ETCdates[i] == day) return true;
+      }
+      return false;
     },
     isLIKEDates(day) {
-      // console.log(day + " " + this.LIKEdates);
-      return this.LIKEdates.includes(day);
+      for (let i = 0; i < this.LIKEdates.length; i++) {
+        if (this.LIKEdates[i] == day) return true;
+      }
+      return false;
     },
     dayClicked(day) {
       const dates = this.year + "-" + this.month + "-" + day;
-      if (this.ETCdates.includes(day) || this.LIKEdates.includes(day)) this.goWithParam("RoomList", dates);
+      if (this.isLIKEDates(day) || this.isETCDates(day)) this.goWithParam("RoomList", dates);
       // console.log(this.year + "년" + this.month + "월" + day + "일");
     },
   },

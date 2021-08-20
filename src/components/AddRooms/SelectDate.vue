@@ -26,7 +26,7 @@ export default {
       this.$emit("dateClicked");
     },
     datelength(d) {
-      if ("" + d.length < 2) {
+      if (("" + d).length < 2) {
         return "0" + d;
       }
       return d;

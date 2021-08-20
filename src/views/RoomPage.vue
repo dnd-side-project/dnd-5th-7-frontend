@@ -18,7 +18,7 @@
     <div v-if="this.rooms == null" class="h-full bg-bg">
       <NoRecord></NoRecord>
     </div>
-    <div v-else class="h-full"><LayoutView class="h-full" :roomId="this.rooms.roomId" :mood="this.rooms.mood" /></div>
+    <div v-else class="h-full"><LayoutView v-if="this.rooms" class="h-full" :roomsInfo="this.rooms" /></div>
   </v-app>
 </template>
 
@@ -70,16 +70,19 @@ export default {
     const response = await axios.get(API_URL + this.id, { withCredentials: true });
     console.log(response);
 
-    await RoomService.GetRoomList(this.id).then((res) => {
-      this.rooms = {
-        roomId: res.data.id,
-        title: res.data.title,
-        date: res.data.date,
-        user_id: res.data.user_id,
-        mood: res.data.mood,
-        bookmark: res.data.bookmark,
-      };
-    });
+    const roomListRes = await RoomService.GetRoomList(this.id);
+    const { id, title, date, user_id, mood, bookmark } = roomListRes.data;
+    const result = {
+      roomId: id,
+      title: title,
+      date: date,
+      user_id: user_id,
+      mood: mood,
+      bookmark: bookmark,
+    };
+    this.rooms = { ...result };
+
+    console.log(">>>", this.rooms);
     // console.log("rooms:", this.rooms);
   },
   setup() {
