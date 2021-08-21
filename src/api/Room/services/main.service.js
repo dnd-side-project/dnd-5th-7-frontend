@@ -16,7 +16,7 @@ class MainServices {
   async GetCalendarDetail(date, desc) {
     //  달력 세부 정보 조회
     try {
-      const response = await instance.get("/main/calendar/" + date + "/" + desc);
+      const response = await instance.get("/main/calendarDetail/" + date);
       return response;
       // "2021-08" 형식의 date 넣어줘야 함
     } catch (e) {
