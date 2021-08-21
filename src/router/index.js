@@ -11,6 +11,7 @@ import INGRoomList from "../views/INGRoomListPage.vue";
 import ThemePreview from "../views/ThemePreviewPage.vue";
 import contents from "../views/ContentsPage.vue";
 import contentView from "../views/ContentDetailPage.vue";
+import kick from "../views/DeleteUserPage.vue";
 // import test from "../views/storeTest.vue";
 
 const routes = [
@@ -77,6 +78,12 @@ const routes = [
     path: "/contentView/:id",
     name: "contentView",
     component: contentView,
+    props: true,
+  },
+  {
+    path: "/kick/:id",
+    name: "kick",
+    component: kick,
     props: true,
   },
   // {

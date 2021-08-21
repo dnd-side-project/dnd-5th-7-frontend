@@ -15,7 +15,7 @@
     <!-- footer slot starts -->
     <template #footer>
       <div class="font-bold text-18 flex justify-start mb-16">멤버</div>
-      <div class="text-14 mb-16">멤버 내보내기</div>
+      <div class="text-14 mb-16" @click="kickMember()">멤버 내보내기</div>
       <div class="text-14" @click="sendMessage()">멤버 추가하기</div>
     </template>
   </Modal>
@@ -50,6 +50,9 @@ export default {
     },
     gotoMain() {
       this.$router.replace({ path: "/main" });
+    },
+    kickMember() {
+      this.$router.push({ name: "kick", params: { id: `${this.rId}` } });
     },
     sendMessage() {
       window.Kakao.Link.sendDefault({

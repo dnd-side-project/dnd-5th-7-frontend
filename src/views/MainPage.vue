@@ -36,10 +36,8 @@ export default {
 
     const router = useRouter();
     const roomId = localStorage.getItem("roomId");
-    console.log(">>>>>>>>>>>>>>>" + roomId);
     if (roomId) {
-      axios.post(API_URL, { admin: "false", room_id: roomId }, { withCredentials: true }).then((res) => {
-        console.log(res);
+      axios.post(API_URL, { admin: "false", room_id: roomId }, { withCredentials: true }).then(() => {
         localStorage.removeItem("roomId");
         router.push({ path: "room/" + roomId });
       });
