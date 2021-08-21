@@ -93,12 +93,11 @@ export default {
     this.init();
   },
   methods: {
-    async CalendarData() {
+    async checkCalendarData() {
       const params = this.year + "-" + this.daylength(this.month);
       await MainService.GetCalendar(params).then((res) => {
         res.data.forEach((element) => {
           const data = element.DiaryRoom;
-          this.CalendarData = data;
           console.log("data", data);
 
           let day = data.date.split("-")[2];
@@ -120,7 +119,9 @@ export default {
     goWithParam(page, param) {
       this.$router.push({ name: page, params: { dates: param } });
     },
-    init(param) {
+    async init(param) {
+      this.ETCdates = [];
+      this.LIKEdates = [];
       if (param) {
         this.year = param[0];
         this.month = param[1];
@@ -131,7 +132,7 @@ export default {
         this.month = date.getMonth() + 1;
         this.calendarDate();
       }
-      this.CalendarData();
+      await this.checkCalendarData();
     },
     daylength(day) {
       if (("" + day).length < 2) {
