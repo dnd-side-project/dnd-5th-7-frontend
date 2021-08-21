@@ -56,7 +56,7 @@ export default {
   setup() {
     const store = useStore();
     const userList = computed(() => store.state.roomStore.userList);
-    store.commit("setUserList", []);
+    // store.commit("setUserList", []);
 
     // User.forEach((element) => {
     //   store.commit("addUserList", element);
@@ -65,9 +65,8 @@ export default {
     return { userList };
   },
   async created() {
-    console.log("hostId:", this.HostId);
     await MemberService.GetMembersList(this.roomId).then((res) => {
-      console.log(res.data);
+      console.log("res.data:", res.data);
       res.data.rows.forEach((element) => {
         this.Users.push({ uid: element.User.id, uName: element.User.nick, isHost: element.admin });
       });

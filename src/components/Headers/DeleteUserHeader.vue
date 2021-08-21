@@ -2,8 +2,8 @@
   <div>
     <div class="flex flex-row justify-between items-center p-3 h-56 header">
       <cancleIcon class="cursor-pointer" @click="goback()" />
-      <div class="text-16 header-text">{{ this.text }}</div>
-      <div></div>
+      <div class="text-16 header-text">멤버 내보내기</div>
+      <div class="text-16">삭제</div>
     </div>
     <div class="divider"></div>
   </div>
@@ -18,19 +18,6 @@ export default {
   },
   components: {
     cancleIcon,
-  },
-  watch: {
-    path: function () {
-      if (this.path) this.text = " 글 상세정보";
-      else this.text = "사진 확인하기";
-    },
-  },
-  setup() {
-    // const response = DiaryService.GetDiaryDetail(this.cid);
-    // console.log(response);
-  },
-  created() {
-    // console.log(this.cid);
   },
   methods: {
     goback() {
