@@ -13,7 +13,7 @@ class MainServices {
       console.log(e);
     }
   }
-  async GetCalendarDetail(date, desc) {
+  async GetCalendarDetail(date) {
     //  달력 세부 정보 조회
     try {
       const response = await instance.get("/main/calendarDetail/" + date);
