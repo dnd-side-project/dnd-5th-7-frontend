@@ -82,6 +82,9 @@ export default {
       if (this.memories.length > 0) return true;
       return false;
     },
+    goWithParam(page, param) {
+      this.$router.push({ name: page, params: { id: param } });
+    },
   },
 };
 </script>

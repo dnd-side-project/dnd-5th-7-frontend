@@ -31,7 +31,7 @@ export default {
   setup() {
     const store = useStore();
     const roomList = computed(() => store.state.roomStore.RoomList);
-    store.commit("setRoomList", []);
+    // store.commit("setRoomList", []);
 
     // dummydata.forEach((element) => {
     //   // console.log(element);
