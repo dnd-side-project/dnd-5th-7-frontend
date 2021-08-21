@@ -30,7 +30,7 @@ export default {
   setup() {
     const store = useStore();
     const roomList = computed(() => store.state.roomStore.RoomList);
-    store.commit("setRoomList", []);
+    // store.commit("setRoomList", []);
 
     // dummydata.forEach((element) => {
     //   // console.log(element);
@@ -43,12 +43,13 @@ export default {
   },
   async created() {
     window.scrollTo(0, 0);
-    const response = await MainService.GetInProgressList(false);
-    // console.log(response.data);
-    response.data.forEach((e) => {
-      this.dataList.push(e.DiaryRoom);
-      // console.log(">>ING>>>", e.DiaryRoom);
+    await MainService.GetInProgressList(false).then((res) => {
+      res.data.forEach((e) => {
+        this.dataList.push(e.DiaryRoom);
+        console.log(">>ING>>>", e.DiaryRoom);
+      });
     });
+    // console.log(response.data);
   },
   methods: {
     dataCheck() {

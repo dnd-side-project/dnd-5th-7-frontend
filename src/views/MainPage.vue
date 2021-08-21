@@ -20,6 +20,11 @@ import CurrRooms from "../components/Rooms/CurrRooms.vue";
 import CurrMemories from "../components/BookmarkRooms/CurrMemories.vue";
 import { useStore } from "vuex";
 import { computed } from "vue";
+import { useRouter } from "vue-router";
+
+import axios from "axios";
+import { BASE_URL } from "../config";
+const API_URL = `${BASE_URL}` + "/members/";
 
 export default {
   setup() {
@@ -29,6 +34,17 @@ export default {
       return store.getters[`userStore/getUser`];
     });
 
+    const router = useRouter();
+    const roomId = localStorage.getItem("roomId");
+    console.log(">>>>>>>>>>>>>>>" + roomId);
+    if (roomId) {
+      axios.post(API_URL, { admin: "false", room_id: roomId }, { withCredentials: true }).then((res) => {
+        console.log(res);
+        localStorage.removeItem("roomId");
+        router.push({ path: "room/" + roomId });
+      });
+      // 멤버 추가
+    }
     return { userData };
   },
   async created() {

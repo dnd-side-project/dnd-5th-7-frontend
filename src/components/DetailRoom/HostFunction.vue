@@ -9,7 +9,7 @@
     <!-- content slot starts -->
     <template #content>
       <div class="text-14 mb-16">기록장 수정{{ this.roomId }}</div>
-      <div class="text-14 text-error mb-28">기록장 삭제</div>
+      <div class="text-14 text-error mb-28" @click="deleteRoom()">기록장 삭제</div>
     </template>
 
     <!-- footer slot starts -->
@@ -24,12 +24,12 @@
 <script>
 import Modal from "../Alert/Hostmodal";
 import cencleIcon from "../../assets/cancel_s.svg";
+import RoomService from "../../api/Room/services/room.service";
 import { FRONT_URL } from "../../config";
 export default {
   props: ["HostBtnClicked", "rId", "rTitle"],
   components: { Modal, cencleIcon },
   data() {
-    console.log("ㅁ무무무", this.rId);
     return {
       message: "",
       isModalOpen: this.HostBtnClicked,
@@ -40,6 +40,16 @@ export default {
   methods: {
     closeModal() {
       this.$emit("closeModal");
+    },
+    async deleteRoom() {
+      // 호스트 방 삭제
+      const response = await RoomService.DeleteRoom(`${this.rId}`).then(() => {
+        this.gotoMain();
+      });
+      console.log(response);
+    },
+    gotoMain() {
+      this.$router.replace({ path: "/main" });
     },
     sendMessage() {
       window.Kakao.Link.sendDefault({

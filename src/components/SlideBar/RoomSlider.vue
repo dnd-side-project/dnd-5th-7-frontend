@@ -43,6 +43,7 @@ export default {
       this.$emit("sliderClosed", false);
     },
     async outRoom() {
+      // 기록장 나가기
       const response = await RoomService.DeleteRoom(this.roomId).then(() => {
         this.gotoMain();
       });

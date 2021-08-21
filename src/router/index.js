@@ -10,6 +10,7 @@ import LikeRoomList from "../views/LikeRoomListPage.vue";
 import INGRoomList from "../views/INGRoomListPage.vue";
 import ThemePreview from "../views/ThemePreviewPage.vue";
 import contents from "../views/ContentsPage.vue";
+import contentView from "../views/ContentDetailPage.vue";
 // import test from "../views/storeTest.vue";
 
 const routes = [
@@ -70,6 +71,12 @@ const routes = [
     path: "/contents/:want",
     name: "contents",
     component: contents,
+    props: true,
+  },
+  {
+    path: "/contentView/:id",
+    name: "contentView",
+    component: contentView,
     props: true,
   },
   // {
