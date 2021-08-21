@@ -32,10 +32,10 @@ class MainServices {
       console.log(e);
     }
   }
-  async GetInProgressList() {
+  async GetInProgressList(desc) {
     //  진행중인 기록 리스트 상세 조회
     try {
-      const response = await instance.get("/main/inProgressList/");
+      const response = await instance.get("/main/inProgressList/" + desc);
       console.log(response);
       return response;
     } catch (e) {
@@ -51,10 +51,10 @@ class MainServices {
       console.log(e);
     }
   }
-  async GetBookmarkList() {
+  async GetBookmarkList(desc) {
     //  즐겨찾기 한 기록 리스트 상세 조회
     try {
-      const response = instance.get("/main/bookmarkList/");
+      const response = instance.get("/main/bookmarkList/" + desc);
       return response;
     } catch (e) {
       console.log(e);
